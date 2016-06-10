@@ -1,0 +1,6 @@
+framework module Pods_subaojun {
+  umbrella header "Pods-subaojun-umbrella.h"
+
+  export *
+  module * { export * }
+}
