@@ -17,8 +17,7 @@
 static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 @interface FirstViewController()<UITableViewDelegate,UITableViewDataSource>
 {
-//    MJRefreshFooterView *_footer;
-//    MJRefreshHeaderView *_header;
+
     int count;
     int totalPage;
     int  currentPage;
@@ -40,7 +39,12 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_tableView.mj_header beginRefreshing];
+    static dispatch_once_t refresh;
+    //解决查看详情后返回页面重复刷新问题
+    dispatch_once(&refresh, ^{
+         [_tableView.mj_header beginRefreshing];
+    });
+   
 }
 -(void)viewDidLoad
 {
@@ -61,9 +65,8 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 //        NSLog(@"%@",error);
 //        
 //    }];
-    
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    _tableView.rowHeight = 60.0f;
+    _tableView.rowHeight = 70.0f;
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -72,10 +75,11 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 //    [self addFooter];
 //    [self getData];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-         currentPage = 0;
+         currentPage = 1;
         [self getData];
     }];
-    _tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        currentPage ++;
         [self getData];
     }];
     
@@ -97,23 +101,22 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 
 -(void)getData
 {
-     _params =  [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:currentPage++],@"page", nil];
+     _params =  [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:currentPage],@"page", nil];
     [HttpTool get:HYurl parameters:_params withCompletionBlock:^(id returnValue) {
-        [self endRefresh];
+      
         NSDictionary *dic =returnValue[@"objDataSet"];
-//        if (1 == currentPage) { // 说明是在重新请求数据.
-//            self.newsArray = nil;
-//        }
+        if (1 == currentPage) { //
+            self.newsArray = nil;
+        }
         list = [NewsList yy_modelWithJSON:dic];
         NSArray *array1 =list.objDataSet;
         if(!_newsArray){
             
-            
             _newsArray = [NSMutableArray array];
-            
         }
         [ _newsArray addObjectsFromArray:array1];
         [_tableView reloadData];
+          [self endRefresh];
         NSLog(@"%lu",(unsigned long)list.objDataSet.count);
     } withFailureBlock:^(NSError *error) {
         NSLog(@"%@",error);
@@ -160,34 +163,37 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    DetailViewController *DVC = [[DetailViewController alloc]init];
-    [self.navigationController pushViewController:DVC animated:YES];
-//    News *newsInfo =list.objDataSet[indexPath.row];
-    News *newsInfo =_newsArray[indexPath.row];
-    DVC.detailText = newsInfo.contentInfo;
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
-    self.navigationItem.backBarButtonItem = barItem;
+    
+        DetailViewController *DVC = [[DetailViewController alloc]init];
+        [self.navigationController pushViewController:DVC animated:YES];
+        //    News *newsInfo =list.objDataSet[indexPath.row];
+        News *newsInfo =_newsArray[indexPath.row];
+        DVC.detailText = newsInfo.contentInfo;
+        UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
+        self.navigationItem.backBarButtonItem = barItem;
+   
+   
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"cellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellID];
     }
-
+    
     News *newsInfo =_newsArray[indexPath.row];
     if([newsInfo.contentInfo  isEqual:@""])
     {
-//        cell.userInteractionEnabled = NO;
-        cell.textLabel.numberOfLines =2;
-         cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.numberOfLines =3;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.userInteractionEnabled = NO;
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-       
+        cell.userInteractionEnabled =YES;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *strdate=newsInfo.newsDate;
@@ -203,9 +209,14 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     formatter.dateFormat=@"HH:mm:ss";
     //3>将日期转换为字符串 stringFromDate
     NSString *datestr=[formatter stringFromDate:ndate];
-//    NSString *str =[datestr stringByAppendingString:newsInfo.title];
-    cell.textLabel.text =newsInfo.title;
-    cell.detailTextLabel.text =datestr;
+    UILabel  *label =[UILabel new];
+    label.text =datestr;
+    label.font =[UIFont systemFontOfSize:5];
+    NSString *str =[label.text stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
+//    NSString *str
+//    cell.textLabel.text =newsInfo.title;
+//    cell.detailTextLabel.text =datestr;
+    cell.textLabel.text =str;
     return cell;
 }
 @end
