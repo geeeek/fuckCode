@@ -21,7 +21,6 @@
 		93AAE19E1D069B0100B8559C /* NewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE19A1D069B0100B8559C /* NewsList.m */; };
 		93AAE19F1D069B0100B8559C /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE19C1D069B0100B8559C /* HttpTool.m */; };
 		93AAE1A21D069B5900B8559C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE1A11D069B5900B8559C /* FirstViewController.m */; };
-		93AF66A11D0CF33F002367C8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AF66A01D0CF33F002367C8 /* MBProgressHUD.m */; };
 		93DB0C1C1D07B1E1002CBA1B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -71,8 +70,6 @@
 		93AAE19C1D069B0100B8559C /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		93AAE1A01D069B5900B8559C /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		93AAE1A11D069B5900B8559C /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		93AF669F1D0CF33F002367C8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		93AF66A01D0CF33F002367C8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		93DB0C1A1D07B1E1002CBA1B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,8 +134,6 @@
 		93AAE1601D069AD800B8559C /* subaojun */ = {
 			isa = PBXGroup;
 			children = (
-				93AF669F1D0CF33F002367C8 /* MBProgressHUD.h */,
-				93AF66A01D0CF33F002367C8 /* MBProgressHUD.m */,
 				93DB0C1A1D07B1E1002CBA1B /* DetailViewController.h */,
 				93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */,
 				93AAE1A01D069B5900B8559C /* FirstViewController.h */,
@@ -267,7 +262,7 @@
 				TargetAttributes = {
 					93AAE15D1D069AD800B8559C = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = Q6H9CT47NX;
+						DevelopmentTeam = 7R92LB85Q3;
 					};
 					93AAE1791D069AD800B8559C = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -388,7 +383,6 @@
 				93AAE1691D069AD800B8559C /* ViewController.m in Sources */,
 				93AAE1661D069AD800B8559C /* AppDelegate.m in Sources */,
 				93AAE1631D069AD800B8559C /* main.m in Sources */,
-				93AF66A11D0CF33F002367C8 /* MBProgressHUD.m in Sources */,
 				93AAE19F1D069B0100B8559C /* HttpTool.m in Sources */,
 				93AAE1A21D069B5900B8559C /* FirstViewController.m in Sources */,
 			);
@@ -532,10 +526,14 @@
 			baseConfigurationReference = 1778DB86A717BD69A0BEDD24 /* Pods-subaojun.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = subaojun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.subaojun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -544,10 +542,14 @@
 			baseConfigurationReference = 6C561B1FD5FD02AC03383008 /* Pods-subaojun.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = subaojun/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.subaojun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
