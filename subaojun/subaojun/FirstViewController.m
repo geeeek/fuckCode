@@ -14,33 +14,48 @@
 #import "DetailViewController.h"
 #import "MJRefresh.h"
 #import "UIView+Extension.h"
+
+#import "WSTableView.h"
+#import "WSTableviewTree.h"
+#import "HQCell.h"
+
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
+#define FONT_SIZE 15.0f
+#define CELL_CONTENT_WIDTH ScreenSize.width //CELL_CONTENT_WIDTH 为cell的宽度
+#define CELL_CONTENT_MARGIN 8.0f //CELL_CONTENT_MARGIN为label距cell两边的宽度
 
 static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
-@interface FirstViewController()<UITableViewDelegate,UITableViewDataSource>
+@interface FirstViewController()<WSTableViewDelegate>
 {
 
     int count;
     int totalPage;
     int  currentPage;
     NewsList *list;
-    BOOL _hasMore;
+    BOOL hasMore;
+    BOOL isOpen;
+    NSIndexPath *selectIndex;
+     CGFloat labelHeight;
 }
 @property(readwrite,nonatomic,copy)NSMutableDictionary *params;
 
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSMutableArray *newsArray;
+@property (strong,nonatomic) NSMutableArray *subNewsArray;
 @property (strong,nonatomic) NSArray *lateNews;
+@property (nonatomic,getter=isHave)BOOL have;
+//@property (strong,nonatomic) NSArray *lateNews;
+
 @end
 @implementation FirstViewController
--(NSArray *)lateNews
-{
-    if (_lateNews == nil) {
-        _lateNews =[NSArray array];
-    }
-    return _lateNews;
-}
+//-(NSArray *)lateNews
+//{
+//    if (_lateNews == nil) {
+//        _lateNews =[NSArray array];
+//    }
+//    return _lateNews;
+//}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -55,6 +70,9 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 {
     [super viewDidLoad];
     self.title =@"速报君";
+    isOpen =YES;
+    
+    hasMore =YES;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    _tableView.rowHeight = 70.0f;
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -69,9 +87,9 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         currentPage ++;
         [self getData];
     }];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"HQCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+  
 }
-
 /**
  *  停止刷新
  */
@@ -96,6 +114,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
             _newsArray = [NSMutableArray array];
         }
         [ _newsArray addObjectsFromArray:array1];
+        
         [_tableView reloadData];
           [self endRefresh];
 //        NSLog(@"%lu",(unsigned long)list.objDataSet.count);
@@ -106,72 +125,248 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         
     }];
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return list.objDataSet.count ;
-    return _newsArray.count;
 
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+////    return list.objDataSet.count ;
+//    return _newsArray.count;
+//
+//}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    
+//    return _newsArray.count;
+//    
+//}
+#pragma  mark - UITableViewDataSource,UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _newsArray.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (selectIndex.row == indexPath.row && selectIndex!=nil) {
+    if ( isOpen ) {
+
+//        return labelHeight;
+        return (labelHeight+ 80);
+
+        
+
+
+    }
+        return 80;
+    }
     
-        DetailViewController *DVC = [[DetailViewController alloc]init];
-        [self.navigationController pushViewController:DVC animated:YES];
-        //    News *newsInfo =list.objDataSet[indexPath.row];
-        News *newsInfo =_newsArray[indexPath.row];
-        DVC.detailText = newsInfo.contentInfo;
-        UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
-        self.navigationItem.backBarButtonItem = barItem;
-   
-   
+    return 80;
+    
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 70;
-}
+//-(CGFloat)getLabelSize:(NSString *)labelStr
+//{
+//    // 文字的最大尺寸
+//    CGSize maxSize = CGSizeMake(kWidth, MAXFLOAT);
+//    // 计算文字的高度
+//    CGFloat textH = [labelStr boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16]} context:nil].size.height;
+//    return textH;
+//    
+//    
+//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:cellID];
+    static NSString *cellID=@"CELLID";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellID];
+    if (!cell) {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    
+//    HQCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     News *newsInfo =_newsArray[indexPath.row];
-    if([newsInfo.contentInfo  isEqual:@""])
-    {
-        cell.textLabel.numberOfLines =3;
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.userInteractionEnabled = NO;
-    }
-    else
-    {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        cell.userInteractionEnabled =YES;
-        cell.textLabel.numberOfLines =2;
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *strdate=newsInfo.newsDate;
-    
     NSDateFormatter *f=[[NSDateFormatter alloc] init];
-    
     f.dateFormat=@"yyyy-MM-dd HH:mm:ss";
-    
     //将字符串格式转换为时间格式 dateFromString
     NSDate *ndate=[f dateFromString:strdate];
     NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
     //2>指定要转换的格式
-    formatter.dateFormat=@"HH:mm:ss";
+    formatter.dateFormat=@"HH:mm";
     //3>将日期转换为字符串 stringFromDate
     NSString *datestr=[formatter stringFromDate:ndate];
-//    UILabel  *label =[UILabel new];
-//    label.text =datestr;
-//    label.font =[UIFont systemFontOfSize:5];
-    NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
-    NSString *str =[newStr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
-//    NSString *str
-//    cell.textLabel.text =newsInfo.title;
-//    cell.detailTextLabel.text =datestr;
-    cell.textLabel.text =str;
+    // UILabel  *label =[UILabel new];
+    // label.text =datestr;
+    //    label.font =[UIFont systemFontOfSize:5];
+    //        NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
+            NSString *str1 =[datestr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.contentInfo]];
+        //    NSString *str
+        //    cell.textLabel.text =newsInfo.title;
+        //    cell.detailTextLabel.text =datestr;
+        NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc]initWithString:str1];
+        //设置：在0-3个单位长度内的内容显示成红色
+        [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 6)];
+                cell.textLabel.numberOfLines =3;
+    //    cell.infoLabel.text =str2;
+//        cell.textLabel.font =[UIFont systemFontOfSize:18];
+//    if (cell.textLabel.numberOfLines >=4) {
+//        hasMore =YES;
+//    }
+    if (selectIndex.row == indexPath.row && selectIndex!=nil ) {
+        if (isOpen ) {
+            //可自定义当前cell样式
+            cell.textLabel.numberOfLines =0;
+        }else {
+            //恢复原状（定义原cell并填充）
+            cell.textLabel.numberOfLines =3;
+
+           
+        }
+        
+    }else {
+       cell.textLabel.numberOfLines =3;
+    }
+    cell.textLabel.attributedText =str2;
+//    if (cell.textLabel.numberOfLines <= 3) {
+//        hasMore =NO;
+//    }
+    CGSize maxSize = CGSizeMake((kWidth), MAXFLOAT);
+    // 计算文字的高度
+    labelHeight = [cell.textLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16]} context:nil].size.height;
+//    if (labelHeight+80<= 80) {
+//         hasMore =NO;
+//        cell.userInteractionEnabled =NO;
+//    }
     return cell;
+    
+    
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //更改选中cell的状态 用以 刷新页面是进行折叠和展开
+        NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+        if (selectIndex!=nil &&indexPath.row ==selectIndex.row) {
+            isOpen=!isOpen;
+            
+        }else if (selectIndex!=nil && indexPath.row!=selectIndex.row) {
+            indexPaths = [NSArray arrayWithObjects:indexPath,selectIndex, nil];
+            isOpen=YES;
+        }
+        selectIndex=indexPath;
+        //刷新
+        [tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+    
+    
+    
+}
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return _newsArray.count;
+//}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    News *newInfo =_newsArray[indexPath.row];
+//    if (![newInfo.contentInfo  isEqual:@""]) {
+//        _hasMore =YES;
+//    }
+//}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//        DetailViewController *DVC = [[DetailViewController alloc]init];
+//        [self.navigationController pushViewController:DVC animated:YES];
+//        //    News *newsInfo =list.objDataSet[indexPath.row];
+//        News *newsInfo =_newsArray[indexPath.row];
+//        DVC.detailText = newsInfo.contentInfo;
+//        UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
+//        self.navigationItem.backBarButtonItem = barItem;
+//   
+//   
+//}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+//{
+//    
+//    if (_hasMore) {
+//        return 100;
+//    }
+//    return 80;
+//    
+//}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    HQCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    News *newsInfo =_newsArray[indexPath.row];
+//    NSString *strdate=newsInfo.newsDate;
+//    
+//        NSDateFormatter *f=[[NSDateFormatter alloc] init];
+//    
+//        f.dateFormat=@"yyyy-MM-dd HH:mm:ss";
+//    
+//        //将字符串格式转换为时间格式 dateFromString
+//        NSDate *ndate=[f dateFromString:strdate];
+//        NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
+//        //2>指定要转换的格式
+//        formatter.dateFormat=@"HH:mm";
+//        //3>将日期转换为字符串 stringFromDate
+//        NSString *datestr=[formatter stringFromDate:ndate];
+//    //    UILabel  *label =[UILabel new];
+//    //    label.text =datestr;
+//    //    label.font =[UIFont systemFontOfSize:5];
+////        NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
+//        NSString *str1 =[datestr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
+//    //    NSString *str
+//    //    cell.textLabel.text =newsInfo.title;
+//    //    cell.detailTextLabel.text =datestr;
+//    NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc]initWithString:str1];
+//    //设置：在0-3个单位长度内的内容显示成红色
+//    [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 6)];
+//    cell.textLabel.attributedText =str2;
+//    cell.textLabel.numberOfLines =3;
+////    cell.infoLabel.text =str2;
+//    cell.textLabel.font =[UIFont systemFontOfSize:18];
+//    return cell;
+//    
+//}
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    static NSString *cellID = @"cellID";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+//                                      reuseIdentifier:cellID];
+//    }
+//    
+//    News *newsInfo =_newsArray[indexPath.row];
+//    if([newsInfo.contentInfo  isEqual:@""])
+//    {
+//        cell.textLabel.numberOfLines =3;
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+//        cell.userInteractionEnabled = NO;
+//    }
+//    else
+//    {
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+//        cell.userInteractionEnabled =YES;
+//        cell.textLabel.numberOfLines =2;
+//    }
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    NSString *strdate=newsInfo.newsDate;
+//    
+//    NSDateFormatter *f=[[NSDateFormatter alloc] init];
+//    
+//    f.dateFormat=@"yyyy-MM-dd HH:mm:ss";
+//    
+//    //将字符串格式转换为时间格式 dateFromString
+//    NSDate *ndate=[f dateFromString:strdate];
+//    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
+//    //2>指定要转换的格式
+//    formatter.dateFormat=@"HH:mm:ss";
+//    //3>将日期转换为字符串 stringFromDate
+//    NSString *datestr=[formatter stringFromDate:ndate];
+////    UILabel  *label =[UILabel new];
+////    label.text =datestr;
+////    label.font =[UIFont systemFontOfSize:5];
+//    NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
+//    NSString *str =[newStr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
+////    NSString *str
+////    cell.textLabel.text =newsInfo.title;
+////    cell.detailTextLabel.text =datestr;
+//    cell.textLabel.text =str;
+//    return cell;
+//}
+
+
 @end
