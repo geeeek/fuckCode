@@ -13,7 +13,6 @@
 #import "NSObject+YYModel.h"
 #import "DetailViewController.h"
 #import "MJRefresh.h"
-#import "UIView+Extension.h"
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 
@@ -27,20 +26,12 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     NewsList *list;
     BOOL _hasMore;
 }
-@property(readwrite,nonatomic,copy)NSMutableDictionary *params;
+@property(readwrite,nonatomic,copy)NSDictionary *params;
 
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSMutableArray *newsArray;
-@property (strong,nonatomic) NSArray *lateNews;
 @end
 @implementation FirstViewController
--(NSArray *)lateNews
-{
-    if (_lateNews == nil) {
-        _lateNews =[NSArray array];
-    }
-    return _lateNews;
-}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -55,8 +46,9 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 {
     [super viewDidLoad];
     self.title =@"速报君";
+    [self registerForPreviewingWithDelegate:self sourceView:self.view];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-//    _tableView.rowHeight = 70.0f;
+    _tableView.rowHeight = 70.0f;
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -71,7 +63,13 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     }];
     
 }
-
+/**
+ * 更新视图.
+ */
+- (void) updateView
+{
+    [self.tableView reloadData];
+}
 /**
  *  停止刷新
  */
@@ -82,7 +80,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 
 -(void)getData
 {
-     _params =  [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:currentPage],@"page", nil];
+     _params =  [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:currentPage],@"page", nil];
     [HttpTool get:HYurl parameters:_params withCompletionBlock:^(id returnValue) {
       
         NSDictionary *dic =returnValue[@"objDataSet"];
@@ -123,10 +121,6 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
    
    
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 70;
-}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"cellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -136,6 +130,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     }
     
     News *newsInfo =_newsArray[indexPath.row];
+   
     if([newsInfo.contentInfo  isEqual:@""])
     {
         cell.textLabel.numberOfLines =3;
@@ -147,7 +142,6 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         cell.userInteractionEnabled =YES;
-        cell.textLabel.numberOfLines =2;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *strdate=newsInfo.newsDate;
@@ -163,11 +157,10 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     formatter.dateFormat=@"HH:mm:ss";
     //3>将日期转换为字符串 stringFromDate
     NSString *datestr=[formatter stringFromDate:ndate];
-//    UILabel  *label =[UILabel new];
-//    label.text =datestr;
-//    label.font =[UIFont systemFontOfSize:5];
-    NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
-    NSString *str =[newStr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
+    UILabel  *label =[UILabel new];
+    label.text =datestr;
+    label.font =[UIFont systemFontOfSize:5];
+    NSString *str =[label.text stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
 //    NSString *str
 //    cell.textLabel.text =newsInfo.title;
 //    cell.detailTextLabel.text =datestr;
