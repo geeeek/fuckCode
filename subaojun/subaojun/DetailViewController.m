@@ -8,6 +8,7 @@
 #define Kwidth   [UIScreen mainScreen].bounds.size.width
 #define Kheight  [UIScreen mainScreen].bounds.size.height
 #import "DetailViewController.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 @interface DetailViewController ()
 {
@@ -26,6 +27,7 @@
 //    NSLog(@"%@",self.detailText);
     label.font =[UIFont systemFontOfSize:20];
     label.numberOfLines =0;
+    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
     [self.view addSubview:label];
     
 }

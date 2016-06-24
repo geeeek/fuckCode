@@ -13,6 +13,9 @@
 #import "NSObject+YYModel.h"
 #import "DetailViewController.h"
 #import "MJRefresh.h"
+#import "UIView+Extension.h"
+#import "HQCell.h"
+#import "UIButton+LXMImagePosition.h"
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 
@@ -26,12 +29,20 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     NewsList *list;
     BOOL _hasMore;
 }
-@property(readwrite,nonatomic,copy)NSDictionary *params;
+@property(readwrite,nonatomic,copy)NSMutableDictionary *params;
 
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSMutableArray *newsArray;
+@property (strong,nonatomic) NSArray *lateNews;
 @end
 @implementation FirstViewController
+-(NSArray *)lateNews
+{
+    if (_lateNews == nil) {
+        _lateNews =[NSArray array];
+    }
+    return _lateNews;
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -45,10 +56,14 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title =@"速报君";
-    [self registerForPreviewingWithDelegate:self sourceView:self.view];
+//    self.title =@"速报君";
+    self.navigationItem.title =@"速报君";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+  @{NSFontAttributeName:[UIFont systemFontOfSize:18],
+    NSForegroundColorAttributeName:[UIColor redColor]}];
+
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    _tableView.rowHeight = 70.0f;
+//    _tableView.rowHeight = 70.0f;
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -61,15 +76,10 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         currentPage ++;
         [self getData];
     }];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HQCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
 }
-/**
- * 更新视图.
- */
-- (void) updateView
-{
-    [self.tableView reloadData];
-}
+
 /**
  *  停止刷新
  */
@@ -80,7 +90,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 
 -(void)getData
 {
-     _params =  [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:currentPage],@"page", nil];
+     _params =  [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:currentPage],@"page", nil];
     [HttpTool get:HYurl parameters:_params withCompletionBlock:^(id returnValue) {
       
         NSDictionary *dic =returnValue[@"objDataSet"];
@@ -121,19 +131,22 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
    
    
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:cellID];
-    }
-    
+//    static NSString *cellID = @"cellID";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+//                                      reuseIdentifier:cellID];
+//    }
+     HQCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     News *newsInfo =_newsArray[indexPath.row];
-   
     if([newsInfo.contentInfo  isEqual:@""])
     {
-        cell.textLabel.numberOfLines =3;
+        cell.textLabel.numberOfLines =2;
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.userInteractionEnabled = NO;
     }
@@ -142,6 +155,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         cell.userInteractionEnabled =YES;
+        cell.textLabel.numberOfLines =2;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *strdate=newsInfo.newsDate;
@@ -154,17 +168,33 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     NSDate *ndate=[f dateFromString:strdate];
     NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
     //2>指定要转换的格式
-    formatter.dateFormat=@"HH:mm:ss";
+    formatter.dateFormat=@"HH:mm";
     //3>将日期转换为字符串 stringFromDate
     NSString *datestr=[formatter stringFromDate:ndate];
-    UILabel  *label =[UILabel new];
-    label.text =datestr;
-    label.font =[UIFont systemFontOfSize:5];
-    NSString *str =[label.text stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
+//    UILabel  *label =[UILabel new];
+//    label.text =datestr;
+//    label.font =[UIFont systemFontOfSize:5];
+      NSString *str1 =[datestr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
+//    NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
+    NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc]initWithString:str1];
+    //设置：在0-3个单位长度内的内容显示成红色
+    [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 6)];
+  
 //    NSString *str
 //    cell.textLabel.text =newsInfo.title;
 //    cell.detailTextLabel.text =datestr;
-    cell.textLabel.text =str;
+
+    
+    //image在左，文字在右，default
+  
+    
+//    self.oneButton_line.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
+//    self.oneButton_line.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
+    
+//    [self.oneButton_line_1 setImagePosition:LXMImagePositionLeft spacing:spacing];
+    
+    cell.textLabel.font =[UIFont systemFontOfSize:18];
+    cell.infoLabel.attributedText =str2;
     return cell;
 }
 @end

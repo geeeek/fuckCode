@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1E7924C39706DC8C9EC1DA18 /* Pods_subaojun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A00CB0007E8552A0E0E3E61 /* Pods_subaojun.framework */; };
+		937198231D1D1C7400B936A7 /* HQCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937198211D1D1C7400B936A7 /* HQCell.m */; };
+		937198241D1D1C7400B936A7 /* HQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937198221D1D1C7400B936A7 /* HQCell.xib */; };
+		937198271D1D216500B936A7 /* UIButton+LXMImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 937198261D1D216500B936A7 /* UIButton+LXMImagePosition.m */; };
 		93AAE1631D069AD800B8559C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE1621D069AD800B8559C /* main.m */; };
 		93AAE1661D069AD800B8559C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE1651D069AD800B8559C /* AppDelegate.m */; };
 		93AAE1691D069AD800B8559C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE1681D069AD800B8559C /* ViewController.m */; };
@@ -21,6 +24,19 @@
 		93AAE19E1D069B0100B8559C /* NewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE19A1D069B0100B8559C /* NewsList.m */; };
 		93AAE19F1D069B0100B8559C /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE19C1D069B0100B8559C /* HttpTool.m */; };
 		93AAE1A21D069B5900B8559C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE1A11D069B5900B8559C /* FirstViewController.m */; };
+		93BACABC1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BACABB1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m */; };
+		93BACABF1D1278A800E3013A /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BACABE1D1278A800E3013A /* UIView+Extension.m */; };
+		93BACAC31D12884200E3013A /* jpush-ios-2.1.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAC11D12884200E3013A /* jpush-ios-2.1.7.a */; };
+		93BACAC51D12888000E3013A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAC41D12888000E3013A /* CFNetwork.framework */; };
+		93BACAC71D12888C00E3013A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAC61D12888C00E3013A /* CoreFoundation.framework */; };
+		93BACAC91D12889600E3013A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAC81D12889600E3013A /* CoreTelephony.framework */; };
+		93BACACB1D1288A200E3013A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACACA1D1288A200E3013A /* SystemConfiguration.framework */; };
+		93BACACD1D1288AD00E3013A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACACC1D1288AD00E3013A /* CoreGraphics.framework */; };
+		93BACACF1D1288B600E3013A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACACE1D1288B600E3013A /* Foundation.framework */; };
+		93BACAD11D1288C200E3013A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAD01D1288C200E3013A /* UIKit.framework */; };
+		93BACAD31D1288CA00E3013A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAD21D1288CA00E3013A /* Security.framework */; };
+		93BACAD51D1288DB00E3013A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAD41D1288DB00E3013A /* libz.tbd */; };
+		93BACAD71D1288E400E3013A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAD61D1288E400E3013A /* AdSupport.framework */; };
 		93DB0C1C1D07B1E1002CBA1B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +61,11 @@
 		1778DB86A717BD69A0BEDD24 /* Pods-subaojun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subaojun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subaojun/Pods-subaojun.debug.xcconfig"; sourceTree = "<group>"; };
 		6C561B1FD5FD02AC03383008 /* Pods-subaojun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subaojun.release.xcconfig"; path = "Pods/Target Support Files/Pods-subaojun/Pods-subaojun.release.xcconfig"; sourceTree = "<group>"; };
 		8A00CB0007E8552A0E0E3E61 /* Pods_subaojun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subaojun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		937198201D1D1C7400B936A7 /* HQCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQCell.h; sourceTree = "<group>"; };
+		937198211D1D1C7400B936A7 /* HQCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQCell.m; sourceTree = "<group>"; };
+		937198221D1D1C7400B936A7 /* HQCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HQCell.xib; sourceTree = "<group>"; };
+		937198251D1D216500B936A7 /* UIButton+LXMImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LXMImagePosition.h"; sourceTree = "<group>"; };
+		937198261D1D216500B936A7 /* UIButton+LXMImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LXMImagePosition.m"; sourceTree = "<group>"; };
 		93AAE15E1D069AD800B8559C /* subaojun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = subaojun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AAE1621D069AD800B8559C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93AAE1641D069AD800B8559C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,6 +91,22 @@
 		93AAE19C1D069B0100B8559C /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		93AAE1A01D069B5900B8559C /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		93AAE1A11D069B5900B8559C /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		93BACABA1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		93BACABB1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		93BACABD1D1278A800E3013A /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		93BACABE1D1278A800E3013A /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		93BACAC11D12884200E3013A /* jpush-ios-2.1.7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.7.a"; sourceTree = "<group>"; };
+		93BACAC21D12884200E3013A /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		93BACAC41D12888000E3013A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		93BACAC61D12888C00E3013A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		93BACAC81D12889600E3013A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		93BACACA1D1288A200E3013A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		93BACACC1D1288AD00E3013A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93BACACE1D1288B600E3013A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93BACAD01D1288C200E3013A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93BACAD21D1288CA00E3013A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		93BACAD41D1288DB00E3013A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		93BACAD61D1288E400E3013A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		93DB0C1A1D07B1E1002CBA1B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +116,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BACAD71D1288E400E3013A /* AdSupport.framework in Frameworks */,
+				93BACAD51D1288DB00E3013A /* libz.tbd in Frameworks */,
+				93BACAD31D1288CA00E3013A /* Security.framework in Frameworks */,
+				93BACAD11D1288C200E3013A /* UIKit.framework in Frameworks */,
+				93BACACF1D1288B600E3013A /* Foundation.framework in Frameworks */,
+				93BACACD1D1288AD00E3013A /* CoreGraphics.framework in Frameworks */,
+				93BACACB1D1288A200E3013A /* SystemConfiguration.framework in Frameworks */,
+				93BACAC91D12889600E3013A /* CoreTelephony.framework in Frameworks */,
+				93BACAC71D12888C00E3013A /* CoreFoundation.framework in Frameworks */,
+				93BACAC51D12888000E3013A /* CFNetwork.framework in Frameworks */,
 				1E7924C39706DC8C9EC1DA18 /* Pods_subaojun.framework in Frameworks */,
+				93BACAC31D12884200E3013A /* jpush-ios-2.1.7.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,10 +182,20 @@
 		93AAE1601D069AD800B8559C /* subaojun */ = {
 			isa = PBXGroup;
 			children = (
+				937198251D1D216500B936A7 /* UIButton+LXMImagePosition.h */,
+				937198261D1D216500B936A7 /* UIButton+LXMImagePosition.m */,
+				93BACAC01D12884200E3013A /* lib */,
+				93BACABD1D1278A800E3013A /* UIView+Extension.h */,
+				93BACABE1D1278A800E3013A /* UIView+Extension.m */,
+				93BACABA1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.h */,
+				93BACABB1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m */,
 				93DB0C1A1D07B1E1002CBA1B /* DetailViewController.h */,
 				93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */,
 				93AAE1A01D069B5900B8559C /* FirstViewController.h */,
 				93AAE1A11D069B5900B8559C /* FirstViewController.m */,
+				937198201D1D1C7400B936A7 /* HQCell.h */,
+				937198211D1D1C7400B936A7 /* HQCell.m */,
+				937198221D1D1C7400B936A7 /* HQCell.xib */,
 				93AAE1971D069B0100B8559C /* News.h */,
 				93AAE1981D069B0100B8559C /* News.m */,
 				93AAE1991D069B0100B8559C /* NewsList.h */,
@@ -184,9 +242,28 @@
 			path = subaojunUITests;
 			sourceTree = "<group>";
 		};
+		93BACAC01D12884200E3013A /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				93BACAC11D12884200E3013A /* jpush-ios-2.1.7.a */,
+				93BACAC21D12884200E3013A /* JPUSHService.h */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		BAD91B62FD169E5B69524E44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93BACAD61D1288E400E3013A /* AdSupport.framework */,
+				93BACAD41D1288DB00E3013A /* libz.tbd */,
+				93BACAD21D1288CA00E3013A /* Security.framework */,
+				93BACAD01D1288C200E3013A /* UIKit.framework */,
+				93BACACE1D1288B600E3013A /* Foundation.framework */,
+				93BACACC1D1288AD00E3013A /* CoreGraphics.framework */,
+				93BACACA1D1288A200E3013A /* SystemConfiguration.framework */,
+				93BACAC81D12889600E3013A /* CoreTelephony.framework */,
+				93BACAC61D12888C00E3013A /* CoreFoundation.framework */,
+				93BACAC41D12888000E3013A /* CFNetwork.framework */,
 				8A00CB0007E8552A0E0E3E61 /* Pods_subaojun.framework */,
 			);
 			name = Frameworks;
@@ -263,6 +340,14 @@
 					93AAE15D1D069AD800B8559C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 7R92LB85Q3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					93AAE1791D069AD800B8559C = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -301,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937198241D1D1C7400B936A7 /* HQCell.xib in Resources */,
 				93AAE1741D069AD800B8559C /* LaunchScreen.storyboard in Resources */,
 				93AAE1711D069AD800B8559C /* Assets.xcassets in Resources */,
 				93AAE16C1D069AD800B8559C /* Main.storyboard in Resources */,
@@ -376,12 +462,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BACABC1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				93AAE19E1D069B0100B8559C /* NewsList.m in Sources */,
+				93BACABF1D1278A800E3013A /* UIView+Extension.m in Sources */,
 				93AAE19D1D069B0100B8559C /* News.m in Sources */,
+				937198271D1D216500B936A7 /* UIButton+LXMImagePosition.m in Sources */,
 				93DB0C1C1D07B1E1002CBA1B /* DetailViewController.m in Sources */,
 				93AAE16F1D069AD800B8559C /* subaojun.xcdatamodeld in Sources */,
 				93AAE1691D069AD800B8559C /* ViewController.m in Sources */,
 				93AAE1661D069AD800B8559C /* AppDelegate.m in Sources */,
+				937198231D1D1C7400B936A7 /* HQCell.m in Sources */,
 				93AAE1631D069AD800B8559C /* main.m in Sources */,
 				93AAE19F1D069B0100B8559C /* HttpTool.m in Sources */,
 				93AAE1A21D069B5900B8559C /* FirstViewController.m in Sources */,
@@ -526,14 +616,18 @@
 			baseConfigurationReference = 1778DB86A717BD69A0BEDD24 /* Pods-subaojun.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Huyangfeng Information Technology Co., Ltd. (7R92LB85Q3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Huyangfeng Information Technology Co., Ltd. (7R92LB85Q3)";
 				INFOPLIST_FILE = subaojun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.subaojun;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/subaojun/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.huywl.subaojun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "867e330c-8f32-4f59-99ef-0b8719aff957";
 			};
 			name = Debug;
 		};
@@ -542,14 +636,18 @@
 			baseConfigurationReference = 6C561B1FD5FD02AC03383008 /* Pods-subaojun.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Huyangfeng Information Technology Co., Ltd. (7R92LB85Q3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Huyangfeng Information Technology Co., Ltd. (7R92LB85Q3)";
 				INFOPLIST_FILE = subaojun/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.subaojun;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/subaojun/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.huywl.subaojun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "867e330c-8f32-4f59-99ef-0b8719aff957";
 			};
 			name = Release;
 		};
