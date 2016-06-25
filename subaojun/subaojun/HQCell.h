@@ -10,7 +10,6 @@
 
 @interface HQCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-- (IBAction)share:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 
 @end

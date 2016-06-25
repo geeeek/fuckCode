@@ -27,6 +27,7 @@
 //    NSLog(@"%@",self.detailText);
     label.font =[UIFont systemFontOfSize:20];
     label.numberOfLines =0;
+    self.navigationController.navigationBar.tintColor =[UIColor redColor];
     self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
     [self.view addSubview:label];
     

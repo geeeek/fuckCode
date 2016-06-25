@@ -8,6 +8,8 @@
 
 #import "HQCell.h"
 #import "UIButton+LXMImagePosition.h"
+@interface HQCell()
+@end
 @implementation HQCell
 
 - (void)awakeFromNib {
@@ -18,9 +20,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-            CGFloat spacing = 10;
-        self.shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
-        self.shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
+//            CGFloat spacing = 10;
+//        self.shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
+//        self.shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
+        
     }
     return self;
 }
@@ -30,7 +33,5 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)share:(UIButton *)sender {
-    
-}
+
 @end

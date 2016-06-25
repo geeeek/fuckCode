@@ -16,6 +16,8 @@
 #import "UIView+Extension.h"
 #import "HQCell.h"
 #import "UIButton+LXMImagePosition.h"
+#import "PopMenu.h"
+#import "AppDelegate.h"
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 
@@ -29,6 +31,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     NewsList *list;
     BOOL _hasMore;
 }
+@property (nonatomic, strong) PopMenu *popMenu;
 @property(readwrite,nonatomic,copy)NSMutableDictionary *params;
 
 @property (strong,nonatomic) UITableView *tableView;
@@ -78,6 +81,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     }];
     [self.tableView registerNib:[UINib nibWithNibName:@"HQCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
+    
 }
 
 /**
@@ -120,14 +124,16 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+      News *newsInfo =_newsArray[indexPath.row];
+    if (![newsInfo.contentInfo  isEqual:@""]) {
         DetailViewController *DVC = [[DetailViewController alloc]init];
         [self.navigationController pushViewController:DVC animated:YES];
         //    News *newsInfo =list.objDataSet[indexPath.row];
-        News *newsInfo =_newsArray[indexPath.row];
         DVC.detailText = newsInfo.contentInfo;
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
         self.navigationItem.backBarButtonItem = barItem;
+    }
+    return;
    
    
 }
@@ -148,13 +154,11 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     {
         cell.textLabel.numberOfLines =2;
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.userInteractionEnabled = NO;
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        cell.userInteractionEnabled =YES;
         cell.textLabel.numberOfLines =2;
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -195,6 +199,43 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     
     cell.textLabel.font =[UIFont systemFontOfSize:18];
     cell.infoLabel.attributedText =str2;
-    return cell;
+    [cell.shareBtn addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
+  
+        return cell;
 }
+-(void)popView
+{
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:4];
+    
+    MenuItem *menuItem = [MenuItem itemWithTitle:@"新浪微博" iconName:@"weibo"];
+    [items addObject:menuItem];
+     menuItem = [MenuItem itemWithTitle:@"微信好友" iconName:@"wechat"];
+    [items addObject:menuItem];
+    menuItem = [MenuItem itemWithTitle:@"朋友圈" iconName:@"wechat_time"];
+    [items addObject:menuItem];
+    menuItem = [MenuItem itemWithTitle:@"QQ" iconName:@"qq_logo"];
+    [items addObject:menuItem];
+    if (!_popMenu) {
+        _popMenu = [[PopMenu alloc] initWithFrame:CGRectMake(0,kHeight-150,kWidth,150) items:items];
+        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
+    }
+    if (_popMenu.isShowed) {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissMissView)];
+        tap.cancelsTouchesInView =NO;
+        return;
+       
+    }
+    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
+        NSLog(@"%@",selectedItem.title);
+    };
+    
+    [_popMenu showMenuAtView:self.view];
+}
+-(void)dissMissView
+{
+    [_popMenu dismissMenu];
+}
+
+
+
 @end

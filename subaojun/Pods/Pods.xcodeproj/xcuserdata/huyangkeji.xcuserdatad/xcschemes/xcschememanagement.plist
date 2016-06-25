@@ -19,7 +19,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PopMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>XHRealTimeBlur.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,7 +47,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3F7015C02C5D5630146FD90CB6351885</key>
+		<key>27E0A352D722DA889F84DCA3254B83AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ECAFA5648DBACAF1C208C832F7E8EA44</key>
+		<key>8A45CD69E1762A8419CD0154732237E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AD2D0F2518E6B4746DB332654DE4321B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BE67910913887C105462DEAD2B7D530B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7D71FF9A6B7E797C2354895E702E6E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
