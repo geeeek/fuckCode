@@ -18,6 +18,8 @@
 #import "UIButton+LXMImagePosition.h"
 #import "PopMenu.h"
 #import "AppDelegate.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 
@@ -205,36 +207,84 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 }
 -(void)popView
 {
-    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:4];
     
-    MenuItem *menuItem = [MenuItem itemWithTitle:@"新浪微博" iconName:@"weibo"];
-    [items addObject:menuItem];
-     menuItem = [MenuItem itemWithTitle:@"微信好友" iconName:@"wechat"];
-    [items addObject:menuItem];
-    menuItem = [MenuItem itemWithTitle:@"朋友圈" iconName:@"wechat_time"];
-    [items addObject:menuItem];
-    menuItem = [MenuItem itemWithTitle:@"QQ" iconName:@"qq_logo"];
-    [items addObject:menuItem];
-    if (!_popMenu) {
-        _popMenu = [[PopMenu alloc] initWithFrame:CGRectMake(0,kHeight-150,kWidth,150) items:items];
-        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
-    }
-    if (_popMenu.isShowed) {
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissMissView)];
-        tap.cancelsTouchesInView =NO;
-        return;
-       
-    }
-    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
-        NSLog(@"%@",selectedItem.title);
-    };
+    NSArray* imageArray = @[[UIImage imageNamed:@"shareSDK"]];
+//    UIImage *image =[UIImage imageNamed:@"APPIcon"];
+    if (imageArray) {
+        
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:@"分享内容"
+                                         images:imageArray
+                                            url:[NSURL URLWithString:@"http://mob.com"]
+                                          title:@"速报君"
+                                           type:SSDKContentTypeAuto];
+        //2、分享（可以弹出我们的分享菜单和编辑界面）
+        [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                           {
+                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                                   message:nil
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"确定"
+                                                                         otherButtonTitles:nil];
+                               [alertView show];
+                               break;
+                           }
+                           case SSDKResponseStateFail:
+                           {
+                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                               message:[NSString stringWithFormat:@"%@",error]
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"OK"
+                                                                     otherButtonTitles:nil, nil];
+                               [alert show];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }
+         ];}
     
-    [_popMenu showMenuAtView:self.view];
 }
--(void)dissMissView
-{
-    [_popMenu dismissMenu];
-}
+
+//-(void)popView
+//{
+//    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:4];
+//    
+//    MenuItem *menuItem = [MenuItem itemWithTitle:@"新浪微博" iconName:@"weibo"];
+//    [items addObject:menuItem];
+//     menuItem = [MenuItem itemWithTitle:@"微信好友" iconName:@"wechat"];
+//    [items addObject:menuItem];
+//    menuItem = [MenuItem itemWithTitle:@"朋友圈" iconName:@"wechat_time"];
+//    [items addObject:menuItem];
+//    menuItem = [MenuItem itemWithTitle:@"QQ" iconName:@"qq_logo"];
+//    [items addObject:menuItem];
+//    if (!_popMenu) {
+//        _popMenu = [[PopMenu alloc] initWithFrame:CGRectMake(0,kHeight-150,kWidth,150) items:items];
+//        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
+//    }
+//    if (_popMenu.isShowed) {
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissMissView)];
+//        tap.cancelsTouchesInView =NO;
+//        return;
+//       
+//    }
+//    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
+//        NSLog(@"%@",selectedItem.title);
+//    };
+//    
+//    [_popMenu showMenuAtView:self.view];
+//}
+//-(void)dissMissView
+//{
+//    [_popMenu dismissMenu];
+//}
 
 
 

@@ -10,6 +10,12 @@
 #import "FirstViewController.h"
 #import "AFNetworking.h"
 #import "JPUSHService.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import "WXApi.h"
+#import "WeiboSDK.h"
 
 @interface AppDelegate ()
 @end
@@ -38,6 +44,60 @@
     //JAppKey : 是你在极光推送申请下来的appKey Jchannel : 可以直接设置默认值即可 Publish channel
     [JPUSHService setupWithOption:launchOptions appKey:@"eff783043f1cd37e6d39b16f"
                           channel:@"" apsForProduction:YES];
+#pragma mark -----社会化分享
+    [ShareSDK registerApp:@"1451a83c67f18"
+     
+          activePlatforms:@[
+                            @(SSDKPlatformTypeSinaWeibo),
+                            @(SSDKPlatformSubTypeWechatTimeline),
+                            @(SSDKPlatformSubTypeWechatSession),
+                            @(SSDKPlatformSubTypeQQFriend)]
+                 onImport:^(SSDKPlatformType platformType)
+     {
+         switch (platformType)
+         {
+//             case SSDKPlatformTypeWechat:
+//                 [ShareSDKConnector connectWeChat:[WXApi class]];
+//                 break;
+             case SSDKPlatformSubTypeWechatTimeline:
+                 [ShareSDKConnector connectWeChat:[WXApi class]];
+                 break;
+             case SSDKPlatformTypeQQ:
+                 [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+                 break;
+             case SSDKPlatformTypeSinaWeibo:
+                 [ShareSDKConnector connectWeibo:[WeiboSDK class]];
+                 break;
+             default:
+                 break;
+         }
+     }
+          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo)
+     {
+         
+         switch (platformType)
+         {
+             case SSDKPlatformTypeSinaWeibo:
+                 //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
+                 [appInfo SSDKSetupSinaWeiboByAppKey:@"3261697607"
+                                           appSecret:@"b019ab64c4fe14999e9f5e76d8669792"
+                                         redirectUri:@"http://www.sharesdk.cn"
+                                            authType:SSDKAuthTypeBoth];
+                 break;
+             case SSDKPlatformTypeWechat:
+                 [appInfo SSDKSetupWeChatByAppId:@"wx11febc0b36e966be"
+                                       appSecret:@"4ae21e9b34391a3c37168c536d77809f"];
+                 break;
+             case SSDKPlatformTypeQQ:
+                 [appInfo SSDKSetupQQByAppId:@"1105426405"
+                                      appKey:@"xbcQs15jsercx4N7"
+                                    authType:SSDKAuthTypeBoth];
+                 break;
+             default:
+                 break;
+         }
+     }];
+
     return YES;
 }
 - (void)application:(UIApplication *)application
