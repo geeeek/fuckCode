@@ -106,6 +106,7 @@
 		8C218CB7D761D6CCB6B83665A2CFDD09 /* UnitBezier.h in Headers */ = {isa = PBXBuildFile; fileRef = 742CFC8AFF6FB1CB20C2E2C1E9EDF990 /* UnitBezier.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		91CCF95D930B89A8BC0DC0E2F42C3D9E /* POPBasicAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = B866F7C0B941CBA4FE751C4AD8D2AB03 /* POPBasicAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		937F27426A73331AFF12B021D1754419 /* MJRefreshNormalHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 87615864F11CE5B3914E26BA34731FAD /* MJRefreshNormalHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93B9D91F1D2268BB0061AE65 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B9D91E1D2268BB0061AE65 /* arrow@2x.png */; };
 		94B9B1E11A96CA1ADF56901E4E1E845F /* FloatConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = E475BAE0E8D8935D2691AF7050C42CD5 /* FloatConversion.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		95AA41B0F1D7C6FAA45C2ED151DFEB32 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A10C95704B1C13AD1C8A539451CAA /* MenuItem.m */; };
 		96644B7D01AE051D0B54A051088E866E /* POPCGUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C420969C90B58FF30D4ACECEB6DE9FE6 /* POPCGUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -357,6 +358,7 @@
 		8F789E40AF2F87E61B384114A4C5FB5C /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		932822122A7FB1B9CAE753036366C0BD /* PopMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PopMenu-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93B9D91E1D2268BB0061AE65 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		93C0D123AB204B59585D7AD7309F48AB /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		93DA3041556C3F19E0530B31318BE853 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		94A38EF204C4AA8A59637A6971FF569F /* MJRefreshAutoGifFooter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MJRefreshAutoGifFooter.m; path = MJRefresh/Custom/Footer/Auto/MJRefreshAutoGifFooter.m; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 			isa = PBXGroup;
 			children = (
 				182A7C635FFF515F6E79EC3118524847 /* MJRefresh.bundle */,
+				93B9D91E1D2268BB0061AE65 /* arrow@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1221,6 +1224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93B9D91F1D2268BB0061AE65 /* arrow@2x.png in Resources */,
 				6788B6B8B3FA97B1D3813482381457F6 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

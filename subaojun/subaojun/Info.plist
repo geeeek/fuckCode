@@ -57,6 +57,7 @@
 	<string>1.1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>wtloginmqq2</string>
 		<string>mqqopensdkapiV3</string>
 		<string>mqqopensdkapiV2</string>
 		<string>mqqopensdkapi</string>

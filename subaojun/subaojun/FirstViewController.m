@@ -39,6 +39,8 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 @property (strong,nonatomic) UITableView *tableView;
 @property (strong,nonatomic) NSMutableArray *newsArray;
 @property (strong,nonatomic) NSArray *lateNews;
+@property(nonatomic,copy)NSString *shareNews;
+@property(nonatomic,copy)NSString *refreshTitle;
 @end
 @implementation FirstViewController
 -(NSArray *)lateNews
@@ -73,10 +75,27 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-         currentPage = 1;
+//    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//         currentPage = 1;
+//        [self getData];
+//        
+//    }];
+    MJRefreshNormalHeader *header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        currentPage = 1;
         [self getData];
+       
+        
     }];
+    self.refreshTitle =@"人生就是一场戏，何必认真";
+    // 设置文字
+    [header setTitle:self.refreshTitle forState:MJRefreshStateIdle];
+    [header setTitle:self.refreshTitle forState:MJRefreshStatePulling];
+    [header setTitle:self.refreshTitle forState:MJRefreshStateRefreshing];
+    // 设置字体
+    header.stateLabel.font = [UIFont systemFontOfSize:15];
+    header.stateLabel.textColor = [UIColor redColor];
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
+    _tableView.mj_header =header;
     _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         currentPage ++;
         [self getData];
@@ -134,9 +153,10 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         DVC.detailText = newsInfo.contentInfo;
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
         self.navigationItem.backBarButtonItem = barItem;
+        
     }
-    return;
-   
+    
+         return;
    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -156,12 +176,15 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     {
         cell.textLabel.numberOfLines =2;
         cell.accessoryType = UITableViewCellAccessoryNone;
+//        self.shareNews =newsInfo.title;
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         cell.textLabel.numberOfLines =2;
+//        self.shareNews =newsInfo.contentInfo;
+        
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *strdate=newsInfo.newsDate;
@@ -185,37 +208,35 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc]initWithString:str1];
     //设置：在0-3个单位长度内的内容显示成红色
     [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 6)];
-  
-//    NSString *str
-//    cell.textLabel.text =newsInfo.title;
-//    cell.detailTextLabel.text =datestr;
-
-    
-    //image在左，文字在右，default
-  
-    
-//    self.oneButton_line.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
-//    self.oneButton_line.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
-    
-//    [self.oneButton_line_1 setImagePosition:LXMImagePositionLeft spacing:spacing];
-    
     cell.textLabel.font =[UIFont systemFontOfSize:18];
     cell.infoLabel.attributedText =str2;
-    [cell.shareBtn addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
+    cell.shareBtn.tag =indexPath.row;
+    [cell.shareBtn addTarget:self action:@selector(popView:) forControlEvents:UIControlEventTouchUpInside];
   
         return cell;
 }
--(void)popView
+-(void)popView:(UIButton *)btn
 {
-    
+    News *newsInfo =_newsArray[btn.tag];
+    if([newsInfo.contentInfo  isEqual:@""])
+    {
+        self.shareNews =newsInfo.title;
+    }
+    else
+    {
+       
+        self.shareNews =newsInfo.contentInfo;
+        
+    }
+
     NSArray* imageArray = @[[UIImage imageNamed:@"shareSDK"]];
 //    UIImage *image =[UIImage imageNamed:@"APPIcon"];
     if (imageArray) {
         
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-        [shareParams SSDKSetupShareParamsByText:@"分享内容"
+        [shareParams SSDKSetupShareParamsByText:self.shareNews
                                          images:imageArray
-                                            url:[NSURL URLWithString:@"http://mob.com"]
+                                            url:[NSURL URLWithString:nil]
                                           title:@"速报君"
                                            type:SSDKContentTypeAuto];
         //2、分享（可以弹出我们的分享菜单和编辑界面）

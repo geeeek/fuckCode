@@ -339,25 +339,10 @@
 		93AAE1601D069AD800B8559C /* subaojun */ = {
 			isa = PBXGroup;
 			children = (
-				937198251D1D216500B936A7 /* UIButton+LXMImagePosition.h */,
-				937198261D1D216500B936A7 /* UIButton+LXMImagePosition.m */,
-				93BACABD1D1278A800E3013A /* UIView+Extension.h */,
-				93BACABE1D1278A800E3013A /* UIView+Extension.m */,
-				93BACABA1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.h */,
-				93BACABB1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m */,
-				93DB0C1A1D07B1E1002CBA1B /* DetailViewController.h */,
-				93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */,
-				93AAE1A01D069B5900B8559C /* FirstViewController.h */,
-				93AAE1A11D069B5900B8559C /* FirstViewController.m */,
-				937198201D1D1C7400B936A7 /* HQCell.h */,
-				937198211D1D1C7400B936A7 /* HQCell.m */,
-				937198221D1D1C7400B936A7 /* HQCell.xib */,
-				93AAE1971D069B0100B8559C /* News.h */,
-				93AAE1981D069B0100B8559C /* News.m */,
-				93AAE1991D069B0100B8559C /* NewsList.h */,
-				93AAE19A1D069B0100B8559C /* NewsList.m */,
-				93AAE19B1D069B0100B8559C /* HttpTool.h */,
-				93AAE19C1D069B0100B8559C /* HttpTool.m */,
+				93B9D91B1D22470D0061AE65 /* Model */,
+				93B9D91C1D22471A0061AE65 /* Controller */,
+				93B9D91A1D2246F80061AE65 /* View */,
+				93B9D91D1D22475D0061AE65 /* Tool */,
 				93AAE1641D069AD800B8559C /* AppDelegate.h */,
 				93AAE1651D069AD800B8559C /* AppDelegate.m */,
 				93AAE1671D069AD800B8559C /* ViewController.h */,
@@ -396,6 +381,53 @@
 				93AAE18B1D069AD800B8559C /* Info.plist */,
 			);
 			path = subaojunUITests;
+			sourceTree = "<group>";
+		};
+		93B9D91A1D2246F80061AE65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				937198201D1D1C7400B936A7 /* HQCell.h */,
+				937198211D1D1C7400B936A7 /* HQCell.m */,
+				937198221D1D1C7400B936A7 /* HQCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		93B9D91B1D22470D0061AE65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93AAE1971D069B0100B8559C /* News.h */,
+				93AAE1981D069B0100B8559C /* News.m */,
+				93AAE1991D069B0100B8559C /* NewsList.h */,
+				93AAE19A1D069B0100B8559C /* NewsList.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		93B9D91C1D22471A0061AE65 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93DB0C1A1D07B1E1002CBA1B /* DetailViewController.h */,
+				93DB0C1B1D07B1E1002CBA1B /* DetailViewController.m */,
+				93AAE1A01D069B5900B8559C /* FirstViewController.h */,
+				93AAE1A11D069B5900B8559C /* FirstViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		93B9D91D1D22475D0061AE65 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				93AAE19B1D069B0100B8559C /* HttpTool.h */,
+				93AAE19C1D069B0100B8559C /* HttpTool.m */,
+				937198251D1D216500B936A7 /* UIButton+LXMImagePosition.h */,
+				937198261D1D216500B936A7 /* UIButton+LXMImagePosition.m */,
+				93BACABD1D1278A800E3013A /* UIView+Extension.h */,
+				93BACABE1D1278A800E3013A /* UIView+Extension.m */,
+				93BACABA1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.h */,
+				93BACABB1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 		93BACAC01D12884200E3013A /* lib */ = {

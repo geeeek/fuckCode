@@ -56,12 +56,15 @@
      {
          switch (platformType)
          {
-//             case SSDKPlatformTypeWechat:
-//                 [ShareSDKConnector connectWeChat:[WXApi class]];
-//                 break;
-             case SSDKPlatformSubTypeWechatTimeline:
+             case SSDKPlatformTypeWechat:
                  [ShareSDKConnector connectWeChat:[WXApi class]];
                  break;
+//             case SSDKPlatformSubTypeWechatTimeline:
+//                 [ShareSDKConnector connectWeChat:[WXApi class]];
+//                 break;
+//             case SSDKPlatformSubTypeWechatSession:
+//                 [ShareSDKConnector connectWeChat:[WXApi class]];
+//                 break;
              case SSDKPlatformTypeQQ:
                  [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
                  break;

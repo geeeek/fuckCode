@@ -62,8 +62,10 @@
     CGFloat arrowCenterX = self.mj_w * 0.5;
     if (!self.stateLabel.hidden) {
         arrowCenterX -= 100;
+        
     }
-    CGFloat arrowCenterY = self.mj_h * 0.5;
+#pragma mark ---修改了箭头的Y值，使得不遮挡状态的文字
+    CGFloat arrowCenterY = self.mj_h * 0.5+ 10;
     CGPoint arrowCenter = CGPointMake(arrowCenterX, arrowCenterY);
     
     // 箭头
