@@ -42,6 +42,7 @@
 		93AAE19E1D069B0100B8559C /* NewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE19A1D069B0100B8559C /* NewsList.m */; };
 		93AAE19F1D069B0100B8559C /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE19C1D069B0100B8559C /* HttpTool.m */; };
 		93AAE1A21D069B5900B8559C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AAE1A11D069B5900B8559C /* FirstViewController.m */; };
+		93B0294E1D227DDA0085E1BF /* title.json in Resources */ = {isa = PBXBuildFile; fileRef = 93B0294D1D227DDA0085E1BF /* title.json */; };
 		93BACABC1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BACABB1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m */; };
 		93BACABF1D1278A800E3013A /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 93BACABE1D1278A800E3013A /* UIView+Extension.m */; };
 		93BACAC31D12884200E3013A /* jpush-ios-2.1.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BACAC11D12884200E3013A /* jpush-ios-2.1.7.a */; };
@@ -143,6 +144,7 @@
 		93AAE19C1D069B0100B8559C /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		93AAE1A01D069B5900B8559C /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		93AAE1A11D069B5900B8559C /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		93B0294D1D227DDA0085E1BF /* title.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = title.json; sourceTree = "<group>"; };
 		93BACABA1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		93BACABB1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		93BACABD1D1278A800E3013A /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				93AAE1681D069AD800B8559C /* ViewController.m */,
 				93AAE16A1D069AD800B8559C /* Main.storyboard */,
 				93AAE1721D069AD800B8559C /* LaunchScreen.storyboard */,
+				93B0294D1D227DDA0085E1BF /* title.json */,
 				93AAE1751D069AD800B8559C /* Info.plist */,
 				93AAE16D1D069AD800B8559C /* subaojun.xcdatamodeld */,
 				9367335E1D2117C4009D530A /* Assets.xcassets */,
@@ -588,6 +591,7 @@
 				936733501D210A0C009D530A /* README.txt in Resources */,
 				936733521D210A0C009D530A /* ShareSDK.bundle in Resources */,
 				9367335F1D2117C4009D530A /* Assets.xcassets in Resources */,
+				93B0294E1D227DDA0085E1BF /* title.json in Resources */,
 				93AAE16C1D069AD800B8559C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

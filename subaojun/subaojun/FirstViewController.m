@@ -32,6 +32,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     int  currentPage;
     NewsList *list;
     BOOL _hasMore;
+    MJRefreshNormalHeader *header;
 }
 @property (nonatomic, strong) PopMenu *popMenu;
 @property(readwrite,nonatomic,copy)NSMutableDictionary *params;
@@ -80,21 +81,17 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 //        [self getData];
 //        
 //    }];
-    MJRefreshNormalHeader *header  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+      header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         currentPage = 1;
         [self getData];
-       
-        
+        [self changRefreshTitle];
+
     }];
-    self.refreshTitle =@"人生就是一场戏，何必认真";
-    // 设置文字
-    [header setTitle:self.refreshTitle forState:MJRefreshStateIdle];
-    [header setTitle:self.refreshTitle forState:MJRefreshStatePulling];
-    [header setTitle:self.refreshTitle forState:MJRefreshStateRefreshing];
+   
     // 设置字体
-    header.stateLabel.font = [UIFont systemFontOfSize:15];
+    header.stateLabel.font = [UIFont systemFontOfSize:14];
     header.stateLabel.textColor = [UIColor redColor];
-    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:14];
+    header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:13];
     _tableView.mj_header =header;
     _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         currentPage ++;
@@ -102,6 +99,21 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     }];
     [self.tableView registerNib:[UINib nibWithNibName:@"HQCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
+    
+}
+#pragma mark- 每次刷新修改状态文字
+-(void)changRefreshTitle
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"title" ofType:@"json"];
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:NSJSONReadingMutableLeaves error:nil];
+    NSArray *arr = [dictionary allKeys];
+     int value = arc4random() % dictionary.count;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.refreshTitle =[dictionary objectForKey:arr[value]];
+        [header setTitle:self.refreshTitle forState:MJRefreshStateIdle];
+        [header setTitle:self.refreshTitle forState:MJRefreshStatePulling];
+        [header setTitle:self.refreshTitle forState:MJRefreshStateRefreshing];
+    });
     
 }
 
@@ -131,16 +143,12 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         [ _newsArray addObjectsFromArray:array1];
         [_tableView reloadData];
           [self endRefresh];
-//        NSLog(@"%lu",(unsigned long)list.objDataSet.count);
-        
     } withFailureBlock:^(NSError *error) {
-//        NSLog(@"%@",error);
          [self.tableView.mj_footer endRefreshingWithNoMoreData];
         
     }];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return list.objDataSet.count ;
     return _newsArray.count;
 
 }
@@ -149,7 +157,6 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     if (![newsInfo.contentInfo  isEqual:@""]) {
         DetailViewController *DVC = [[DetailViewController alloc]init];
         [self.navigationController pushViewController:DVC animated:YES];
-        //    News *newsInfo =list.objDataSet[indexPath.row];
         DVC.detailText = newsInfo.contentInfo;
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
         self.navigationItem.backBarButtonItem = barItem;
@@ -164,27 +171,18 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     return 80;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    static NSString *cellID = @"cellID";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-//                                      reuseIdentifier:cellID];
-//    }
      HQCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     News *newsInfo =_newsArray[indexPath.row];
     if([newsInfo.contentInfo  isEqual:@""])
     {
         cell.textLabel.numberOfLines =2;
         cell.accessoryType = UITableViewCellAccessoryNone;
-//        self.shareNews =newsInfo.title;
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         cell.textLabel.numberOfLines =2;
-//        self.shareNews =newsInfo.contentInfo;
-        
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *strdate=newsInfo.newsDate;
@@ -200,9 +198,6 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
     formatter.dateFormat=@"HH:mm";
     //3>将日期转换为字符串 stringFromDate
     NSString *datestr=[formatter stringFromDate:ndate];
-//    UILabel  *label =[UILabel new];
-//    label.text =datestr;
-//    label.font =[UIFont systemFontOfSize:5];
       NSString *str1 =[datestr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
 //    NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
     NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc]initWithString:str1];
@@ -236,7 +231,7 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
         [shareParams SSDKSetupShareParamsByText:self.shareNews
                                          images:imageArray
-                                            url:[NSURL URLWithString:nil]
+                                            url:[NSURL URLWithString:HYurl]
                                           title:@"速报君"
                                            type:SSDKContentTypeAuto];
         //2、分享（可以弹出我们的分享菜单和编辑界面）
@@ -273,40 +268,6 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
          ];}
     
 }
-
-//-(void)popView
-//{
-//    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:4];
-//    
-//    MenuItem *menuItem = [MenuItem itemWithTitle:@"新浪微博" iconName:@"weibo"];
-//    [items addObject:menuItem];
-//     menuItem = [MenuItem itemWithTitle:@"微信好友" iconName:@"wechat"];
-//    [items addObject:menuItem];
-//    menuItem = [MenuItem itemWithTitle:@"朋友圈" iconName:@"wechat_time"];
-//    [items addObject:menuItem];
-//    menuItem = [MenuItem itemWithTitle:@"QQ" iconName:@"qq_logo"];
-//    [items addObject:menuItem];
-//    if (!_popMenu) {
-//        _popMenu = [[PopMenu alloc] initWithFrame:CGRectMake(0,kHeight-150,kWidth,150) items:items];
-//        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
-//    }
-//    if (_popMenu.isShowed) {
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dissMissView)];
-//        tap.cancelsTouchesInView =NO;
-//        return;
-//       
-//    }
-//    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
-//        NSLog(@"%@",selectedItem.title);
-//    };
-//    
-//    [_popMenu showMenuAtView:self.view];
-//}
-//-(void)dissMissView
-//{
-//    [_popMenu dismissMenu];
-//}
-
 
 
 @end
