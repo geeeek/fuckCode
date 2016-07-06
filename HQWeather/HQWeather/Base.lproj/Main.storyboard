@@ -60,6 +60,9 @@
                                 <state key="normal" title="添加">
                                     <color key="titleShadowColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addCity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EDL-Mf-scR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiX-Pa-Ioq">
                                 <rect key="frame" x="0.0" y="547" width="90" height="36"/>
@@ -361,6 +364,20 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="HighTmp" destination="AAF-a2-J1J" id="hhs-4W-Pm0"/>
+                        <outlet property="bigImage" destination="uyw-FA-DGc" id="dDa-x5-Eqv"/>
+                        <outlet property="cityLabel" destination="95O-Gb-6gN" id="Y5y-RE-LxU"/>
+                        <outlet property="currentTmp" destination="7IR-ge-fOl" id="Ha8-uL-kPv"/>
+                        <outlet property="lowTmp" destination="aIo-3Y-WP7" id="lEC-ko-N26"/>
+                        <outlet property="oneImage" destination="nkY-om-hkK" id="mi4-9j-uvN"/>
+                        <outlet property="onelabel" destination="981-tA-8GI" id="0Iw-Yh-Dbf"/>
+                        <outlet property="secondImage" destination="7dC-QW-LJz" id="qfu-MK-apd"/>
+                        <outlet property="secondLabel" destination="SNP-BW-WeY" id="fqX-KT-bez"/>
+                        <outlet property="twoImage" destination="YgW-n2-rrS" id="XOd-kv-xbs"/>
+                        <outlet property="twoLabel" destination="OIu-XC-lBa" id="FDT-tc-CqA"/>
+                        <outlet property="weatherLabel" destination="pO0-AX-o4K" id="TfL-UP-fej"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

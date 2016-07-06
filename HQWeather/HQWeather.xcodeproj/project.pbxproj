@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		673D760F79AB7BDFB1D41AFF /* Pods_HQWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493140BF656946EE7E192D8D /* Pods_HQWeather.framework */; };
+		93834D1C1D2D026B00353F92 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D181D2D026B00353F92 /* CurrentWeather.m */; };
+		93834D1D1D2D026B00353F92 /* Weathers.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D1A1D2D026B00353F92 /* Weathers.m */; };
+		93834D211D2D028100353F92 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D201D2D028100353F92 /* HttpTool.m */; };
+		93834D2F1D2D043800353F92 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93834D221D2D043800353F92 /* CityData.plist */; };
+		93834D301D2D043800353F92 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D241D2D043800353F92 /* TLCity.m */; };
+		93834D311D2D043800353F92 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D261D2D043800353F92 /* TLCityGroupCell.m */; };
+		93834D321D2D043800353F92 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D281D2D043800353F92 /* TLCityHeaderView.m */; };
+		93834D331D2D043800353F92 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D2A1D2D043800353F92 /* TLCityPickerController.m */; };
+		93834D341D2D043800353F92 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */; };
 		93DAAD801D1A1E2E002C409D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD7F1D1A1E2E002C409D /* main.m */; };
 		93DAAD831D1A1E2E002C409D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD821D1A1E2E002C409D /* AppDelegate.m */; };
 		93DAAD861D1A1E2E002C409D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD851D1A1E2E002C409D /* MainViewController.m */; };
@@ -36,6 +46,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26E34793EC882CA471CE371B /* Pods-HQWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HQWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HQWeather/Pods-HQWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		40FE25637EED0463467AEFF2 /* Pods-HQWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HQWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-HQWeather/Pods-HQWeather.release.xcconfig"; sourceTree = "<group>"; };
+		493140BF656946EE7E192D8D /* Pods_HQWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HQWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93834D171D2D026B00353F92 /* CurrentWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeather.h; sourceTree = "<group>"; };
+		93834D181D2D026B00353F92 /* CurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather.m; sourceTree = "<group>"; };
+		93834D191D2D026B00353F92 /* Weathers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weathers.h; sourceTree = "<group>"; };
+		93834D1A1D2D026B00353F92 /* Weathers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weathers.m; sourceTree = "<group>"; };
+		93834D1F1D2D028100353F92 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
+		93834D201D2D028100353F92 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
+		93834D221D2D043800353F92 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		93834D231D2D043800353F92 /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
+		93834D241D2D043800353F92 /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
+		93834D251D2D043800353F92 /* TLCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityGroupCell.h; sourceTree = "<group>"; };
+		93834D261D2D043800353F92 /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
+		93834D271D2D043800353F92 /* TLCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityHeaderView.h; sourceTree = "<group>"; };
+		93834D281D2D043800353F92 /* TLCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityHeaderView.m; sourceTree = "<group>"; };
+		93834D291D2D043800353F92 /* TLCityPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerController.h; sourceTree = "<group>"; };
+		93834D2A1D2D043800353F92 /* TLCityPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerController.m; sourceTree = "<group>"; };
+		93834D2B1D2D043800353F92 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
+		93834D2C1D2D043800353F92 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
+		93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
 		93DAAD7B1D1A1E2E002C409D /* HQWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HQWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DAAD7F1D1A1E2E002C409D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93DAAD811D1A1E2E002C409D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				673D760F79AB7BDFB1D41AFF /* Pods_HQWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +112,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46A1D1CD0AE885EF291A020E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26E34793EC882CA471CE371B /* Pods-HQWeather.debug.xcconfig */,
+				40FE25637EED0463467AEFF2 /* Pods-HQWeather.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		93834D2E1D2D043800353F92 /* TLCityPicker */ = {
+			isa = PBXGroup;
+			children = (
+				93834D221D2D043800353F92 /* CityData.plist */,
+				93834D231D2D043800353F92 /* TLCity.h */,
+				93834D241D2D043800353F92 /* TLCity.m */,
+				93834D251D2D043800353F92 /* TLCityGroupCell.h */,
+				93834D261D2D043800353F92 /* TLCityGroupCell.m */,
+				93834D271D2D043800353F92 /* TLCityHeaderView.h */,
+				93834D281D2D043800353F92 /* TLCityHeaderView.m */,
+				93834D291D2D043800353F92 /* TLCityPickerController.h */,
+				93834D2A1D2D043800353F92 /* TLCityPickerController.m */,
+				93834D2B1D2D043800353F92 /* TLCityPickerDelegate.h */,
+				93834D2C1D2D043800353F92 /* TLCityPickerSearchResultController.h */,
+				93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */,
+			);
+			name = TLCityPicker;
+			path = "../../../TLCityPicker-master/TLCityPicker";
+			sourceTree = "<group>";
+		};
 		93DAAD721D1A1E2E002C409D = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +148,8 @@
 				93DAAD9A1D1A1E2E002C409D /* HQWeatherTests */,
 				93DAADA51D1A1E2E002C409D /* HQWeatherUITests */,
 				93DAAD7C1D1A1E2E002C409D /* Products */,
+				46A1D1CD0AE885EF291A020E /* Pods */,
+				CBC6646092BE08885903AB30 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +166,13 @@
 		93DAAD7D1D1A1E2E002C409D /* HQWeather */ = {
 			isa = PBXGroup;
 			children = (
+				93834D2E1D2D043800353F92 /* TLCityPicker */,
+				93834D1F1D2D028100353F92 /* HttpTool.h */,
+				93834D201D2D028100353F92 /* HttpTool.m */,
+				93834D171D2D026B00353F92 /* CurrentWeather.h */,
+				93834D181D2D026B00353F92 /* CurrentWeather.m */,
+				93834D191D2D026B00353F92 /* Weathers.h */,
+				93834D1A1D2D026B00353F92 /* Weathers.m */,
 				93DAAD811D1A1E2E002C409D /* AppDelegate.h */,
 				93DAAD821D1A1E2E002C409D /* AppDelegate.m */,
 				93DAAD841D1A1E2E002C409D /* MainViewController.h */,
@@ -143,6 +213,14 @@
 			path = HQWeatherUITests;
 			sourceTree = "<group>";
 		};
+		CBC6646092BE08885903AB30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				493140BF656946EE7E192D8D /* Pods_HQWeather.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93DAADAB1D1A1E2E002C409D /* Build configuration list for PBXNativeTarget "HQWeather" */;
 			buildPhases = (
+				DF12BF5739D6B6CFC2579AAD /* [CP] Check Pods Manifest.lock */,
 				93DAAD771D1A1E2E002C409D /* Sources */,
 				93DAAD781D1A1E2E002C409D /* Frameworks */,
 				93DAAD791D1A1E2E002C409D /* Resources */,
+				B11FD4436B886369CCDE26BD /* [CP] Embed Pods Frameworks */,
+				A9F1A4FE4CC7708B1C7D3635 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +330,7 @@
 				93DAAD911D1A1E2E002C409D /* LaunchScreen.storyboard in Resources */,
 				93DAAD8E1D1A1E2E002C409D /* Assets.xcassets in Resources */,
 				93DAAD891D1A1E2E002C409D /* Main.storyboard in Resources */,
+				93834D2F1D2D043800353F92 /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,15 +350,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A9F1A4FE4CC7708B1C7D3635 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HQWeather/Pods-HQWeather-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B11FD4436B886369CCDE26BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HQWeather/Pods-HQWeather-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF12BF5739D6B6CFC2579AAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		93DAAD771D1A1E2E002C409D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93834D1D1D2D026B00353F92 /* Weathers.m in Sources */,
+				93834D1C1D2D026B00353F92 /* CurrentWeather.m in Sources */,
 				93DAAD861D1A1E2E002C409D /* MainViewController.m in Sources */,
+				93834D341D2D043800353F92 /* TLCityPickerSearchResultController.m in Sources */,
+				93834D311D2D043800353F92 /* TLCityGroupCell.m in Sources */,
+				93834D321D2D043800353F92 /* TLCityHeaderView.m in Sources */,
+				93834D331D2D043800353F92 /* TLCityPickerController.m in Sources */,
 				93DAAD831D1A1E2E002C409D /* AppDelegate.m in Sources */,
+				93834D301D2D043800353F92 /* TLCity.m in Sources */,
 				93DAAD801D1A1E2E002C409D /* main.m in Sources */,
 				93DAAD8C1D1A1E2E002C409D /* HQWeather.xcdatamodeld in Sources */,
+				93834D211D2D028100353F92 /* HttpTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +553,7 @@
 		};
 		93DAADAC1D1A1E2E002C409D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26E34793EC882CA471CE371B /* Pods-HQWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HQWeather/Info.plist;
@@ -426,6 +565,7 @@
 		};
 		93DAADAD1D1A1E2E002C409D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40FE25637EED0463467AEFF2 /* Pods-HQWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HQWeather/Info.plist;
