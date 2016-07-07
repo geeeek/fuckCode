@@ -11,11 +11,10 @@
 #import "CurrentWeather.h"
 #import "Weathers.h"
 #import "NSObject+YYModel.h"
-#import "TLCityPickerController.h"
 
 static NSString *const Appkey =@"16908";
 static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
-@interface ViewController ()<TLCityPickerDelegate>
+@interface ViewController ()
 {
     Weathers *weathers;
 }
@@ -59,34 +58,6 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)addCity:(UIButton *)sender {
-    TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
-    [cityPickerVC setDelegate:self];
-    
-    cityPickerVC.locationCityID = @"1400010000";
-    //    cityPickerVC.commonCitys = [[NSMutableArray alloc] initWithArray: @[@"1400010000", @"100010000"]];        // 最近访问城市，如果不设置，将自动管理
-    cityPickerVC.hotCitys = @[@"100010000", @"200010000", @"300210000", @"600010000", @"300110000"];
-    
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
-        
-    }];
-    
-}
 #pragma mark -城市选择代理方法
-- (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city
-{
-//    [self.ci setTitle:city.cityName forState:UIControlStateNormal];
-    self.cityLabel.text =city.cityName;
-    [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
 
-- (void) cityPickerControllerDidCancel:(TLCityPickerController *)cityPickerViewController
-{
-    [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
 @end

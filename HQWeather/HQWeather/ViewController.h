@@ -24,8 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *oneImage;
 @property (weak, nonatomic) IBOutlet UIImageView *twoImage;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImage;
+@property (weak, nonatomic) IBOutlet UIButton *addCity;
 
-- (IBAction)addCity:(UIButton *)sender;
+
 
 
 @end

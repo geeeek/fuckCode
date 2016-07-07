@@ -7,7 +7,6 @@
 //
 
 #import "MultiplePagesViewController.h"
-
 #define PAGE_CONTROL_HEIGHT 20
 
 @interface MultiplePagesViewController ()
@@ -31,7 +30,6 @@
     [self.view addSubview:self.mainScrollView];
     [self.view addSubview:self.pageControl];
 }
-
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.mainScrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
