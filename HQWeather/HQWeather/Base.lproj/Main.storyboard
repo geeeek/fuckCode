@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,7 +11,7 @@
         <!--MainView Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="MainView Controller" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="view" id="BYZ-38-t0r" userLabel="MainView Controller" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -381,59 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="-377"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Ci0-q3-ljN">
-            <objects>
-                <viewController id="oaC-ke-JWn" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="z7U-u4-7ZH"/>
-                        <viewControllerLayoutGuide type="bottom" id="tIK-28-MaO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="bdk-VZ-r4O">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="输入城市名" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-xy-rCF">
-                                <rect key="frame" x="0.0" y="0.0" width="501" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="oaC-ke-JWn" id="8Bu-Pc-gKP"/>
-                                </connections>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p78-7W-oPe">
-                                <rect key="frame" x="501" y="0.0" width="79" height="44"/>
-                                <state key="normal" title="Done"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XpE-8E-owZ"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="CqX-0i-K5a" id="GZ2-rg-7dW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1ah-J6-rLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="71g-o9-IAx">
-                    <connections>
-                        <outlet property="delegate" destination="oaC-ke-JWn" id="bXx-FU-K8f"/>
-                        <outlet property="searchBar" destination="bPD-xy-rCF" id="mO4-Xf-i9b"/>
-                        <outlet property="searchContentsController" destination="oaC-ke-JWn" id="zr5-EX-DJM"/>
-                        <outlet property="searchResultsDataSource" destination="oaC-ke-JWn" id="Z3a-hl-lto"/>
-                        <outlet property="searchResultsDelegate" destination="oaC-ke-JWn" id="wv6-BT-7WB"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="CqX-0i-K5a">
-                    <connections>
-                        <outlet property="delegate" destination="oaC-ke-JWn" id="tHW-Fp-RJv"/>
-                        <outlet property="searchContentsController" destination="oaC-ke-JWn" id="j6a-in-piR"/>
-                        <outlet property="searchResultsDataSource" destination="oaC-ke-JWn" id="RzU-so-DZc"/>
-                        <outlet property="searchResultsDelegate" destination="oaC-ke-JWn" id="alu-M5-ON6"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="1044" y="-442"/>
+            <point key="canvasLocation" x="-98" y="-384"/>
         </scene>
     </scenes>
     <resources>

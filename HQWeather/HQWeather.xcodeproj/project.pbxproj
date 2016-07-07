@@ -17,9 +17,11 @@
 		93834D321D2D043800353F92 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D281D2D043800353F92 /* TLCityHeaderView.m */; };
 		93834D331D2D043800353F92 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D2A1D2D043800353F92 /* TLCityPickerController.m */; };
 		93834D341D2D043800353F92 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */; };
+		939777461D2E23F5000E94FB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939777451D2E23F5000E94FB /* MainViewController.m */; };
+		939777491D2E2458000E94FB /* MultiplePagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939777481D2E2458000E94FB /* MultiplePagesViewController.m */; };
 		93DAAD801D1A1E2E002C409D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD7F1D1A1E2E002C409D /* main.m */; };
 		93DAAD831D1A1E2E002C409D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD821D1A1E2E002C409D /* AppDelegate.m */; };
-		93DAAD861D1A1E2E002C409D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD851D1A1E2E002C409D /* MainViewController.m */; };
+		93DAAD861D1A1E2E002C409D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD851D1A1E2E002C409D /* ViewController.m */; };
 		93DAAD891D1A1E2E002C409D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DAAD871D1A1E2E002C409D /* Main.storyboard */; };
 		93DAAD8C1D1A1E2E002C409D /* HQWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD8A1D1A1E2E002C409D /* HQWeather.xcdatamodeld */; };
 		93DAAD8E1D1A1E2E002C409D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DAAD8D1D1A1E2E002C409D /* Assets.xcassets */; };
@@ -67,12 +69,16 @@
 		93834D2B1D2D043800353F92 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
 		93834D2C1D2D043800353F92 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
 		93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
+		939777441D2E23F5000E94FB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		939777451D2E23F5000E94FB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		939777471D2E2458000E94FB /* MultiplePagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePagesViewController.h; sourceTree = "<group>"; };
+		939777481D2E2458000E94FB /* MultiplePagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePagesViewController.m; sourceTree = "<group>"; };
 		93DAAD7B1D1A1E2E002C409D /* HQWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HQWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DAAD7F1D1A1E2E002C409D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		93DAAD811D1A1E2E002C409D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93DAAD821D1A1E2E002C409D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		93DAAD841D1A1E2E002C409D /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		93DAAD851D1A1E2E002C409D /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		93DAAD841D1A1E2E002C409D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		93DAAD851D1A1E2E002C409D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		93DAAD881D1A1E2E002C409D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93DAAD8B1D1A1E2E002C409D /* HQWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HQWeather.xcdatamodel; sourceTree = "<group>"; };
 		93DAAD8D1D1A1E2E002C409D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,8 +181,12 @@
 				93834D1A1D2D026B00353F92 /* Weathers.m */,
 				93DAAD811D1A1E2E002C409D /* AppDelegate.h */,
 				93DAAD821D1A1E2E002C409D /* AppDelegate.m */,
-				93DAAD841D1A1E2E002C409D /* MainViewController.h */,
-				93DAAD851D1A1E2E002C409D /* MainViewController.m */,
+				939777471D2E2458000E94FB /* MultiplePagesViewController.h */,
+				939777481D2E2458000E94FB /* MultiplePagesViewController.m */,
+				93DAAD841D1A1E2E002C409D /* ViewController.h */,
+				93DAAD851D1A1E2E002C409D /* ViewController.m */,
+				939777441D2E23F5000E94FB /* MainViewController.h */,
+				939777451D2E23F5000E94FB /* MainViewController.m */,
 				93DAAD871D1A1E2E002C409D /* Main.storyboard */,
 				93DAAD8D1D1A1E2E002C409D /* Assets.xcassets */,
 				93DAAD8F1D1A1E2E002C409D /* LaunchScreen.storyboard */,
@@ -405,8 +415,10 @@
 			files = (
 				93834D1D1D2D026B00353F92 /* Weathers.m in Sources */,
 				93834D1C1D2D026B00353F92 /* CurrentWeather.m in Sources */,
-				93DAAD861D1A1E2E002C409D /* MainViewController.m in Sources */,
+				93DAAD861D1A1E2E002C409D /* ViewController.m in Sources */,
+				939777491D2E2458000E94FB /* MultiplePagesViewController.m in Sources */,
 				93834D341D2D043800353F92 /* TLCityPickerSearchResultController.m in Sources */,
+				939777461D2E23F5000E94FB /* MainViewController.m in Sources */,
 				93834D311D2D043800353F92 /* TLCityGroupCell.m in Sources */,
 				93834D321D2D043800353F92 /* TLCityHeaderView.m in Sources */,
 				93834D331D2D043800353F92 /* TLCityPickerController.m in Sources */,
