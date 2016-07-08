@@ -11,9 +11,10 @@
 #import "ViewController.h"
 #import "Masonry.h"
 #import "TLCityPickerController.h"
+
 @interface MainViewController() <TLCityPickerDelegate>
 {
-    int *vcConunt;
+    int vcConunt;
 }
 @property (strong, nonatomic) MultiplePagesViewController *multiplePagesViewController;
 @property (strong, nonatomic) ViewController *vc;
@@ -24,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    vcConunt =0;
+    vcConunt =1;
     [self.view addSubview:self.multiplePagesViewController.view];
     [self addChildViewController:self.multiplePagesViewController];
     [self addDefaultPageViewControllers];
@@ -54,6 +55,7 @@
 //    [self.view addSubview:btn2];
 //
 //}
+//添加城市页面，城市个数不超过5个
 - (void)addDefaultPageViewControllers {
      if(vcConunt <= 5){
         UIStoryboard *board =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -61,8 +63,7 @@
         [self.multiplePagesViewController addViewController:_vc];
        [self.vc.addCity addTarget:self action:@selector(addCity) forControlEvents:UIControlEventTouchUpInside];
          vcConunt =vcConunt +1;
-    }else
-        return;
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -75,6 +76,8 @@
 
 - (void)pageChangedTo:(NSInteger)pageIndex {
     // do something when page changed in MultiplePagesViewController
+ 
+    
 }
 
 
@@ -93,6 +96,8 @@
     //    [self.ci setTitle:city.cityName forState:UIControlStateNormal];
 //    self.cityLabel.text =city.cityName;
     NSLog(@"%@",city.cityName);
+    self.vc.cityLabel.text =city.cityName;
+    
     [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
         
     }];
