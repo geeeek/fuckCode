@@ -386,6 +386,7 @@
                         <outlet property="oneImage" destination="nkY-om-hkK" id="mi4-9j-uvN"/>
                         <outlet property="onelabel" destination="981-tA-8GI" id="0Iw-Yh-Dbf"/>
                         <outlet property="secondImage" destination="7dC-QW-LJz" id="qfu-MK-apd"/>
+                        <outlet property="secondLabel" destination="dBp-Sr-Qiw" id="qbv-LT-HlS"/>
                         <outlet property="twoImage" destination="YgW-n2-rrS" id="XOd-kv-xbs"/>
                         <outlet property="twoLabel" destination="OIu-XC-lBa" id="FDT-tc-CqA"/>
                         <outlet property="weatherLabel" destination="pO0-AX-o4K" id="TfL-UP-fej"/>

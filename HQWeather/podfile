@@ -7,4 +7,5 @@ target 'HQWeather' do
 pod 'YYModel', '~> 1.0.2'
  pod 'MJRefresh', '~> 3.1.0'
 pod 'Masonry', '~> 0.6.4'
+pod 'SVProgressHUD', '~> 2.0-beta8'
 end
