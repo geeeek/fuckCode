@@ -10,5 +10,5 @@
 @class CurrentWeather;
 @interface Weathers : NSObject
 @property (nonatomic, copy) NSArray<CurrentWeather *> *result;
-
+@property (nonatomic, strong) CurrentWeather *resultData;
 @end

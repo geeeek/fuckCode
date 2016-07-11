@@ -15,6 +15,7 @@
 @property(nonatomic,copy) NSString *weather;
 @property(nonatomic,copy)NSString *temp_low;
 @property(nonatomic,copy) NSString *temp_high;
-
+@property(nonatomic,copy) NSString *temperature_curr;
+@property(nonatomic,copy) NSString *weather_icon;
 
 @end

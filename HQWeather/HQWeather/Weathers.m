@@ -14,4 +14,10 @@
              @"result" : CurrentWeather.class
              };
 }
++(NSDictionary *)modelCustomPropertyMapper
+{
+    return @{@"resultData":@"result",
+             
+             };
+}
 @end

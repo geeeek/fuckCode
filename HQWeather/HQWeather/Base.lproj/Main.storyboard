@@ -31,7 +31,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晴转多云" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pO0-AX-o4K">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="晴转多云" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pO0-AX-o4K">
                                 <rect key="frame" x="216" y="257" width="168" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="bha-4W-gsg"/>
@@ -40,6 +40,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bha-4W-gsg"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95O-Gb-6gN">
                                 <rect key="frame" x="260.5" y="303" width="80" height="28"/>
@@ -356,6 +361,7 @@
                             <constraint firstItem="95O-Gb-6gN" firstAttribute="top" secondItem="pO0-AX-o4K" secondAttribute="bottom" constant="3" id="Qq1-Fd-POc"/>
                             <constraint firstItem="pO0-AX-o4K" firstAttribute="top" secondItem="uyw-FA-DGc" secondAttribute="bottom" constant="42" id="Rq3-PT-1R5"/>
                             <constraint firstItem="5y4-Dd-cvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V7K-zI-T04"/>
+                            <constraint firstItem="pO0-AX-o4K" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="abo-Fg-BXv"/>
                             <constraint firstItem="5y4-Dd-cvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gZi-oB-RC7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hJk-gb-Ack" secondAttribute="bottom" constant="17" id="jp5-lm-5mX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5y4-Dd-cvn" secondAttribute="bottom" constant="200" id="kB7-0l-eyD"/>
@@ -399,7 +405,7 @@
     </scenes>
     <resources>
         <image name="add" width="36" height="36"/>
-        <image name="cover" width="512" height="512"/>
+        <image name="cover" width="341" height="341"/>
         <image name="setting" width="36" height="36"/>
         <image name="sun" width="62" height="62"/>
     </resources>

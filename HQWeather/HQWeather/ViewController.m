@@ -14,12 +14,14 @@
 #import <CoreLocation/CoreLocation.h>
 #import <corelocation/CLLocationManagerDelegate.h>
 #import "SVProgressHUD.h"
+#import "YYWebImage.h"
 
 static NSString *const Appkey =@"16908";
 static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 @interface ViewController () <CLLocationManagerDelegate>
 {
     Weathers *weathers;
+    Weathers *curWeathers;
 }
 @property (nonatomic, strong) CLLocationManager *locationManger;
 @property(nonatomic,copy)NSString *cityStr;
@@ -102,19 +104,35 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 -(void)getData
 {
 //    http:api.k780.com:88/?app=weather.future&weaid=1&appkey=16908&sign=fcb273a68e9127bd2aaa6de5a30951f5&format=json
-   
-        NSString *str1  = [_cityStr stringByReplacingOccurrencesOfString:@"市" withString:@""];
-    
+    dispatch_group_t group =dispatch_group_create();
+    dispatch_group_enter(group);
+    NSString *str1  = [_cityStr stringByReplacingOccurrencesOfString:@"市" withString:@""];
     NSString *str2 =[NSString stringWithFormat:@"http:api.k780.com:88/?app=weather.future&weaid=%@&appkey=%@&sign=%@&format=json",str1,Appkey,Sign];
     NSString *stringCleanPath = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [HttpTool get:stringCleanPath parameters:nil withCompletionBlock:^(id returnValue) {
-//        NSDictionary *dic =returnValue;
         weathers = [Weathers yy_modelWithDictionary:returnValue];
-        
-        [self setData];
+        dispatch_group_leave(group);
     } withFailureBlock:^(NSError *error) {
+        
+         dispatch_group_leave(group);
         return ;
     }];
+    dispatch_group_enter(group);
+    NSString *str3 =[NSString stringWithFormat:@"http:api.k780.com:88/?app=weather.today&weaid=%@&appkey=%@&sign=%@&format=json",str1,Appkey,Sign];
+    NSString *stringCleanPath2 = [str3 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [HttpTool get:stringCleanPath2 parameters:nil withCompletionBlock:^(id returnValue) {
+        curWeathers =[Weathers yy_modelWithDictionary:returnValue];
+        dispatch_group_leave(group);
+    } withFailureBlock:^(NSError *error) {
+        
+        dispatch_group_leave(group);
+        return ;
+    }];
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        [self setData];
+    });
+
+    
 }
 -(void)setData
 {
@@ -122,12 +140,97 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     self.weatherLabel.text =weathers.result[0].weather;
     self.HighTmp.text =weathers.result[0].temp_high;
     self.lowTmp.text =weathers.result[0].temp_low;
-//    self.currentTmp.text =weathers.result[0].cu;
     self.onelabel.text =weathers.result[1].week;
     self.twoLabel.text= weathers.result[2].week;
     self.secondLabel.text = weathers.result[3].week;
-    
+    NSString *strTmp  = [curWeathers.resultData.temperature_curr stringByReplacingOccurrencesOfString:@"℃" withString:@""];
+    self.currentTmp.text =strTmp;
+    self.bigImage.yy_imageURL =[NSURL URLWithString:weathers.result[0].weather_icon];
+    self.oneImage.yy_imageURL =[NSURL URLWithString:weathers.result[1].weather_icon];
+    self.twoImage.yy_imageURL =[NSURL URLWithString:weathers.result[2].weather_icon];
+    self.secondImage.yy_imageURL =[NSURL URLWithString:weathers.result[3].weather_icon];
 }
+//根据天气情况返回对应的天气图片名
+//- (NSString *)loadWeatherImageNamed:(NSString *)type {
+//    
+//    if ([type isEqualToString:@"晴"]) {
+//        return @"8.png";
+//    }
+//    if ([type isEqualToString:@"阴"]) {
+//        return @"5.png";
+//    }
+//    if ([type isEqualToString:@"多云"]) {
+//        return @"11.png";
+//    }
+//    if([type isEqualToString:@"雨"])
+//    {
+//        return @"15.png";
+//    }
+//    if([type isEqualToString:@"雪"])
+//    {
+//        return @"10.png";
+//    }
+//    
+//    if([type isEqualToString:@"大雨转晴"])
+//    {
+//        return @"4.png";
+//    }
+//    if([type isEqualToString:@"阴转晴"])
+//    {
+//        return @"12.png";
+//    }
+//    if ([type isEqualToString:@"阴"]) {
+//        return @"5.png";
+//    }
+//    if ([type isEqualToString:@"多云"]) {
+//        return @"11.png";
+//    }
+//    if([type isEqualToString:@"雨"])
+//    {
+//        return @"15.png";
+//    }
+//    if([type isEqualToString:@"雨加雪"])
+//    {
+//        return @"13.png";
+//    }
+//    if([type isEqualToString:@"阵雨"])
+//    {
+//        return @"15.png";
+//    }
+//    if([type isEqualToString:@"雷阵雨"])
+//    {
+//        return @"7.png";
+//    }
+//    if ([type isEqualToString:@"中雨"]) {
+//        return @"15.png";
+//    }
+//    if ([type isEqualToString:@"小雪"]) {
+//        return @"10.png";
+//    }
+//    if([type isEqualToString:@"小雨"])
+//    {
+//        return @"15.png";
+//    }
+//    if([type isEqualToString:@"中雪"])
+//    {
+//        return @"14.png";
+//    }
+//    if([type isEqualToString:@"大雨"])
+//    {
+//        return @"3.png";
+//    }
+//    if([type isEqualToString:@"大雪"])
+//    {
+//        return @"2.png";
+//    }
+//    if ([type isEqualToString:@"雷阵雨转多云"]) {
+//        return @"7.png";
+//    }
+//    if ([type isEqualToString:@"阴转多云"]) {
+//        return @"5.png";
+//    }
+//    return @"9";
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
