@@ -30,13 +30,25 @@
     [super viewWillDisappear:animated];
     [self.locationManger stopUpdatingLocation];
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    static dispatch_once_t refresh;
+    //解决查看详情后返回页面重复刷新问题
+    dispatch_once(&refresh, ^{
+         [self addDefaultPageViewControllers];
+    });
+
+    
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     vcConunt =1;
     [self.view addSubview:self.multiplePagesViewController.view];
     [self addChildViewController:self.multiplePagesViewController];
-    [self addDefaultPageViewControllers];
+   
     [self.vc.addCity addTarget:self action:@selector(addCity) forControlEvents:UIControlEventTouchUpInside];
 //    self.locationManger = [[CLLocationManager alloc] init];
 //    self.locationManger.delegate = self;
@@ -158,7 +170,6 @@
 {
     //    [self.ci setTitle:city.cityName forState:UIControlStateNormal];
 //    self.cityLabel.text =city.cityName;
-    NSLog(@"%@",city.cityName);
     self.vc.cityLabel.text =city.cityName;
     
     [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
@@ -169,7 +180,7 @@
 - (void) cityPickerControllerDidCancel:(TLCityPickerController *)cityPickerViewController
 {
     [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
-        
+
     }];
 }
 -(void)addCity{

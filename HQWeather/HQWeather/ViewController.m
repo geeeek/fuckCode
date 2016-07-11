@@ -145,92 +145,95 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     self.secondLabel.text = weathers.result[3].week;
     NSString *strTmp  = [curWeathers.resultData.temperature_curr stringByReplacingOccurrencesOfString:@"℃" withString:@""];
     self.currentTmp.text =strTmp;
-    self.bigImage.yy_imageURL =[NSURL URLWithString:weathers.result[0].weather_icon];
-    self.oneImage.yy_imageURL =[NSURL URLWithString:weathers.result[1].weather_icon];
-    self.twoImage.yy_imageURL =[NSURL URLWithString:weathers.result[2].weather_icon];
-    self.secondImage.yy_imageURL =[NSURL URLWithString:weathers.result[3].weather_icon];
+//    self.bigImage.yy_imageURL =[NSURL URLWithString:weathers.result[0].weather_icon];
+//    self.oneImage.yy_imageURL =[NSURL URLWithString:weathers.result[1].weather_icon];
+//    self.twoImage.yy_imageURL =[NSURL URLWithString:weathers.result[2].weather_icon];
+//    self.secondImage.yy_imageURL =[NSURL URLWithString:weathers.result[3].weather_icon];
+     self.bigImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[0].weather]];
+    self.oneImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[1].weather]];
+    self.twoImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[2].weather]];
+    self.secondImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[3].weather]];
 }
 //根据天气情况返回对应的天气图片名
-//- (NSString *)loadWeatherImageNamed:(NSString *)type {
-//    
-//    if ([type isEqualToString:@"晴"]) {
-//        return @"8.png";
-//    }
-//    if ([type isEqualToString:@"阴"]) {
-//        return @"5.png";
-//    }
-//    if ([type isEqualToString:@"多云"]) {
-//        return @"11.png";
-//    }
-//    if([type isEqualToString:@"雨"])
-//    {
-//        return @"15.png";
-//    }
-//    if([type isEqualToString:@"雪"])
-//    {
-//        return @"10.png";
-//    }
-//    
-//    if([type isEqualToString:@"大雨转晴"])
-//    {
-//        return @"4.png";
-//    }
-//    if([type isEqualToString:@"阴转晴"])
-//    {
-//        return @"12.png";
-//    }
-//    if ([type isEqualToString:@"阴"]) {
-//        return @"5.png";
-//    }
-//    if ([type isEqualToString:@"多云"]) {
-//        return @"11.png";
-//    }
-//    if([type isEqualToString:@"雨"])
-//    {
-//        return @"15.png";
-//    }
-//    if([type isEqualToString:@"雨加雪"])
-//    {
-//        return @"13.png";
-//    }
-//    if([type isEqualToString:@"阵雨"])
-//    {
-//        return @"15.png";
-//    }
-//    if([type isEqualToString:@"雷阵雨"])
-//    {
-//        return @"7.png";
-//    }
-//    if ([type isEqualToString:@"中雨"]) {
-//        return @"15.png";
-//    }
-//    if ([type isEqualToString:@"小雪"]) {
-//        return @"10.png";
-//    }
-//    if([type isEqualToString:@"小雨"])
-//    {
-//        return @"15.png";
-//    }
-//    if([type isEqualToString:@"中雪"])
-//    {
-//        return @"14.png";
-//    }
-//    if([type isEqualToString:@"大雨"])
-//    {
-//        return @"3.png";
-//    }
-//    if([type isEqualToString:@"大雪"])
-//    {
-//        return @"2.png";
-//    }
-//    if ([type isEqualToString:@"雷阵雨转多云"]) {
-//        return @"7.png";
-//    }
-//    if ([type isEqualToString:@"阴转多云"]) {
-//        return @"5.png";
-//    }
-//    return @"9";
-//}
+- (NSString *)loadWeatherImageNamed:(NSString *)type {
+    
+    if ([type isEqualToString:@"晴"]) {
+        return @"1.png";
+    }
+    if ([type isEqualToString:@"阴"]) {
+        return @"5.png";
+    }
+    NSRange range = [type rangeOfString:@"多云"];
+    if (range.location != NSNotFound) {
+        
+        return @"3.png";
+        
+    }
+    if ([type isEqualToString:@"多云"]) {
+        return @"3.png";
+    }
+    if([type isEqualToString:@"雨"])
+    {
+        return @"4.png";
+    }
+    if([type isEqualToString:@"雪"])
+    {
+        return @"6.png";
+    }
+    
+    if([type isEqualToString:@"大雨转晴"])
+    {
+        return @"4.png";
+    }
+    if([type isEqualToString:@"阴转晴"])
+    {
+        return @"3.png";
+    }
+    if ([type isEqualToString:@"阴"]) {
+        return @"3.png";
+    }
+    if([type isEqualToString:@"雨加雪"])
+    {
+        return @"5.png";
+    }
+    if([type isEqualToString:@"阵雨"])
+    {
+        return @"4.png";
+    }
+    if([type isEqualToString:@"雷阵雨"])
+    {
+        return @"7.png";
+    }
+    if ([type isEqualToString:@"中雨"]) {
+        return @"15.png";
+    }
+    if ([type isEqualToString:@"小雪"]) {
+        return @"10.png";
+    }
+    if([type isEqualToString:@"小雨"])
+    {
+        return @"15.png";
+    }
+    if([type isEqualToString:@"中雪"])
+    {
+        return @"14.png";
+    }
+    if([type isEqualToString:@"大雨"])
+    {
+        return @"3.png";
+    }
+    if([type isEqualToString:@"大雪"])
+    {
+        return @"2.png";
+    }
+    if ([type isEqualToString:@"雷阵雨转多云"]) {
+        return @"7.png";
+    }
+    if ([type isEqualToString:@"阴转多云"]) {
+        return @"5.png";
+    }
+    return @"9";
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
