@@ -15,10 +15,11 @@
 #import <corelocation/CLLocationManagerDelegate.h>
 #import "SVProgressHUD.h"
 #import "YYWebImage.h"
+#import "MainViewController.h"
 
 static NSString *const Appkey =@"16908";
 static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
-@interface ViewController () <CLLocationManagerDelegate>
+@interface ViewController () <CLLocationManagerDelegate,changCityNameDelegate>
 {
     Weathers *weathers;
     Weathers *curWeathers;
@@ -28,7 +29,16 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 @end
 
 @implementation ViewController
-
+-(void)changCityName:(NSString *)cityText
+{
+     _cityStr = cityText;
+    [self getData:_cityStr];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.locationManger stopUpdatingLocation];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self getData];
@@ -44,7 +54,7 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *currLocation = [locations lastObject];
-    NSLog(@"经度=%f 纬度=%f 高度=%f", currLocation.coordinate.latitude, currLocation.coordinate.longitude, currLocation.altitude);
+//    NSLog(@"经度=%f 纬度=%f 高度=%f", currLocation.coordinate.latitude, currLocation.coordinate.longitude, currLocation.altitude);
     // 获取当前所在的城市名
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     //根据经纬度反向地理编译出地址信息
@@ -63,18 +73,13 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
                  city = placemark.administrativeArea;
              }
               _cityStr =city;
-             
              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                 // time-consuming task
-                 [self getData];
+                 [self getData:_cityStr];
 //                 [self setData];
                  dispatch_async(dispatch_get_main_queue(), ^{
                      [SVProgressHUD dismiss];
                  });
              });
-            
-             NSLog(@"city = %@", city);
-             
          }
          else if (error == nil && [array count] == 0)
          {
@@ -84,7 +89,6 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
          {
              NSLog(@"An error occurred = %@", error);
          }
-         [manager stopUpdatingLocation];
      }];
     
     //系统会一直更新数据，直到选择停止更新，因为我们只需要获得一次经纬度即可，所以获取之后就停止更新
@@ -95,18 +99,20 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     if ([error code] == kCLErrorDenied)
     {
         //访问被拒绝
+        [SVProgressHUD showInfoWithStatus:@"无法获取位置信息"];
     }
     if ([error code] == kCLErrorLocationUnknown) {
         //无法获取位置信息
+        [SVProgressHUD showInfoWithStatus:@"无法获取位置信息"];
     }
 }
 
--(void)getData
+-(void)getData:(NSString *)cityNm
 {
 //    http:api.k780.com:88/?app=weather.future&weaid=1&appkey=16908&sign=fcb273a68e9127bd2aaa6de5a30951f5&format=json
     dispatch_group_t group =dispatch_group_create();
     dispatch_group_enter(group);
-    NSString *str1  = [_cityStr stringByReplacingOccurrencesOfString:@"市" withString:@""];
+    NSString *str1  = [cityNm stringByReplacingOccurrencesOfString:@"市" withString:@""];
     NSString *str2 =[NSString stringWithFormat:@"http:api.k780.com:88/?app=weather.future&weaid=%@&appkey=%@&sign=%@&format=json",str1,Appkey,Sign];
     NSString *stringCleanPath = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [HttpTool get:stringCleanPath parameters:nil withCompletionBlock:^(id returnValue) {
@@ -136,7 +142,8 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 }
 -(void)setData
 {
-    self.cityLabel.text =weathers.result[0].citynm;
+//    self.cityLabel.text =weathers.result[0].citynm;
+    self.cityLabel.text =_cityStr;
     self.weatherLabel.text =weathers.result[0].weather;
     self.HighTmp.text =weathers.result[0].temp_high;
     self.lowTmp.text =weathers.result[0].temp_low;
@@ -145,15 +152,12 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     self.secondLabel.text = weathers.result[3].week;
     NSString *strTmp  = [curWeathers.resultData.temperature_curr stringByReplacingOccurrencesOfString:@"℃" withString:@""];
     self.currentTmp.text =strTmp;
-//    self.bigImage.yy_imageURL =[NSURL URLWithString:weathers.result[0].weather_icon];
-//    self.oneImage.yy_imageURL =[NSURL URLWithString:weathers.result[1].weather_icon];
-//    self.twoImage.yy_imageURL =[NSURL URLWithString:weathers.result[2].weather_icon];
-//    self.secondImage.yy_imageURL =[NSURL URLWithString:weathers.result[3].weather_icon];
      self.bigImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[0].weather]];
     self.oneImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[1].weather]];
     self.twoImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[2].weather]];
     self.secondImage.image = [UIImage imageNamed:[self loadWeatherImageNamed:weathers.result[3].weather]];
 }
+#pragma mark---天气图片还没有完全，天气描述判断还有问题
 //根据天气情况返回对应的天气图片名
 - (NSString *)loadWeatherImageNamed:(NSString *)type {
     

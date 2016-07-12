@@ -328,15 +328,15 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-xY-GYv">
-                                <rect key="frame" x="5" y="547" width="90" height="36"/>
+                                <rect key="frame" x="5" y="559" width="90" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="8Ir-dK-Do9"/>
                                     <constraint firstAttribute="width" constant="90" id="d3q-wQ-7vx"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="setting"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJk-gb-Ack">
-                                <rect key="frame" x="541" y="547" width="44" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJk-gb-Ack">
+                                <rect key="frame" x="541" y="544" width="44" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="RWi-yB-m70"/>
                                     <constraint firstAttribute="width" constant="44" id="qRr-9Z-dVl"/>
@@ -358,18 +358,18 @@
                             <constraint firstItem="uyw-FA-DGc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="Jvs-k3-1gn"/>
                             <constraint firstItem="pO0-AX-o4K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M2g-fc-Mur"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5y4-Dd-cvn" secondAttribute="trailing" id="OKi-U5-ryR"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JoJ-xY-GYv" secondAttribute="bottom" constant="17" id="Q0U-gO-oER"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JoJ-xY-GYv" secondAttribute="bottom" constant="5" id="Q0U-gO-oER"/>
                             <constraint firstItem="95O-Gb-6gN" firstAttribute="top" secondItem="pO0-AX-o4K" secondAttribute="bottom" constant="3" id="Qq1-Fd-POc"/>
                             <constraint firstItem="pO0-AX-o4K" firstAttribute="top" secondItem="uyw-FA-DGc" secondAttribute="bottom" constant="30" id="Rq3-PT-1R5"/>
                             <constraint firstItem="5y4-Dd-cvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V7K-zI-T04"/>
                             <constraint firstItem="pO0-AX-o4K" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="abo-Fg-BXv"/>
                             <constraint firstItem="5y4-Dd-cvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gZi-oB-RC7"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hJk-gb-Ack" secondAttribute="bottom" constant="17" id="jp5-lm-5mX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hJk-gb-Ack" secondAttribute="bottom" constant="5" id="jp5-lm-5mX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5y4-Dd-cvn" secondAttribute="bottom" constant="200" id="kB7-0l-eyD"/>
                             <constraint firstItem="JoJ-xY-GYv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="m1K-hR-PnL"/>
                             <constraint firstItem="uyw-FA-DGc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="6" id="oUQ-cl-uxn"/>
                             <constraint firstItem="95O-Gb-6gN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pO0-tR-xed"/>
-                            <constraint firstAttribute="trailing" secondItem="hJk-gb-Ack" secondAttribute="trailing" constant="15" id="yUb-EI-3Pi"/>
+                            <constraint firstAttribute="trailing" secondItem="hJk-gb-Ack" secondAttribute="trailing" constant="5" id="yUb-EI-3Pi"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

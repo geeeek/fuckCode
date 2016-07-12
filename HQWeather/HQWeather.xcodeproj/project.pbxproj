@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		673D760F79AB7BDFB1D41AFF /* Pods_HQWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493140BF656946EE7E192D8D /* Pods_HQWeather.framework */; };
+		9307A69F1D338C39000ADD5D /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9307A69D1D338C39000ADD5D /* SwipeView.m */; };
 		93834D1C1D2D026B00353F92 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D181D2D026B00353F92 /* CurrentWeather.m */; };
 		93834D1D1D2D026B00353F92 /* Weathers.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D1A1D2D026B00353F92 /* Weathers.m */; };
 		93834D211D2D028100353F92 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D201D2D028100353F92 /* HttpTool.m */; };
@@ -51,6 +52,8 @@
 		26E34793EC882CA471CE371B /* Pods-HQWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HQWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HQWeather/Pods-HQWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		40FE25637EED0463467AEFF2 /* Pods-HQWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HQWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-HQWeather/Pods-HQWeather.release.xcconfig"; sourceTree = "<group>"; };
 		493140BF656946EE7E192D8D /* Pods_HQWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HQWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9307A69C1D338C39000ADD5D /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		9307A69D1D338C39000ADD5D /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		93834D171D2D026B00353F92 /* CurrentWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeather.h; sourceTree = "<group>"; };
 		93834D181D2D026B00353F92 /* CurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather.m; sourceTree = "<group>"; };
 		93834D191D2D026B00353F92 /* Weathers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weathers.h; sourceTree = "<group>"; };
@@ -127,6 +130,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9307A69E1D338C39000ADD5D /* SwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				9307A69C1D338C39000ADD5D /* SwipeView.h */,
+				9307A69D1D338C39000ADD5D /* SwipeView.m */,
+			);
+			name = SwipeView;
+			path = ../../../Music/WeiYueMusic/Vendors/SwipeView;
+			sourceTree = "<group>";
+		};
 		93834D2E1D2D043800353F92 /* TLCityPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +185,7 @@
 		93DAAD7D1D1A1E2E002C409D /* HQWeather */ = {
 			isa = PBXGroup;
 			children = (
+				9307A69E1D338C39000ADD5D /* SwipeView */,
 				93834D2E1D2D043800353F92 /* TLCityPicker */,
 				93834D1F1D2D028100353F92 /* HttpTool.h */,
 				93834D201D2D028100353F92 /* HttpTool.m */,
@@ -422,6 +436,7 @@
 				93834D311D2D043800353F92 /* TLCityGroupCell.m in Sources */,
 				93834D321D2D043800353F92 /* TLCityHeaderView.m in Sources */,
 				93834D331D2D043800353F92 /* TLCityPickerController.m in Sources */,
+				9307A69F1D338C39000ADD5D /* SwipeView.m in Sources */,
 				93DAAD831D1A1E2E002C409D /* AppDelegate.m in Sources */,
 				93834D301D2D043800353F92 /* TLCity.m in Sources */,
 				93DAAD801D1A1E2E002C409D /* main.m in Sources */,

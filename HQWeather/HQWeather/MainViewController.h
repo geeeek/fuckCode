@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface MainViewController : UIViewController
-
+#import "TLCityPickerController.h"
+#import <CoreLocation/CoreLocation.h>
+#import <corelocation/CLLocationManagerDelegate.h>
+@protocol changCityNameDelegate <NSObject>
+- (void)changCityName:(NSString*)cityText;
+@end
+@interface MainViewController : UIViewController <TLCityPickerDelegate,CLLocationManagerDelegate>
+@property(nonatomic,weak) id<changCityNameDelegate> delegate;
 @end

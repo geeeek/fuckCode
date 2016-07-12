@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
 @interface AppDelegate ()
 
 @end
@@ -22,6 +23,7 @@
     self.window.rootViewController = [MainViewController  new];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self judgeNetworking];
     return YES;
 }
 
@@ -127,6 +129,21 @@
             abort();
         }
     }
+}
+- (void)judgeNetworking {
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (AFNetworkReachabilityStatusNotReachable == status) {
+            [SVProgressHUD dismiss];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"无网络连接"
+                                                            message:@"网络不给力，请检查网络设置!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    }];
+    
 }
 
 @end
