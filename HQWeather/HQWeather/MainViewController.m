@@ -5,6 +5,7 @@
 //  Created by 胡杨科技 on 16/7/7.
 //  Copyright © 2016年 胡杨网络. All rights reserved.
 //
+
 #import "MainViewController.h"
 #import "MultiplePagesViewController.h"
 #import "ViewController.h"
@@ -28,11 +29,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    static dispatch_once_t refresh;
-    //解决查看详情后返回页面重复刷新问题
-    dispatch_once(&refresh, ^{
-        
-    });
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,6 +38,8 @@
     [self addDefaultPageViewControllers];
     [self.view addSubview:self.multiplePagesViewController.view];
     [self addChildViewController:self.multiplePagesViewController];
+//    self.multiplePagesViewController.view.alpha = 0.5;
+
 }
 
 //添加城市页面，城市个数不超过5个

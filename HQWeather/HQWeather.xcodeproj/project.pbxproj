@@ -9,15 +9,22 @@
 /* Begin PBXBuildFile section */
 		673D760F79AB7BDFB1D41AFF /* Pods_HQWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493140BF656946EE7E192D8D /* Pods_HQWeather.framework */; };
 		9307A69F1D338C39000ADD5D /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9307A69D1D338C39000ADD5D /* SwipeView.m */; };
+		9371A3971D34F81F002B1EAB /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9371A3891D34F81F002B1EAB /* CityData.plist */; };
+		9371A3991D34F81F002B1EAB /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A38D1D34F81F002B1EAB /* TLCity.m */; };
+		9371A39A1D34F81F002B1EAB /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A38F1D34F81F002B1EAB /* TLCityGroupCell.m */; };
+		9371A39B1D34F81F002B1EAB /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3911D34F81F002B1EAB /* TLCityHeaderView.m */; };
+		9371A39C1D34F81F002B1EAB /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3931D34F81F002B1EAB /* TLCityPickerController.m */; };
+		9371A39D1D34F81F002B1EAB /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3961D34F81F002B1EAB /* TLCityPickerSearchResultController.m */; };
+		9371A3AD1D34F87C002B1EAB /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3A01D34F87C002B1EAB /* SXColorGradientView.m */; };
+		9371A3AE1D34F87C002B1EAB /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3A21D34F87C002B1EAB /* SXColorLabel.m */; };
+		9371A3AF1D34F87C002B1EAB /* SXHeadLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3A41D34F87C002B1EAB /* SXHeadLine.m */; };
+		9371A3B01D34F87C002B1EAB /* SXMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3A61D34F87C002B1EAB /* SXMarquee.m */; };
+		9371A3B11D34F87C002B1EAB /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3A81D34F87C002B1EAB /* UIColor+Separate.m */; };
+		9371A3B21D34F87C002B1EAB /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3AA1D34F87C002B1EAB /* UIColor+Wonderful.m */; };
+		9371A3B31D34F87C002B1EAB /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3AC1D34F87C002B1EAB /* UILabel+Wonderful.m */; };
 		93834D1C1D2D026B00353F92 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D181D2D026B00353F92 /* CurrentWeather.m */; };
 		93834D1D1D2D026B00353F92 /* Weathers.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D1A1D2D026B00353F92 /* Weathers.m */; };
 		93834D211D2D028100353F92 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D201D2D028100353F92 /* HttpTool.m */; };
-		93834D2F1D2D043800353F92 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93834D221D2D043800353F92 /* CityData.plist */; };
-		93834D301D2D043800353F92 /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D241D2D043800353F92 /* TLCity.m */; };
-		93834D311D2D043800353F92 /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D261D2D043800353F92 /* TLCityGroupCell.m */; };
-		93834D321D2D043800353F92 /* TLCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D281D2D043800353F92 /* TLCityHeaderView.m */; };
-		93834D331D2D043800353F92 /* TLCityPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D2A1D2D043800353F92 /* TLCityPickerController.m */; };
-		93834D341D2D043800353F92 /* TLCityPickerSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */; };
 		939777461D2E23F5000E94FB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939777451D2E23F5000E94FB /* MainViewController.m */; };
 		939777491D2E2458000E94FB /* MultiplePagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939777481D2E2458000E94FB /* MultiplePagesViewController.m */; };
 		93DAAD801D1A1E2E002C409D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD7F1D1A1E2E002C409D /* main.m */; };
@@ -54,24 +61,38 @@
 		493140BF656946EE7E192D8D /* Pods_HQWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HQWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9307A69C1D338C39000ADD5D /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		9307A69D1D338C39000ADD5D /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		9371A3891D34F81F002B1EAB /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
+		9371A38C1D34F81F002B1EAB /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
+		9371A38D1D34F81F002B1EAB /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
+		9371A38E1D34F81F002B1EAB /* TLCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityGroupCell.h; sourceTree = "<group>"; };
+		9371A38F1D34F81F002B1EAB /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
+		9371A3901D34F81F002B1EAB /* TLCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityHeaderView.h; sourceTree = "<group>"; };
+		9371A3911D34F81F002B1EAB /* TLCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityHeaderView.m; sourceTree = "<group>"; };
+		9371A3921D34F81F002B1EAB /* TLCityPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerController.h; sourceTree = "<group>"; };
+		9371A3931D34F81F002B1EAB /* TLCityPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerController.m; sourceTree = "<group>"; };
+		9371A3941D34F81F002B1EAB /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
+		9371A3951D34F81F002B1EAB /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
+		9371A3961D34F81F002B1EAB /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
+		9371A39F1D34F87C002B1EAB /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
+		9371A3A01D34F87C002B1EAB /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
+		9371A3A11D34F87C002B1EAB /* SXColorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorLabel.h; sourceTree = "<group>"; };
+		9371A3A21D34F87C002B1EAB /* SXColorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorLabel.m; sourceTree = "<group>"; };
+		9371A3A31D34F87C002B1EAB /* SXHeadLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXHeadLine.h; sourceTree = "<group>"; };
+		9371A3A41D34F87C002B1EAB /* SXHeadLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXHeadLine.m; sourceTree = "<group>"; };
+		9371A3A51D34F87C002B1EAB /* SXMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMarquee.h; sourceTree = "<group>"; };
+		9371A3A61D34F87C002B1EAB /* SXMarquee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXMarquee.m; sourceTree = "<group>"; };
+		9371A3A71D34F87C002B1EAB /* UIColor+Separate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Separate.h"; sourceTree = "<group>"; };
+		9371A3A81D34F87C002B1EAB /* UIColor+Separate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Separate.m"; sourceTree = "<group>"; };
+		9371A3A91D34F87C002B1EAB /* UIColor+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Wonderful.h"; sourceTree = "<group>"; };
+		9371A3AA1D34F87C002B1EAB /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
+		9371A3AB1D34F87C002B1EAB /* UILabel+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Wonderful.h"; sourceTree = "<group>"; };
+		9371A3AC1D34F87C002B1EAB /* UILabel+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Wonderful.m"; sourceTree = "<group>"; };
 		93834D171D2D026B00353F92 /* CurrentWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeather.h; sourceTree = "<group>"; };
 		93834D181D2D026B00353F92 /* CurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather.m; sourceTree = "<group>"; };
 		93834D191D2D026B00353F92 /* Weathers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weathers.h; sourceTree = "<group>"; };
 		93834D1A1D2D026B00353F92 /* Weathers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weathers.m; sourceTree = "<group>"; };
 		93834D1F1D2D028100353F92 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		93834D201D2D028100353F92 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
-		93834D221D2D043800353F92 /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
-		93834D231D2D043800353F92 /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
-		93834D241D2D043800353F92 /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
-		93834D251D2D043800353F92 /* TLCityGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityGroupCell.h; sourceTree = "<group>"; };
-		93834D261D2D043800353F92 /* TLCityGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityGroupCell.m; sourceTree = "<group>"; };
-		93834D271D2D043800353F92 /* TLCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityHeaderView.h; sourceTree = "<group>"; };
-		93834D281D2D043800353F92 /* TLCityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityHeaderView.m; sourceTree = "<group>"; };
-		93834D291D2D043800353F92 /* TLCityPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerController.h; sourceTree = "<group>"; };
-		93834D2A1D2D043800353F92 /* TLCityPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerController.m; sourceTree = "<group>"; };
-		93834D2B1D2D043800353F92 /* TLCityPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerDelegate.h; sourceTree = "<group>"; };
-		93834D2C1D2D043800353F92 /* TLCityPickerSearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCityPickerSearchResultController.h; sourceTree = "<group>"; };
-		93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCityPickerSearchResultController.m; sourceTree = "<group>"; };
 		939777441D2E23F5000E94FB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		939777451D2E23F5000E94FB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		939777471D2E2458000E94FB /* MultiplePagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePagesViewController.h; sourceTree = "<group>"; };
@@ -140,24 +161,44 @@
 			path = ../../../Music/WeiYueMusic/Vendors/SwipeView;
 			sourceTree = "<group>";
 		};
-		93834D2E1D2D043800353F92 /* TLCityPicker */ = {
+		9371A3881D34F81F002B1EAB /* TLCityPicker */ = {
 			isa = PBXGroup;
 			children = (
-				93834D221D2D043800353F92 /* CityData.plist */,
-				93834D231D2D043800353F92 /* TLCity.h */,
-				93834D241D2D043800353F92 /* TLCity.m */,
-				93834D251D2D043800353F92 /* TLCityGroupCell.h */,
-				93834D261D2D043800353F92 /* TLCityGroupCell.m */,
-				93834D271D2D043800353F92 /* TLCityHeaderView.h */,
-				93834D281D2D043800353F92 /* TLCityHeaderView.m */,
-				93834D291D2D043800353F92 /* TLCityPickerController.h */,
-				93834D2A1D2D043800353F92 /* TLCityPickerController.m */,
-				93834D2B1D2D043800353F92 /* TLCityPickerDelegate.h */,
-				93834D2C1D2D043800353F92 /* TLCityPickerSearchResultController.h */,
-				93834D2D1D2D043800353F92 /* TLCityPickerSearchResultController.m */,
+				9371A3891D34F81F002B1EAB /* CityData.plist */,
+				9371A38C1D34F81F002B1EAB /* TLCity.h */,
+				9371A38D1D34F81F002B1EAB /* TLCity.m */,
+				9371A38E1D34F81F002B1EAB /* TLCityGroupCell.h */,
+				9371A38F1D34F81F002B1EAB /* TLCityGroupCell.m */,
+				9371A3901D34F81F002B1EAB /* TLCityHeaderView.h */,
+				9371A3911D34F81F002B1EAB /* TLCityHeaderView.m */,
+				9371A3921D34F81F002B1EAB /* TLCityPickerController.h */,
+				9371A3931D34F81F002B1EAB /* TLCityPickerController.m */,
+				9371A3941D34F81F002B1EAB /* TLCityPickerDelegate.h */,
+				9371A3951D34F81F002B1EAB /* TLCityPickerSearchResultController.h */,
+				9371A3961D34F81F002B1EAB /* TLCityPickerSearchResultController.m */,
 			);
-			name = TLCityPicker;
-			path = "../../../TLCityPicker-master/TLCityPicker";
+			path = TLCityPicker;
+			sourceTree = "<group>";
+		};
+		9371A39E1D34F87C002B1EAB /* Wonderful */ = {
+			isa = PBXGroup;
+			children = (
+				9371A39F1D34F87C002B1EAB /* SXColorGradientView.h */,
+				9371A3A01D34F87C002B1EAB /* SXColorGradientView.m */,
+				9371A3A11D34F87C002B1EAB /* SXColorLabel.h */,
+				9371A3A21D34F87C002B1EAB /* SXColorLabel.m */,
+				9371A3A31D34F87C002B1EAB /* SXHeadLine.h */,
+				9371A3A41D34F87C002B1EAB /* SXHeadLine.m */,
+				9371A3A51D34F87C002B1EAB /* SXMarquee.h */,
+				9371A3A61D34F87C002B1EAB /* SXMarquee.m */,
+				9371A3A71D34F87C002B1EAB /* UIColor+Separate.h */,
+				9371A3A81D34F87C002B1EAB /* UIColor+Separate.m */,
+				9371A3A91D34F87C002B1EAB /* UIColor+Wonderful.h */,
+				9371A3AA1D34F87C002B1EAB /* UIColor+Wonderful.m */,
+				9371A3AB1D34F87C002B1EAB /* UILabel+Wonderful.h */,
+				9371A3AC1D34F87C002B1EAB /* UILabel+Wonderful.m */,
+			);
+			path = Wonderful;
 			sourceTree = "<group>";
 		};
 		93DAAD721D1A1E2E002C409D = {
@@ -185,8 +226,9 @@
 		93DAAD7D1D1A1E2E002C409D /* HQWeather */ = {
 			isa = PBXGroup;
 			children = (
+				9371A39E1D34F87C002B1EAB /* Wonderful */,
+				9371A3881D34F81F002B1EAB /* TLCityPicker */,
 				9307A69E1D338C39000ADD5D /* SwipeView */,
-				93834D2E1D2D043800353F92 /* TLCityPicker */,
 				93834D1F1D2D028100353F92 /* HttpTool.h */,
 				93834D201D2D028100353F92 /* HttpTool.m */,
 				93834D181D2D026B00353F92 /* CurrentWeather.m */,
@@ -354,7 +396,7 @@
 				93DAAD911D1A1E2E002C409D /* LaunchScreen.storyboard in Resources */,
 				93DAAD8E1D1A1E2E002C409D /* Assets.xcassets in Resources */,
 				93DAAD891D1A1E2E002C409D /* Main.storyboard in Resources */,
-				93834D2F1D2D043800353F92 /* CityData.plist in Resources */,
+				9371A3971D34F81F002B1EAB /* CityData.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,21 +469,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9371A39A1D34F81F002B1EAB /* TLCityGroupCell.m in Sources */,
+				9371A3991D34F81F002B1EAB /* TLCity.m in Sources */,
+				9371A3AF1D34F87C002B1EAB /* SXHeadLine.m in Sources */,
 				93834D1D1D2D026B00353F92 /* Weathers.m in Sources */,
+				9371A3B01D34F87C002B1EAB /* SXMarquee.m in Sources */,
+				9371A3B31D34F87C002B1EAB /* UILabel+Wonderful.m in Sources */,
+				9371A3AD1D34F87C002B1EAB /* SXColorGradientView.m in Sources */,
 				93834D1C1D2D026B00353F92 /* CurrentWeather.m in Sources */,
 				93DAAD861D1A1E2E002C409D /* ViewController.m in Sources */,
 				939777491D2E2458000E94FB /* MultiplePagesViewController.m in Sources */,
-				93834D341D2D043800353F92 /* TLCityPickerSearchResultController.m in Sources */,
+				9371A3B21D34F87C002B1EAB /* UIColor+Wonderful.m in Sources */,
 				939777461D2E23F5000E94FB /* MainViewController.m in Sources */,
-				93834D311D2D043800353F92 /* TLCityGroupCell.m in Sources */,
-				93834D321D2D043800353F92 /* TLCityHeaderView.m in Sources */,
-				93834D331D2D043800353F92 /* TLCityPickerController.m in Sources */,
+				9371A39C1D34F81F002B1EAB /* TLCityPickerController.m in Sources */,
+				9371A39B1D34F81F002B1EAB /* TLCityHeaderView.m in Sources */,
 				9307A69F1D338C39000ADD5D /* SwipeView.m in Sources */,
 				93DAAD831D1A1E2E002C409D /* AppDelegate.m in Sources */,
-				93834D301D2D043800353F92 /* TLCity.m in Sources */,
 				93DAAD801D1A1E2E002C409D /* main.m in Sources */,
 				93DAAD8C1D1A1E2E002C409D /* HQWeather.xcdatamodeld in Sources */,
 				93834D211D2D028100353F92 /* HttpTool.m in Sources */,
+				9371A3AE1D34F87C002B1EAB /* SXColorLabel.m in Sources */,
+				9371A3B11D34F87C002B1EAB /* UIColor+Separate.m in Sources */,
+				9371A39D1D34F81F002B1EAB /* TLCityPickerSearchResultController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

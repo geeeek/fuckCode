@@ -333,7 +333,7 @@
                                     <constraint firstAttribute="height" constant="36" id="8Ir-dK-Do9"/>
                                     <constraint firstAttribute="width" constant="90" id="d3q-wQ-7vx"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="setting"/>
+                                <state key="normal" image="setting"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJk-gb-Ack">
                                 <rect key="frame" x="541" y="544" width="44" height="36"/>
@@ -341,7 +341,7 @@
                                     <constraint firstAttribute="height" constant="36" id="RWi-yB-m70"/>
                                     <constraint firstAttribute="width" constant="44" id="qRr-9Z-dVl"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="add"/>
+                                <state key="normal" title=" " image="add"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

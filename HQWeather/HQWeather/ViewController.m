@@ -5,7 +5,8 @@
 //  Created by 胡杨科技 on 16/6/22.
 //  Copyright © 2016年 胡杨网络. All rights reserved.
 //
-
+#define kwidth [UIScreen mainScreen].bounds.size.width
+#define kheight [UIScreen mainScreen].bounds.size.height
 #import "ViewController.h"
 #import "HttpTool.h"
 #import "CurrentWeather.h"
@@ -16,6 +17,10 @@
 #import "SVProgressHUD.h"
 #import "YYWebImage.h"
 #import "MainViewController.h"
+#import "UIColor+Wonderful.h"
+#import "SXColorGradientView.h"
+#import "UIColor+Wonderful.h"
+
 
 static NSString *const Appkey =@"16908";
 static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
@@ -49,7 +54,11 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     self.locationManger.distanceFilter = 1000;
     [self.locationManger requestAlwaysAuthorization];
     [self.locationManger startUpdatingLocation];
-
+//    self.view.backgroundColor =Wonderful_GreenColor3;
+//    SXColorGradientView *grv = [SXColorGradientView createWithColor:[UIColor paleGreen] frame:CGRectMake(0, 0,kwidth,kheight) direction:SXGradientToBottom];
+    
+    
+    
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
