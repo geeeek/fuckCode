@@ -33,7 +33,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.mainScrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    self.pageControl.frame = CGRectMake(0, self.view.frame.size.height - PAGE_CONTROL_HEIGHT, self.view.frame.size.width, PAGE_CONTROL_HEIGHT);
+#pragma mark---pageControl添加的frame跟视图两边的按钮点击冲突。
+    self.pageControl.frame = CGRectMake(60, self.view.frame.size.height - PAGE_CONTROL_HEIGHT, self.view.frame.size.width-120, PAGE_CONTROL_HEIGHT);
     for (NSInteger vcIndex = 0; vcIndex < [self.viewControllers count]; vcIndex++) {
         UIViewController *vc = [self.viewControllers objectAtIndex:vcIndex];
         vc.view.frame = CGRectMake(self.mainScrollView.frame.size.width * vcIndex, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height);

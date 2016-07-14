@@ -21,7 +21,7 @@
 #import "SXColorGradientView.h"
 #import "UIColor+Wonderful.h"
 
-
+//static NSString * const isLocation = @"isLocation";
 static NSString *const Appkey =@"16908";
 static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 @interface ViewController () <CLLocationManagerDelegate,changCityNameDelegate>
@@ -37,8 +37,11 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 -(void)changCityName:(NSString *)cityText
 {
      _cityStr = cityText;
+     [_locationManger stopUpdatingLocation];
+      [SVProgressHUD dismiss];
     [self getData:_cityStr];
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -67,6 +70,7 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     // 获取当前所在的城市名
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     //根据经纬度反向地理编译出地址信息
+    _locationManger = manager;
     [geocoder reverseGeocodeLocation:currLocation completionHandler:^(NSArray *array, NSError *error)
      {
          if (array.count > 0)
@@ -98,22 +102,21 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
          {
              NSLog(@"An error occurred = %@", error);
          }
+         [_locationManger stopUpdatingLocation];
      }];
     
     //系统会一直更新数据，直到选择停止更新，因为我们只需要获得一次经纬度即可，所以获取之后就停止更新
-    [manager stopUpdatingLocation];
+    [_locationManger stopUpdatingLocation];
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    if ([error code] == kCLErrorDenied)
-    {
-        //访问被拒绝
-        [SVProgressHUD showInfoWithStatus:@"无法获取位置信息"];
-    }
-    if ([error code] == kCLErrorLocationUnknown) {
-        //无法获取位置信息
-        [SVProgressHUD showInfoWithStatus:@"无法获取位置信息"];
-    }
+    NSUserDefaults *userDef =[NSUserDefaults standardUserDefaults];
+    [userDef setBool:NO forKey:@"location"];
+    [userDef synchronize];
+    [[NSNotificationCenter
+      defaultCenter] postNotificationName:@"location" object:self];
+    [SVProgressHUD showInfoWithStatus:@"无法获取位置信息"];
+    
 }
 
 -(void)getData:(NSString *)cityNm

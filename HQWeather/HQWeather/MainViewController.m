@@ -29,6 +29,22 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+   
+}
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"location" object:nil];
+}
+-(void)removeVC
+{
+    BOOL isLocation = [[NSUserDefaults standardUserDefaults]boolForKey:@"location"];
+    if (!isLocation) {
+    static dispatch_once_t remove;
+            dispatch_once(&remove, ^{
+                [self.multiplePagesViewController removeViewController:0];
+                vcConunt = vcConunt-1;
+            });
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,27 +82,17 @@
  
     
 }
-#pragma mark - getters and setters
-- (MultiplePagesViewController*)multiplePagesViewController {
-    if (!_multiplePagesViewController) {
-        _multiplePagesViewController = [[MultiplePagesViewController alloc] init];
-        _multiplePagesViewController.view.frame = self.view.frame;
-        _multiplePagesViewController.delegate = self;
-    }
-    
-    return _multiplePagesViewController;
-}
+
 - (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city
 {
-    //    [self.ci setTitle:city.cityName forState:UIControlStateNormal];
-//    self.cityLabel.text =city.cityName;
 #pragma mark --将添加视图的代码添加在此处保证每次是选中了某个城市才会添加一个视图
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeVC) name:@"location"object:nil];
      vcConunt =vcConunt +1;
      if(vcConunt <= 5){
     [self addDefaultPageViewControllers];
+    self.delegate =_vc;
     self.vc.cityLabel.text =city.cityName;
     [self.delegate changCityName:city.cityName];
-    self.delegate =_vc;
      }else
      {
          [SVProgressHUD showInfoWithStatus:@"最多只能添加五个城市！"];
@@ -103,11 +109,21 @@
         
     }];
 }
+#pragma mark - getters and setters
+- (MultiplePagesViewController*)multiplePagesViewController {
+    if (!_multiplePagesViewController) {
+        _multiplePagesViewController = [[MultiplePagesViewController alloc] init];
+        _multiplePagesViewController.view.frame = self.view.frame;
+        _multiplePagesViewController.delegate = self;
+    }
+    
+    return _multiplePagesViewController;
+}
 -(void)addNewCity{
    
     TLCityPickerController *cityPickerVC = [[TLCityPickerController alloc] init];
     [cityPickerVC setDelegate:self];
-    cityPickerVC.locationCityID = @"1400010000";
+//    cityPickerVC.locationCityID = @"1400010000";
     //    cityPickerVC.commonCitys = [[NSMutableArray alloc] initWithArray: @[@"1400010000", @"100010000"]];        // 最近访问城市，如果不设置，将自动管理
     cityPickerVC.hotCitys = @[@"100010000", @"200010000", @"300210000", @"600010000", @"300110000"];
     
