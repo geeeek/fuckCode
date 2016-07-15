@@ -15,27 +15,29 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - MJRefresh (3.1.0)
-  - pop (1.0.9)
-  - PopMenu (2.4):
-    - pop
-    - XHRealTimeBlur
-  - XHRealTimeBlur (1.7)
+  - YYCache (1.0.1)
+  - YYImage (1.0.1):
+    - YYImage/Core (= 1.0.1)
+  - YYImage/Core (1.0.1)
   - YYModel (1.0.2)
+  - YYWebImage (1.0.1):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0.4)
   - MJRefresh (~> 3.1.0)
-  - PopMenu (~> 2.4)
   - YYModel (~> 1.0.2)
+  - YYWebImage (~> 1.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
-  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
-  PopMenu: 26b97baeaf250070f4f61b93727ca86d127d7bc5
-  XHRealTimeBlur: 661fadd5691ba2d349758e8fd5fbdb499ac55f8c
+  YYCache: e0c7321955a0a112a7daaf7b3e42a8dd110bafab
+  YYImage: b41b45bc5f32bfcdf67bdfb9c09da9e9832357c0
   YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
+  YYWebImage: 8a22da9ec4d95064afa75a5c756c5d6f19d1b660
 
-PODFILE CHECKSUM: d53e482a75b1a10d685243d06c096c1e26b76f8c
+PODFILE CHECKSUM: 26947f92782ab185e67622a04b507f60991ceccd
 
 COCOAPODS: 1.0.1

@@ -6,6 +6,6 @@ target 'subaojun' do
  pod 'AFNetworking', '~> 3.0.4'
 pod 'YYModel', '~> 1.0.2'
  pod 'MJRefresh', '~> 3.1.0'
-pod 'PopMenu', '~> 2.4'
+ pod 'YYWebImage', '~> 1.0.1'
 end
 

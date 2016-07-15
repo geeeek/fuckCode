@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1E7924C39706DC8C9EC1DA18 /* Pods_subaojun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A00CB0007E8552A0E0E3E61 /* Pods_subaojun.framework */; };
+		930875CC1D38C51F00CBF3E1 /* UIColor+Magic.m in Sources */ = {isa = PBXBuildFile; fileRef = 930875BB1D38C51F00CBF3E1 /* UIColor+Magic.m */; };
+		930875CD1D38C51F00CBF3E1 /* UIScrollView+Magic.m in Sources */ = {isa = PBXBuildFile; fileRef = 930875BD1D38C51F00CBF3E1 /* UIScrollView+Magic.m */; };
+		930875CE1D38C51F00CBF3E1 /* UIViewController+Magic.m in Sources */ = {isa = PBXBuildFile; fileRef = 930875BF1D38C51F00CBF3E1 /* UIViewController+Magic.m */; };
+		930875CF1D38C51F00CBF3E1 /* VTContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 930875C21D38C51F00CBF3E1 /* VTContentView.m */; };
+		930875D01D38C51F00CBF3E1 /* VTMagicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930875C61D38C51F00CBF3E1 /* VTMagicController.m */; };
+		930875D11D38C51F00CBF3E1 /* VTMagicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 930875C91D38C51F00CBF3E1 /* VTMagicView.m */; };
+		930875D21D38C51F00CBF3E1 /* VTMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 930875CB1D38C51F00CBF3E1 /* VTMenuBar.m */; };
 		936733551D210AA8009D530A /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 936733541D210AA8009D530A /* libicucore.tbd */; };
 		936733571D210AB9009D530A /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 936733561D210AB9009D530A /* libstdc++.tbd */; };
 		936733591D210AC6009D530A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936733581D210AC6009D530A /* JavaScriptCore.framework */; };
@@ -67,6 +74,24 @@
 		1778DB86A717BD69A0BEDD24 /* Pods-subaojun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subaojun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-subaojun/Pods-subaojun.debug.xcconfig"; sourceTree = "<group>"; };
 		6C561B1FD5FD02AC03383008 /* Pods-subaojun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-subaojun.release.xcconfig"; path = "Pods/Target Support Files/Pods-subaojun/Pods-subaojun.release.xcconfig"; sourceTree = "<group>"; };
 		8A00CB0007E8552A0E0E3E61 /* Pods_subaojun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_subaojun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		930875BA1D38C51F00CBF3E1 /* UIColor+Magic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Magic.h"; sourceTree = "<group>"; };
+		930875BB1D38C51F00CBF3E1 /* UIColor+Magic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Magic.m"; sourceTree = "<group>"; };
+		930875BC1D38C51F00CBF3E1 /* UIScrollView+Magic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Magic.h"; sourceTree = "<group>"; };
+		930875BD1D38C51F00CBF3E1 /* UIScrollView+Magic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Magic.m"; sourceTree = "<group>"; };
+		930875BE1D38C51F00CBF3E1 /* UIViewController+Magic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Magic.h"; sourceTree = "<group>"; };
+		930875BF1D38C51F00CBF3E1 /* UIViewController+Magic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Magic.m"; sourceTree = "<group>"; };
+		930875C01D38C51F00CBF3E1 /* VTCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCommon.h; sourceTree = "<group>"; };
+		930875C11D38C51F00CBF3E1 /* VTContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTContentView.h; sourceTree = "<group>"; };
+		930875C21D38C51F00CBF3E1 /* VTContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTContentView.m; sourceTree = "<group>"; };
+		930875C31D38C51F00CBF3E1 /* VTEnumType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEnumType.h; sourceTree = "<group>"; };
+		930875C41D38C51F00CBF3E1 /* VTMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagic.h; sourceTree = "<group>"; };
+		930875C51D38C51F00CBF3E1 /* VTMagicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicController.h; sourceTree = "<group>"; };
+		930875C61D38C51F00CBF3E1 /* VTMagicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMagicController.m; sourceTree = "<group>"; };
+		930875C71D38C51F00CBF3E1 /* VTMagicProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicProtocol.h; sourceTree = "<group>"; };
+		930875C81D38C51F00CBF3E1 /* VTMagicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMagicView.h; sourceTree = "<group>"; };
+		930875C91D38C51F00CBF3E1 /* VTMagicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMagicView.m; sourceTree = "<group>"; };
+		930875CA1D38C51F00CBF3E1 /* VTMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMenuBar.h; sourceTree = "<group>"; };
+		930875CB1D38C51F00CBF3E1 /* VTMenuBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMenuBar.m; sourceTree = "<group>"; };
 		936733541D210AA8009D530A /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		936733561D210AB9009D530A /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		936733581D210AC6009D530A /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -176,9 +201,35 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		930875B91D38C51F00CBF3E1 /* VTMagic */ = {
+			isa = PBXGroup;
+			children = (
+				930875BA1D38C51F00CBF3E1 /* UIColor+Magic.h */,
+				930875BB1D38C51F00CBF3E1 /* UIColor+Magic.m */,
+				930875BC1D38C51F00CBF3E1 /* UIScrollView+Magic.h */,
+				930875BD1D38C51F00CBF3E1 /* UIScrollView+Magic.m */,
+				930875BE1D38C51F00CBF3E1 /* UIViewController+Magic.h */,
+				930875BF1D38C51F00CBF3E1 /* UIViewController+Magic.m */,
+				930875C01D38C51F00CBF3E1 /* VTCommon.h */,
+				930875C11D38C51F00CBF3E1 /* VTContentView.h */,
+				930875C21D38C51F00CBF3E1 /* VTContentView.m */,
+				930875C31D38C51F00CBF3E1 /* VTEnumType.h */,
+				930875C41D38C51F00CBF3E1 /* VTMagic.h */,
+				930875C51D38C51F00CBF3E1 /* VTMagicController.h */,
+				930875C61D38C51F00CBF3E1 /* VTMagicController.m */,
+				930875C71D38C51F00CBF3E1 /* VTMagicProtocol.h */,
+				930875C81D38C51F00CBF3E1 /* VTMagicView.h */,
+				930875C91D38C51F00CBF3E1 /* VTMagicView.m */,
+				930875CA1D38C51F00CBF3E1 /* VTMenuBar.h */,
+				930875CB1D38C51F00CBF3E1 /* VTMenuBar.m */,
+			);
+			path = VTMagic;
+			sourceTree = "<group>";
+		};
 		93AAE1551D069AD800B8559C = {
 			isa = PBXGroup;
 			children = (
+				930875B91D38C51F00CBF3E1 /* VTMagic */,
 				93BACAC01D12884200E3013A /* lib */,
 				93AAE1601D069AD800B8559C /* subaojun */,
 				93AAE17D1D069AD800B8559C /* subaojunTests */,
@@ -521,6 +572,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				930875D11D38C51F00CBF3E1 /* VTMagicView.m in Sources */,
+				930875CD1D38C51F00CBF3E1 /* UIScrollView+Magic.m in Sources */,
+				930875D21D38C51F00CBF3E1 /* VTMenuBar.m in Sources */,
 				93BACABC1D12492E00E3013A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				93AAE19E1D069B0100B8559C /* NewsList.m in Sources */,
 				93BACABF1D1278A800E3013A /* UIView+Extension.m in Sources */,
@@ -528,10 +582,14 @@
 				937198271D1D216500B936A7 /* UIButton+LXMImagePosition.m in Sources */,
 				93DB0C1C1D07B1E1002CBA1B /* DetailViewController.m in Sources */,
 				93AAE16F1D069AD800B8559C /* subaojun.xcdatamodeld in Sources */,
+				930875CC1D38C51F00CBF3E1 /* UIColor+Magic.m in Sources */,
 				93AAE1691D069AD800B8559C /* ViewController.m in Sources */,
 				93AAE1661D069AD800B8559C /* AppDelegate.m in Sources */,
 				937198231D1D1C7400B936A7 /* HQCell.m in Sources */,
+				930875CF1D38C51F00CBF3E1 /* VTContentView.m in Sources */,
+				930875CE1D38C51F00CBF3E1 /* UIViewController+Magic.m in Sources */,
 				93AAE1631D069AD800B8559C /* main.m in Sources */,
+				930875D01D38C51F00CBF3E1 /* VTMagicController.m in Sources */,
 				93AAE19F1D069B0100B8559C /* HttpTool.m in Sources */,
 				93AAE1A21D069B5900B8559C /* FirstViewController.m in Sources */,
 			);
@@ -695,22 +753,7 @@
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"MJRefresh\"",
-					"-framework",
-					"\"PopMenu\"",
-					"-framework",
-					"\"XHRealTimeBlur\"",
-					"-framework",
-					"\"YYModel\"",
-					"-framework",
-					"\"pop\"",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huywl.subaojun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "867e330c-8f32-4f59-99ef-0b8719aff957";
@@ -740,22 +783,7 @@
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"AFNetworking\"",
-					"-framework",
-					"\"MJRefresh\"",
-					"-framework",
-					"\"PopMenu\"",
-					"-framework",
-					"\"XHRealTimeBlur\"",
-					"-framework",
-					"\"YYModel\"",
-					"-framework",
-					"\"pop\"",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huywl.subaojun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "867e330c-8f32-4f59-99ef-0b8719aff957";

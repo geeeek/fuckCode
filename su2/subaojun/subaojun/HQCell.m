@@ -20,9 +20,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//            CGFloat spacing = 10;
-//        self.shareBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
-//        self.shareBtn.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
         
     }
     return self;

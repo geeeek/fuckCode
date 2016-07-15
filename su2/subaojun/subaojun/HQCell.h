@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface HQCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-@property (weak, nonatomic) IBOutlet UIButton *shareBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
