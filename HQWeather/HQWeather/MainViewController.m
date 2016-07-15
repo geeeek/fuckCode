@@ -21,6 +21,7 @@
 @property (strong, nonatomic) MultiplePagesViewController *multiplePagesViewController;
 @property (strong, nonatomic) ViewController *vc;
 @property (nonatomic, strong) CLLocationManager *locationManger;
+@property(nonatomic,copy)NSMutableArray *cityArray;
 //@property (nonatomic, strong) CLGeocoder *geocoder;
 
 @end
@@ -37,14 +38,17 @@
 }
 -(void)removeVC
 {
-    BOOL isLocation = [[NSUserDefaults standardUserDefaults]boolForKey:@"location"];
+    BOOL isLocation =[[NSUserDefaults standardUserDefaults]objectForKey:@"location"];
     if (!isLocation) {
-    static dispatch_once_t remove;
-            dispatch_once(&remove, ^{
-                [self.multiplePagesViewController removeViewController:0];
-                vcConunt = vcConunt-1;
-            });
+        static dispatch_once_t remove;
+        dispatch_once(&remove, ^{
+            [self.multiplePagesViewController removeViewController:0];
+            vcConunt = vcConunt-1;
+        });
+        
     }
+    
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,13 +80,11 @@
 }
 
 #pragma mark - <MultiplePagesViewControllerDelegate>
-
 - (void)pageChangedTo:(NSInteger)pageIndex {
     // do something when page changed in MultiplePagesViewController
  
     
 }
-
 - (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city
 {
 #pragma mark --将添加视图的代码添加在此处保证每次是选中了某个城市才会添加一个视图
@@ -92,8 +94,10 @@
     [self addDefaultPageViewControllers];
     self.delegate =_vc;
     self.vc.cityLabel.text =city.cityName;
+    [_cityArray addObject:city.cityName];
+         
     [self.delegate changCityName:city.cityName];
-     }else
+    }else
      {
          [SVProgressHUD showInfoWithStatus:@"最多只能添加五个城市！"];
      }

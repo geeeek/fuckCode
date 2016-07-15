@@ -7,6 +7,18 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Weather&amp;Time.ttf">
+            <string>Weather&amp;Time</string>
+            <string>Weather&amp;Time</string>
+            <string>Weather&amp;Time</string>
+            <string>Weather&amp;Time</string>
+            <string>Weather&amp;Time</string>
+            <string>Weather&amp;Time</string>
+            <string>Weather&amp;Time</string>
+            <string>Weather&amp;Time</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--MainView Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -37,7 +49,7 @@
                                     <constraint firstAttribute="width" constant="168" id="bha-4W-gsg"/>
                                     <constraint firstAttribute="height" constant="43" id="mbU-23-GeV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -63,7 +75,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="xLA-fh-bub"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="zTh-nT-IVO"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                                <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="41"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
@@ -117,7 +129,7 @@
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dvB-IB-Mih"/>
                                                                             <constraint firstAttribute="width" constant="40" id="kDi-Tm-vUV"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                        <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="20"/>
                                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="default">
@@ -168,7 +180,7 @@
                                                             <constraint firstAttribute="width" constant="40" id="C4d-mp-Y4I"/>
                                                             <constraint firstAttribute="height" constant="40" id="qvr-AL-gEp"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="20"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="default">
@@ -219,7 +231,7 @@
                                             <constraint firstAttribute="trailing" secondItem="n1d-Bc-3G9" secondAttribute="trailing" id="Q6g-li-TQY"/>
                                             <constraint firstItem="7IR-ge-fOl" firstAttribute="leading" secondItem="pnB-yw-DcE" secondAttribute="leading" constant="30" id="bsn-cM-0eE"/>
                                             <constraint firstItem="n1d-Bc-3G9" firstAttribute="top" secondItem="znn-2g-diH" secondAttribute="bottom" constant="7.5" id="d5s-vR-QYV"/>
-                                            <constraint firstItem="7IR-ge-fOl" firstAttribute="top" secondItem="pnB-yw-DcE" secondAttribute="top" constant="20" id="efz-Ii-WAC"/>
+                                            <constraint firstItem="7IR-ge-fOl" firstAttribute="top" secondItem="pnB-yw-DcE" secondAttribute="top" constant="15" id="efz-Ii-WAC"/>
                                             <constraint firstAttribute="bottom" secondItem="n1d-Bc-3G9" secondAttribute="bottom" constant="-4" id="nuD-7o-le1"/>
                                         </constraints>
                                         <variation key="default">
@@ -244,7 +256,7 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星期五" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="981-tA-8GI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="20"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -252,7 +264,7 @@
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星期六" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIu-XC-lBa">
                                                         <rect key="frame" x="130" y="0.0" width="130" height="20"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -263,7 +275,7 @@
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星期五" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBp-Sr-Qiw">
                                                 <rect key="frame" x="260" y="0.0" width="130" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -339,7 +351,7 @@
                                     <constraint firstAttribute="height" constant="28" id="3KU-qn-Vqu"/>
                                     <constraint firstAttribute="width" constant="80" id="DVW-qV-jUM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Weather&amp;Time" family="Weather&amp;Time" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Weather&amp;Time.ttf</string>
+	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>我们需要通过您的地理位置获取天气信息</string>
 	<key>NSLocationAlwaysUsageDescription</key>

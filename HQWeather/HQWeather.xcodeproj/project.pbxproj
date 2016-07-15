@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		673D760F79AB7BDFB1D41AFF /* Pods_HQWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493140BF656946EE7E192D8D /* Pods_HQWeather.framework */; };
 		9307A69F1D338C39000ADD5D /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9307A69D1D338C39000ADD5D /* SwipeView.m */; };
+		9318A7C91D373F320002FF2D /* Weather&Time.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9318A7C81D373F320002FF2D /* Weather&Time.ttf */; };
 		9371A3971D34F81F002B1EAB /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9371A3891D34F81F002B1EAB /* CityData.plist */; };
 		9371A3991D34F81F002B1EAB /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A38D1D34F81F002B1EAB /* TLCity.m */; };
 		9371A39A1D34F81F002B1EAB /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A38F1D34F81F002B1EAB /* TLCityGroupCell.m */; };
@@ -61,6 +62,7 @@
 		493140BF656946EE7E192D8D /* Pods_HQWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HQWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9307A69C1D338C39000ADD5D /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		9307A69D1D338C39000ADD5D /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		9318A7C81D373F320002FF2D /* Weather&Time.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Weather&Time.ttf"; sourceTree = "<group>"; };
 		9371A3891D34F81F002B1EAB /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 		9371A38C1D34F81F002B1EAB /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
 		9371A38D1D34F81F002B1EAB /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				93DAAD8D1D1A1E2E002C409D /* Assets.xcassets */,
 				93DAAD8F1D1A1E2E002C409D /* LaunchScreen.storyboard */,
 				93DAAD921D1A1E2E002C409D /* Info.plist */,
+				9318A7C81D373F320002FF2D /* Weather&Time.ttf */,
 				93DAAD8A1D1A1E2E002C409D /* HQWeather.xcdatamodeld */,
 				93DAAD7E1D1A1E2E002C409D /* Supporting Files */,
 			);
@@ -394,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DAAD911D1A1E2E002C409D /* LaunchScreen.storyboard in Resources */,
+				9318A7C91D373F320002FF2D /* Weather&Time.ttf in Resources */,
 				93DAAD8E1D1A1E2E002C409D /* Assets.xcassets in Resources */,
 				93DAAD891D1A1E2E002C409D /* Main.storyboard in Resources */,
 				9371A3971D34F81F002B1EAB /* CityData.plist in Resources */,
