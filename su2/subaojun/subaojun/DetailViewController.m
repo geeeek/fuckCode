@@ -9,8 +9,8 @@
 #define Kheight  [UIScreen mainScreen].bounds.size.height
 #import "DetailViewController.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
-
-@interface DetailViewController ()
+#import "SVProgressHUD.h"
+@interface DetailViewController ()<UIWebViewDelegate>
 {
     NSInteger row;
 }
@@ -21,16 +21,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"详情";
+
     self.view.backgroundColor =[UIColor whiteColor];
-    UILabel *label = [[UILabel alloc] initWithFrame:self.view.bounds];
-    label.text = self.detailText;
-//    NSLog(@"%@",self.detailText);
-    label.font =[UIFont systemFontOfSize:20];
-    label.numberOfLines =0;
     self.navigationController.navigationBar.tintColor =[UIColor redColor];
     self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
-    [self.view addSubview:label];
+    UIWebView *webView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, Kwidth, Kheight)];
+    NSURL *url = [NSURL URLWithString:self.detailText];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
+    [self.view addSubview:webView];
+    webView.delegate=self;
     
+    
+}
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [SVProgressHUD show];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [SVProgressHUD dismiss];
 }
 
 - (void)didReceiveMemoryWarning {
