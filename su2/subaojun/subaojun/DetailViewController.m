@@ -10,29 +10,48 @@
 #import "DetailViewController.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "SVProgressHUD.h"
-@interface DetailViewController ()<UIWebViewDelegate>
+@interface DetailViewController ()<UIWebViewDelegate,UINavigationControllerDelegate>
 {
     NSInteger row;
 }
 @end
 
 @implementation DetailViewController
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title =@"详情";
-
     self.view.backgroundColor =[UIColor whiteColor];
-    self.navigationController.navigationBar.tintColor =[UIColor redColor];
+    self.navigationController.navigationBar.barStyle = UIStatusBarStyleDefault;
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
     UIWebView *webView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, Kwidth, Kheight)];
     NSURL *url = [NSURL URLWithString:self.detailText];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];
     [self.view addSubview:webView];
     webView.delegate=self;
-    
-    
+    [self setRightBtn];
 }
+-(void)setRightBtn
+{
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+        [rightButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+     [rightButton setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
+    UIBarButtonItem *releaseButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem = releaseButtonItem;
+}
+-(void)share
+{
+    NSLog(@"点击了分享");
+}
+//- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    [viewController viewWillAppear:NO];
+//}
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [SVProgressHUD show];

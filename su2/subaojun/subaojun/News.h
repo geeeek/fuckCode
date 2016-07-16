@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface News : NSObject
-@property(nonatomic,assign) NSNumber *newsId;
 @property(nonatomic,copy) NSString *title;
-@property(nonatomic,copy)NSString *newsDate;
-@property(nonatomic,copy) NSString *contentInfo;
-
+@property(nonatomic,copy)NSString *date;
+@property(nonatomic,copy) NSString *author_name;
+@property(nonatomic,copy)NSString *thumbnail_pic_s;
+@property(nonatomic,copy) NSString *url;
 
 @end

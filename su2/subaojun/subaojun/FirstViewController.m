@@ -16,107 +16,64 @@
 #import "UIView+Extension.h"
 #import "HQCell.h"
 #import "UIButton+LXMImagePosition.h"
-#import "PopMenu.h"
 #import "AppDelegate.h"
+#import "YYWebImage.h"
+#import "SVProgressHUD.h"
+
 //#import <ShareSDK/ShareSDK.h>
 //#import <ShareSDKUI/ShareSDK+SSUI.h>
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 
-static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
-@interface FirstViewController()<UITableViewDelegate,UITableViewDataSource>
+//static NSString *const HYurl =@"http://v.juhe.cn/toutiao/index?type=caijing&key=e850bcee6a3b906b7b963143b6b9cfa9";
+@interface FirstViewController()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 {
-
-    int count;
-    int totalPage;
-    int  currentPage;
     NewsList *list;
-    BOOL _hasMore;
     MJRefreshNormalHeader *header;
 }
-@property (nonatomic, strong) PopMenu *popMenu;
 @property(readwrite,nonatomic,copy)NSMutableDictionary *params;
-
+@property(nonatomic,copy)NSString *menuItem;
 @property (strong,nonatomic) UITableView *tableView;
-@property (strong,nonatomic) NSMutableArray *newsArray;
-@property (strong,nonatomic) NSArray *lateNews;
-@property(nonatomic,copy)NSString *shareNews;
-@property(nonatomic,copy)NSString *refreshTitle;
 @end
 @implementation FirstViewController
--(NSArray *)lateNews
+-(instancetype)initTitle:(NSString *)title
 {
-    if (_lateNews == nil) {
-        _lateNews =[NSArray array];
+    self = [super init];
+    if (self) {
+        _menuItem = title;
     }
-    return _lateNews;
+    return self;
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    static dispatch_once_t refresh;
-    //解决查看详情后返回页面重复刷新问题
-    dispatch_once(&refresh, ^{
-         [_tableView.mj_header beginRefreshing];
-    });
+    [self.tableView reloadData];
    
 }
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.title =@"速报君";
-    self.navigationItem.title =@"速报君";
-    [self.navigationController.navigationBar setTitleTextAttributes:
-  @{NSFontAttributeName:[UIFont systemFontOfSize:18],
-    NSForegroundColorAttributeName:[UIColor redColor]}];
-
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-//    _tableView.rowHeight = 70.0f;
-    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+     [self getData];
+    [_tableView.mj_header beginRefreshing];
+   
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,kWidth, kHeight-104)];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     [self.view addSubview:_tableView];
-//    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//         currentPage = 1;
-//        [self getData];
-//        
-//    }];
-      header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        currentPage = 1;
+    header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self getData];
-        [self changRefreshTitle];
-
     }];
-   
     // 设置字体
     header.stateLabel.font = [UIFont systemFontOfSize:14];
     header.stateLabel.textColor = [UIColor redColor];
     header.lastUpdatedTimeLabel.font = [UIFont systemFontOfSize:13];
     _tableView.mj_header =header;
     _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        currentPage ++;
         [self getData];
     }];
     [self.tableView registerNib:[UINib nibWithNibName:@"HQCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    
-    
 }
-#pragma mark- 每次刷新修改状态文字
--(void)changRefreshTitle
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"title" ofType:@"json"];
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:NSJSONReadingMutableLeaves error:nil];
-    NSArray *arr = [dictionary allKeys];
-     int value = arc4random() % dictionary.count;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.refreshTitle =[dictionary objectForKey:arr[value]];
-        [header setTitle:self.refreshTitle forState:MJRefreshStateIdle];
-        [header setTitle:self.refreshTitle forState:MJRefreshStatePulling];
-        [header setTitle:self.refreshTitle forState:MJRefreshStateRefreshing];
-    });
-    
-}
-
 /**
  *  停止刷新
  */
@@ -127,87 +84,48 @@ static NSString *const HYurl =@"http://byw2378880001.my3w.com/";
 
 -(void)getData
 {
-     _params =  [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:currentPage],@"page", nil];
-    [HttpTool get:HYurl parameters:_params withCompletionBlock:^(id returnValue) {
+    NSString *url =[NSString stringWithFormat:@"http://v.juhe.cn/toutiao/index?type=%@&key=e850bcee6a3b906b7b963143b6b9cfa9",_menuItem];
+    [HttpTool get:url parameters:nil withCompletionBlock:^(id returnValue) {
       
-        NSDictionary *dic =returnValue[@"objDataSet"];
-        if (1 == currentPage) { //
-            self.newsArray = nil;
-        }
+        NSDictionary *dic =returnValue[@"result"];
         list = [NewsList yy_modelWithJSON:dic];
-        NSArray *array1 =list.objDataSet;
-        if(!_newsArray){
-            
-            _newsArray = [NSMutableArray array];
-        }
-        [ _newsArray addObjectsFromArray:array1];
-        [_tableView reloadData];
+        [self.tableView reloadData];
           [self endRefresh];
     } withFailureBlock:^(NSError *error) {
+        NSLog(@"%@",error);
+        [SVProgressHUD showErrorWithStatus:@"加载出现问题"];
          [self.tableView.mj_footer endRefreshingWithNoMoreData];
         
     }];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _newsArray.count;
+    return list.data.count;
 
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-      News *newsInfo =_newsArray[indexPath.row];
-    if (![newsInfo.contentInfo  isEqual:@""]) {
+      News *newsInfo =list.data[indexPath.row];
         DetailViewController *DVC = [[DetailViewController alloc]init];
+   
         [self.navigationController pushViewController:DVC animated:YES];
-        DVC.detailText = newsInfo.contentInfo;
+//       [self presentViewController:DVC animated:YES completion:nil];
+        DVC.detailText = newsInfo.url;
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
         self.navigationItem.backBarButtonItem = barItem;
-        
-    }
-    
          return;
    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 90;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
      HQCell *cell =[tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    News *newsInfo =_newsArray[indexPath.row];
-    if([newsInfo.contentInfo  isEqual:@""])
-    {
-        cell.textLabel.numberOfLines =2;
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    else
-    {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-        cell.textLabel.numberOfLines =2;
-    }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    NSString *strdate=newsInfo.newsDate;
-    
-    NSDateFormatter *f=[[NSDateFormatter alloc] init];
-    
-    f.dateFormat=@"yyyy-MM-dd HH:mm:ss";
-    
-    //将字符串格式转换为时间格式 dateFromString
-    NSDate *ndate=[f dateFromString:strdate];
-    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
-    //2>指定要转换的格式
-    formatter.dateFormat=@"HH:mm";
-    //3>将日期转换为字符串 stringFromDate
-    NSString *datestr=[formatter stringFromDate:ndate];
-      NSString *str1 =[datestr stringByAppendingString:[NSString stringWithFormat:@" %@",newsInfo.title]];
-//    NSString *newStr =[NSString stringWithFormat:@"%@",datestr];
-    NSMutableAttributedString *str2 = [[NSMutableAttributedString alloc]initWithString:str1];
-    //设置：在0-3个单位长度内的内容显示成红色
-    [str2 addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 6)];
-    cell.textLabel.font =[UIFont systemFontOfSize:18];
-    cell.infoLabel.attributedText =str2;
-    cell.shareBtn.tag =indexPath.row;
-//    [cell.shareBtn addTarget:self action:@selector(popView:) forControlEvents:UIControlEventTouchUpInside];
-//  
+    News *newsInfo =list.data[indexPath.row];
+    cell.image.yy_imageURL =[NSURL URLWithString:newsInfo.thumbnail_pic_s];
+    cell.titleLabel.text =newsInfo.title;
+    NSString *timeString = [newsInfo.date substringFromIndex:10];
+    cell.timeLabel.text =timeString;
+    cell.sourceLabel.text =newsInfo.author_name;
         return cell;
 }
 //-(void)popView:(UIButton *)btn

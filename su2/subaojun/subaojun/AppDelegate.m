@@ -10,6 +10,7 @@
 #import "FirstViewController.h"
 #import "AFNetworking.h"
 #import "JPUSHService.h"
+#import "ViewController.h"
 //#import <ShareSDK/ShareSDK.h>
 //#import <ShareSDKConnector/ShareSDKConnector.h>
 //#import <TencentOpenAPI/TencentOAuth.h>
@@ -26,7 +27,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self judgeNetworking];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[FirstViewController alloc] init]];
+    ViewController *VC = [[ViewController alloc] init];
+    UINavigationController *Nav = [[UINavigationController alloc]initWithRootViewController:VC];
+    Nav.navigationBarHidden = YES;
+    self.window.rootViewController = Nav;
+    [self.window makeKeyWindow];
+    
     //极光推送
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
         //可以添加自定义categories

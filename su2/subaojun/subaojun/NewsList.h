@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 @class News;
 @interface NewsList : NSObject
-@property (nonatomic, strong) NSArray *objDataSet;
+@property (nonatomic, strong) NSArray *data;
 
 @end

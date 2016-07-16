@@ -11,7 +11,7 @@
 @implementation NewsList
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{
-             @"objDataSet" : News.class
+             @"data" : News.class
              };
 }
 @end
