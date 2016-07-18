@@ -15,13 +15,12 @@
 #import "MJRefresh.h"
 #import "UIView+Extension.h"
 #import "HQCell.h"
-#import "UIButton+LXMImagePosition.h"
 #import "AppDelegate.h"
 #import "YYWebImage.h"
 #import "SVProgressHUD.h"
+#import "LQNetworkManager.h"
 
-//#import <ShareSDK/ShareSDK.h>
-//#import <ShareSDKUI/ShareSDK+SSUI.h>
+
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 
@@ -85,17 +84,17 @@
 -(void)getData
 {
     NSString *url =[NSString stringWithFormat:@"http://v.juhe.cn/toutiao/index?type=%@&key=e850bcee6a3b906b7b963143b6b9cfa9",_menuItem];
-    [HttpTool get:url parameters:nil withCompletionBlock:^(id returnValue) {
-      
-        NSDictionary *dic =returnValue[@"result"];
+    [[LQNetworkManager sharedManager] getWithPath:url parameters:nil completion:^(id responseObject, NSError *error) {
+        if (error) {
+//            NSLog(@"%@",error);
+            [SVProgressHUD showErrorWithStatus:@"加载出现问题"];
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        NSDictionary *dic =responseObject[@"result"];
         list = [NewsList yy_modelWithJSON:dic];
         [self.tableView reloadData];
-          [self endRefresh];
-    } withFailureBlock:^(NSError *error) {
-        NSLog(@"%@",error);
-        [SVProgressHUD showErrorWithStatus:@"加载出现问题"];
-         [self.tableView.mj_footer endRefreshingWithNoMoreData];
-        
+        [self endRefresh];
+      
     }];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -109,6 +108,7 @@
         [self.navigationController pushViewController:DVC animated:YES];
 //       [self presentViewController:DVC animated:YES completion:nil];
         DVC.detailText = newsInfo.url;
+        DVC.detailTitle = newsInfo.title;
         UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:nil];
         self.navigationItem.backBarButtonItem = barItem;
          return;
