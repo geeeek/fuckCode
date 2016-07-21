@@ -20,7 +20,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.titleLabel.layer.masksToBounds=YES;
+        self.sourceLabel.layer.masksToBounds=YES;
+        self.timeLabel.layer.masksToBounds=YES;
     }
     return self;
 }

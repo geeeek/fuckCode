@@ -46,14 +46,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
-   
+//    [self.tableView reloadData];
+      [self getData];
 }
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-     [self getData];
+  
     [_tableView.mj_header beginRefreshing];
    
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,kWidth, kHeight-104)];
