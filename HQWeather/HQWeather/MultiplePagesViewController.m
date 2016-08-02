@@ -10,9 +10,9 @@
 #define PAGE_CONTROL_HEIGHT 20
 
 @interface MultiplePagesViewController ()
-@property (nonatomic, strong)NSMutableArray<__kindof UIViewController*> *viewControllers;
-@property (nonatomic, strong)UIPageControl *pageControl;
-@property (nonatomic)NSInteger currentPageIndex;
+
+
+
 @property (nonatomic, strong)UIScrollView *mainScrollView;
 
 @end
@@ -29,6 +29,7 @@
     [self initializeProperties];
     [self.view addSubview:self.mainScrollView];
     [self.view addSubview:self.pageControl];
+    
 }
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];

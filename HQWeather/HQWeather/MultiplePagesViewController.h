@@ -17,7 +17,9 @@
 
 
 @interface MultiplePagesViewController : UIViewController <UIScrollViewDelegate>
-
+@property (nonatomic)NSInteger currentPageIndex;
+@property (nonatomic, strong)UIPageControl *pageControl;
+@property (nonatomic, strong)NSMutableArray<__kindof UIViewController*> *viewControllers;
 @property (nonatomic, weak) id<MultiplePagesViewControllerDelegate> delegate;
 
 /**

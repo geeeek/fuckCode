@@ -20,6 +20,7 @@
 #import "UIColor+Wonderful.h"
 #import "SXColorGradientView.h"
 #import "UIColor+Wonderful.h"
+#import "LQNetworkManager.h"
 
 //static NSString * const isLocation = @"isLocation";
 static NSString *const Appkey =@"16908";
@@ -29,6 +30,7 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     Weathers *weathers;
     Weathers *curWeathers;
 }
+@property (weak, nonatomic) IBOutlet UIView *weatherView;
 @property (nonatomic, strong) CLLocationManager *locationManger;
 @property(nonatomic,copy)NSString *cityStr;
 @end
@@ -110,14 +112,18 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSUserDefaults *userDef =[NSUserDefaults standardUserDefaults];
-    [userDef setBool:NO forKey:@"location"];
-    [userDef synchronize];
-    [[NSNotificationCenter
-      defaultCenter] postNotificationName:@"location" object:self];
-    [SVProgressHUD showInfoWithStatus:@"无法获取位置信息"];
     
+    [SVProgressHUD showInfoWithStatus:@"无法获取位置信息"];
+//    [self locationFailData];
 }
+//-(void)locationFailData
+//{
+//    [SVProgressHUD dismiss];
+//    self.bigImage.image =[UIImage imageNamed:@"sad"];
+//    self.cityLabel.text = @"未知";
+//    self.weatherLabel.text =@"定位失败";
+////    [self.weatherView removeFromSuperview];
+//}
 
 -(void)getData:(NSString *)cityNm
 {
@@ -127,24 +133,24 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     NSString *str1  = [cityNm stringByReplacingOccurrencesOfString:@"市" withString:@""];
     NSString *str2 =[NSString stringWithFormat:@"http:api.k780.com:88/?app=weather.future&weaid=%@&appkey=%@&sign=%@&format=json",str1,Appkey,Sign];
     NSString *stringCleanPath = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [HttpTool get:stringCleanPath parameters:nil withCompletionBlock:^(id returnValue) {
-        weathers = [Weathers yy_modelWithDictionary:returnValue];
-        dispatch_group_leave(group);
-    } withFailureBlock:^(NSError *error) {
-        
-         dispatch_group_leave(group);
+    [[LQNetworkManager sharedManager]getWithPath:stringCleanPath parameters:nil completion:^(id responseObject, NSError *error) {
+        if (responseObject) {
+            weathers = [Weathers yy_modelWithDictionary:responseObject];
+            dispatch_group_leave(group);
+        }
         return ;
     }];
     dispatch_group_enter(group);
     NSString *str3 =[NSString stringWithFormat:@"http:api.k780.com:88/?app=weather.today&weaid=%@&appkey=%@&sign=%@&format=json",str1,Appkey,Sign];
     NSString *stringCleanPath2 = [str3 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [HttpTool get:stringCleanPath2 parameters:nil withCompletionBlock:^(id returnValue) {
-        curWeathers =[Weathers yy_modelWithDictionary:returnValue];
-        dispatch_group_leave(group);
-    } withFailureBlock:^(NSError *error) {
-        
-        dispatch_group_leave(group);
+    [[LQNetworkManager sharedManager]getWithPath:stringCleanPath2 parameters:nil completion:^(id responseObject, NSError *error) {
+        if (responseObject) {
+            curWeathers =[Weathers yy_modelWithDictionary:responseObject];
+            dispatch_group_leave(group);
+        }
         return ;
+        
+        
     }];
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         [self setData];

@@ -14,7 +14,7 @@
 #import "HttpTool.h"
 #import "SVProgressHUD.h"
 
-@interface MainViewController()
+@interface MainViewController()<MultiplePagesViewControllerDelegate>
 {
     int vcConunt;
 }
@@ -58,7 +58,7 @@
     [self addDefaultPageViewControllers];
     [self.view addSubview:self.multiplePagesViewController.view];
     [self addChildViewController:self.multiplePagesViewController];
-//    self.multiplePagesViewController.view.alpha = 0.5;
+    self.multiplePagesViewController.delegate = self;
 
 }
 
@@ -82,6 +82,7 @@
 #pragma mark - <MultiplePagesViewControllerDelegate>
 - (void)pageChangedTo:(NSInteger)pageIndex {
     // do something when page changed in MultiplePagesViewController
+    self.multiplePagesViewController.pageControl.currentPage = pageIndex;
  
     
 }
@@ -102,6 +103,7 @@
          [SVProgressHUD showInfoWithStatus:@"最多只能添加五个城市！"];
      }
     [cityPickerViewController dismissViewControllerAnimated:YES completion:^{
+       
         
     }];
 }
