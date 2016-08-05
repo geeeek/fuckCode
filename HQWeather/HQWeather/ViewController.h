@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *twoImage;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImage;
 @property (weak, nonatomic) IBOutlet UIButton *addCity;
-@property (nonatomic, assign, getter=isLocation) BOOL location;
+
 
 
 

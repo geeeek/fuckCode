@@ -28,6 +28,9 @@
 		936232291D503B8400BC965F /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 936232141D503B8400BC965F /* UIProgressView+AFNetworking.m */; };
 		9362322A1D503B8400BC965F /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 936232161D503B8400BC965F /* UIRefreshControl+AFNetworking.m */; };
 		9362322B1D503B8400BC965F /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 936232181D503B8400BC965F /* UIWebView+AFNetworking.m */; };
+		936232331D50861900BC965F /* cityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 936232321D50861900BC965F /* cityInfo.m */; };
+		936232361D50880B00BC965F /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936232351D50880B00BC965F /* Realm.framework */; };
+		936232381D50883000BC965F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 936232371D50883000BC965F /* libc++.tbd */; };
 		9371A3971D34F81F002B1EAB /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9371A3891D34F81F002B1EAB /* CityData.plist */; };
 		9371A3991D34F81F002B1EAB /* TLCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A38D1D34F81F002B1EAB /* TLCity.m */; };
 		9371A39A1D34F81F002B1EAB /* TLCityGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A38F1D34F81F002B1EAB /* TLCityGroupCell.m */; };
@@ -43,7 +46,6 @@
 		9371A3B31D34F87C002B1EAB /* UILabel+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 9371A3AC1D34F87C002B1EAB /* UILabel+Wonderful.m */; };
 		93834D1C1D2D026B00353F92 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D181D2D026B00353F92 /* CurrentWeather.m */; };
 		93834D1D1D2D026B00353F92 /* Weathers.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D1A1D2D026B00353F92 /* Weathers.m */; };
-		93834D211D2D028100353F92 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93834D201D2D028100353F92 /* HttpTool.m */; };
 		939777461D2E23F5000E94FB /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939777451D2E23F5000E94FB /* MainViewController.m */; };
 		939777491D2E2458000E94FB /* MultiplePagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939777481D2E2458000E94FB /* MultiplePagesViewController.m */; };
 		93DAAD801D1A1E2E002C409D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD7F1D1A1E2E002C409D /* main.m */; };
@@ -55,6 +57,7 @@
 		93DAAD911D1A1E2E002C409D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DAAD8F1D1A1E2E002C409D /* LaunchScreen.storyboard */; };
 		93DAAD9C1D1A1E2E002C409D /* HQWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAAD9B1D1A1E2E002C409D /* HQWeatherTests.m */; };
 		93DAADA71D1A1E2E002C409D /* HQWeatherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAADA61D1A1E2E002C409D /* HQWeatherUITests.m */; };
+		93DADB401D533A3200F4E7D7 /* CityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DADB3F1D533A3200F4E7D7 /* CityTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,10 @@
 		936232161D503B8400BC965F /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		936232171D503B8400BC965F /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		936232181D503B8400BC965F /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		936232311D50861900BC965F /* cityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cityInfo.h; path = TLCityPicker/cityInfo.h; sourceTree = "<group>"; };
+		936232321D50861900BC965F /* cityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cityInfo.m; path = TLCityPicker/cityInfo.m; sourceTree = "<group>"; };
+		936232351D50880B00BC965F /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		936232371D50883000BC965F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		9371A3891D34F81F002B1EAB /* CityData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CityData.plist; sourceTree = "<group>"; };
 		9371A38C1D34F81F002B1EAB /* TLCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCity.h; sourceTree = "<group>"; };
 		9371A38D1D34F81F002B1EAB /* TLCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCity.m; sourceTree = "<group>"; };
@@ -148,8 +155,6 @@
 		93834D181D2D026B00353F92 /* CurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather.m; sourceTree = "<group>"; };
 		93834D191D2D026B00353F92 /* Weathers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weathers.h; sourceTree = "<group>"; };
 		93834D1A1D2D026B00353F92 /* Weathers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weathers.m; sourceTree = "<group>"; };
-		93834D1F1D2D028100353F92 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
-		93834D201D2D028100353F92 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		939777441D2E23F5000E94FB /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		939777451D2E23F5000E94FB /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		939777471D2E2458000E94FB /* MultiplePagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePagesViewController.h; sourceTree = "<group>"; };
@@ -171,6 +176,8 @@
 		93DAADA21D1A1E2E002C409D /* HQWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HQWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DAADA61D1A1E2E002C409D /* HQWeatherUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HQWeatherUITests.m; sourceTree = "<group>"; };
 		93DAADA81D1A1E2E002C409D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93DADB3E1D533A3200F4E7D7 /* CityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewController.h; sourceTree = "<group>"; };
+		93DADB3F1D533A3200F4E7D7 /* CityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +185,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				936232381D50883000BC965F /* libc++.tbd in Frameworks */,
+				936232361D50880B00BC965F /* Realm.framework in Frameworks */,
 				673D760F79AB7BDFB1D41AFF /* Pods_HQWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +330,7 @@
 		93DAAD721D1A1E2E002C409D = {
 			isa = PBXGroup;
 			children = (
+				936232351D50880B00BC965F /* Realm.framework */,
 				93DAAD7D1D1A1E2E002C409D /* HQWeather */,
 				93DAAD9A1D1A1E2E002C409D /* HQWeatherTests */,
 				93DAADA51D1A1E2E002C409D /* HQWeatherUITests */,
@@ -347,8 +357,10 @@
 				9371A39E1D34F87C002B1EAB /* Wonderful */,
 				936231EE1D5039AA00BC965F /* LQNetworkManager */,
 				9371A3881D34F81F002B1EAB /* TLCityPicker */,
-				93834D1F1D2D028100353F92 /* HttpTool.h */,
-				93834D201D2D028100353F92 /* HttpTool.m */,
+				93DADB3E1D533A3200F4E7D7 /* CityTableViewController.h */,
+				93DADB3F1D533A3200F4E7D7 /* CityTableViewController.m */,
+				936232311D50861900BC965F /* cityInfo.h */,
+				936232321D50861900BC965F /* cityInfo.m */,
 				93834D181D2D026B00353F92 /* CurrentWeather.m */,
 				93834D171D2D026B00353F92 /* CurrentWeather.h */,
 				93834D191D2D026B00353F92 /* Weathers.h */,
@@ -401,6 +413,7 @@
 		CBC6646092BE08885903AB30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				936232371D50883000BC965F /* libc++.tbd */,
 				493140BF656946EE7E192D8D /* Pods_HQWeather.framework */,
 			);
 			name = Frameworks;
@@ -592,6 +605,7 @@
 			files = (
 				9362321E1D503B8400BC965F /* AFURLRequestSerialization.m in Sources */,
 				9371A39A1D34F81F002B1EAB /* TLCityGroupCell.m in Sources */,
+				936232331D50861900BC965F /* cityInfo.m in Sources */,
 				936231F31D5039AA00BC965F /* LQNetworkConfig.m in Sources */,
 				9371A3991D34F81F002B1EAB /* TLCity.m in Sources */,
 				9371A3AF1D34F87C002B1EAB /* SXHeadLine.m in Sources */,
@@ -600,6 +614,7 @@
 				936232281D503B8400BC965F /* UIImageView+AFNetworking.m in Sources */,
 				9362322B1D503B8400BC965F /* UIWebView+AFNetworking.m in Sources */,
 				936232241D503B8400BC965F /* AFImageDownloader.m in Sources */,
+				93DADB401D533A3200F4E7D7 /* CityTableViewController.m in Sources */,
 				93834D1D1D2D026B00353F92 /* Weathers.m in Sources */,
 				9371A3B01D34F87C002B1EAB /* SXMarquee.m in Sources */,
 				9371A3B31D34F87C002B1EAB /* UILabel+Wonderful.m in Sources */,
@@ -619,7 +634,6 @@
 				93DAAD831D1A1E2E002C409D /* AppDelegate.m in Sources */,
 				93DAAD801D1A1E2E002C409D /* main.m in Sources */,
 				93DAAD8C1D1A1E2E002C409D /* HQWeather.xcdatamodeld in Sources */,
-				93834D211D2D028100353F92 /* HttpTool.m in Sources */,
 				936232251D503B8400BC965F /* AFNetworkActivityIndicatorManager.m in Sources */,
 				9362322A1D503B8400BC965F /* UIRefreshControl+AFNetworking.m in Sources */,
 				936232291D503B8400BC965F /* UIProgressView+AFNetworking.m in Sources */,
@@ -770,7 +784,13 @@
 			baseConfigurationReference = 26E34793EC882CA471CE371B /* Pods-HQWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HQWeather",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HQWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.HQWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -782,7 +802,13 @@
 			baseConfigurationReference = 40FE25637EED0463467AEFF2 /* Pods-HQWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/HQWeather",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HQWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.HQWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -793,6 +819,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = Realm.framework;
 				INFOPLIST_FILE = HQWeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.HQWeatherTests;
@@ -805,6 +832,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = Realm.framework;
 				INFOPLIST_FILE = HQWeatherTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hywl.HQWeatherTests;

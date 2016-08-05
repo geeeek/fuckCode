@@ -21,6 +21,7 @@
 #import "SXColorGradientView.h"
 #import "UIColor+Wonderful.h"
 #import "LQNetworkManager.h"
+#import "cityInfo.h"
 
 //static NSString * const isLocation = @"isLocation";
 static NSString *const Appkey =@"16908";
@@ -36,6 +37,7 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 @end
 
 @implementation ViewController
+
 -(void)changCityName:(NSString *)cityText
 {
      _cityStr = cityText;
@@ -131,6 +133,9 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
     dispatch_group_t group =dispatch_group_create();
     dispatch_group_enter(group);
     NSString *str1  = [cityNm stringByReplacingOccurrencesOfString:@"市" withString:@""];
+//  存储定位的城市名称
+//    cityInfo *city =[[cityInfo alloc]init];
+//    city.cityName = str1;
     NSString *str2 =[NSString stringWithFormat:@"http:api.k780.com:88/?app=weather.future&weaid=%@&appkey=%@&sign=%@&format=json",str1,Appkey,Sign];
     NSString *stringCleanPath = [str2 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [[LQNetworkManager sharedManager]getWithPath:stringCleanPath parameters:nil completion:^(id responseObject, NSError *error) {
@@ -158,6 +163,7 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 
     
 }
+
 -(void)setData
 {
 //    self.cityLabel.text =weathers.result[0].citynm;
@@ -214,6 +220,7 @@ static NSString *const Sign =@"fcb273a68e9127bd2aaa6de5a30951f5";
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

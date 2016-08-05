@@ -10,9 +10,9 @@
 #import "MultiplePagesViewController.h"
 #import "ViewController.h"
 #import "Masonry.h"
-
 #import "HttpTool.h"
 #import "SVProgressHUD.h"
+#import "cityInfo.h"
 
 @interface MainViewController()<MultiplePagesViewControllerDelegate>
 {
@@ -32,28 +32,20 @@
     [super viewWillAppear:animated];
    
 }
--(void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"location" object:nil];
-}
--(void)removeVC
-{
-    BOOL isLocation =[[NSUserDefaults standardUserDefaults]objectForKey:@"location"];
-    if (!isLocation) {
-        static dispatch_once_t remove;
-        dispatch_once(&remove, ^{
-            [self.multiplePagesViewController removeViewController:0];
-            vcConunt = vcConunt-1;
-        });
-        
-    }
-    
-    
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    RLMResults<cityInfo *> *citys = [cityInfo allObjects];
+    NSLog(@"%@",citys);
     // Do any additional setup after loading the view, typically from a nib.
-    vcConunt =1;
+    vcConunt =citys.count;
+    if (citys) {
+        for (int i = 0; i < citys.count; i ++) {
+            [self addDefaultPageViewControllers];
+            
+//            [self.delegate changCityName:citys[i]];
+        }
+    }
     [self.vc.addCity addTarget:self action:@selector(addNewCity) forControlEvents:UIControlEventTouchUpInside];
     [self addDefaultPageViewControllers];
     [self.view addSubview:self.multiplePagesViewController.view];
@@ -61,6 +53,17 @@
     self.multiplePagesViewController.delegate = self;
 
 }
+//添加之前添加的城市的信息
+//- (void)addSavePageViewControllers {
+//    
+//    UIStoryboard *board =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    _vc =[board instantiateViewControllerWithIdentifier:@"view"];
+//    //         [_vc initWithText:self.vc.cityLabel.text];
+//    [self.multiplePagesViewController addViewController:_vc];
+//    [self.vc.addCity addTarget:self action:@selector(addNewCity) forControlEvents:UIControlEventTouchUpInside];
+//   
+//    
+//}
 
 //添加城市页面，城市个数不超过5个
 - (void)addDefaultPageViewControllers {
@@ -89,12 +92,12 @@
 - (void) cityPickerController:(TLCityPickerController *)cityPickerViewController didSelectCity:(TLCity *)city
 {
 #pragma mark --将添加视图的代码添加在此处保证每次是选中了某个城市才会添加一个视图
-   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeVC) name:@"location"object:nil];
      vcConunt =vcConunt +1;
      if(vcConunt <= 5){
     [self addDefaultPageViewControllers];
     self.delegate =_vc;
     self.vc.cityLabel.text =city.cityName;
+    [self SaveData:city.cityName];
     [_cityArray addObject:city.cityName];
          
     [self.delegate changCityName:city.cityName];
@@ -106,6 +109,21 @@
        
         
     }];
+}
+//存储添加的城市名称
+-(void)SaveData:(NSString *)data
+{
+    NSString *str = [data stringByReplacingOccurrencesOfString:@"市" withString:@""];
+    cityInfo *citys = [[cityInfo alloc] init];
+    citys.cityName =str;
+    // 获取默认的 Realm 实例
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    // 每个线程只需要使用一次即可
+    // 通过事务将数据添加到 Realm 中
+    [realm beginWriteTransaction];
+    [realm addObject:citys];
+    [realm commitWriteTransaction];
+    
 }
 
 - (void) cityPickerControllerDidCancel:(TLCityPickerController *)cityPickerViewController
