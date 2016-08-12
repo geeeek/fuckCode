@@ -14,6 +14,7 @@
 #import "YHPanicBuyViewController.h"
 #import "YHAnnouncedViewController.h"
 #import "YHHeader.h"
+#import "YHLoginViewController.h"
 
 @interface YHTabBarController ()
 @end
@@ -64,7 +65,8 @@
     
     [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHShopCarViewController alloc] init]] title:@"购物车" image:@"PNG_Global_Tabbar_Cart_Un" selectedImage:@"PNG_Global_Tabbar_Cart"];
     
-     [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHMeViewController alloc] init]] title:@"我的" image:@"PNG_Global_Tabbar_Mine_Un" selectedImage:@"PNG_Global_Tabbar_Mine"];
+//     [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHMeViewController alloc] init]] title:@"我的" image:@"PNG_Global_Tabbar_Mine_Un" selectedImage:@"PNG_Global_Tabbar_Mine"];
+    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHLoginViewController alloc] init]] title:@"我的" image:@"PNG_Global_Tabbar_Mine_Un" selectedImage:@"PNG_Global_Tabbar_Mine"];
 }
 
 /**
