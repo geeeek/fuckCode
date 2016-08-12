@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Masonry.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-HQWeather.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3FDD4F91E3C06BF5A7ECE2762BDFF53B</key>
+		<key>2C681D550A6D1E690D7A0B7ED5E4CE7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3967D007FDA3B939F8776B3746CFD046</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>514C9A8A2D990D1F37E96819BCF7405F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,32 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A9A83F63385AA43314397B8DD375464B</key>
+		<key>A9CF84934F15999FAFDD14461D32250F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA0FBFD5B6428A3B4A2525715B50D0CA</key>
+		<key>C59C7BBFC7D824C772D8187CDF57C8D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0D42DD30A3C16762AD985B58FCD98DA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BFBEC84F756C6ABB4FA0F7D12F011257</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CCA92DF33D1E58E623EA8782F7720F78</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FDBFD469BAD8BFC0AD44879BA031989B</key>
+		<key>F9CD1705BC342F15E0851536BC14DB2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

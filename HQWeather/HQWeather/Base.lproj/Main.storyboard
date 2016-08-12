@@ -328,22 +328,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JoJ-xY-GYv">
-                                <rect key="frame" x="5" y="559" width="44" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="8Ir-dK-Do9"/>
-                                    <constraint firstAttribute="width" constant="44" id="d3q-wQ-7vx"/>
-                                </constraints>
-                                <state key="normal" image="setting"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJk-gb-Ack">
-                                <rect key="frame" x="541" y="544" width="44" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="RWi-yB-m70"/>
-                                    <constraint firstAttribute="width" constant="44" id="qRr-9Z-dVl"/>
-                                </constraints>
-                                <state key="normal" title=" " image="add"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95O-Gb-6gN">
                                 <rect key="frame" x="250" y="293" width="101" height="40"/>
                                 <constraints>
@@ -369,18 +353,14 @@
                             <constraint firstItem="uyw-FA-DGc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="Jvs-k3-1gn"/>
                             <constraint firstItem="pO0-AX-o4K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="M2g-fc-Mur"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5y4-Dd-cvn" secondAttribute="trailing" id="OKi-U5-ryR"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JoJ-xY-GYv" secondAttribute="bottom" constant="5" id="Q0U-gO-oER"/>
                             <constraint firstItem="95O-Gb-6gN" firstAttribute="top" secondItem="pO0-AX-o4K" secondAttribute="bottom" constant="3" id="Qq1-Fd-POc"/>
                             <constraint firstItem="pO0-AX-o4K" firstAttribute="top" secondItem="uyw-FA-DGc" secondAttribute="bottom" constant="30" id="Rq3-PT-1R5"/>
                             <constraint firstItem="5y4-Dd-cvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V7K-zI-T04"/>
                             <constraint firstItem="pO0-AX-o4K" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="abo-Fg-BXv"/>
                             <constraint firstItem="5y4-Dd-cvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gZi-oB-RC7"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hJk-gb-Ack" secondAttribute="bottom" constant="5" id="jp5-lm-5mX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5y4-Dd-cvn" secondAttribute="bottom" constant="200" id="kB7-0l-eyD"/>
-                            <constraint firstItem="JoJ-xY-GYv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="m1K-hR-PnL"/>
                             <constraint firstItem="uyw-FA-DGc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="6" id="oUQ-cl-uxn"/>
                             <constraint firstItem="95O-Gb-6gN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pO0-tR-xed"/>
-                            <constraint firstAttribute="trailing" secondItem="hJk-gb-Ack" secondAttribute="trailing" constant="5" id="yUb-EI-3Pi"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -397,7 +377,6 @@
                     </view>
                     <connections>
                         <outlet property="HighTmp" destination="AAF-a2-J1J" id="hhs-4W-Pm0"/>
-                        <outlet property="addCity" destination="hJk-gb-Ack" id="siH-ZW-U80"/>
                         <outlet property="bigImage" destination="uyw-FA-DGc" id="dDa-x5-Eqv"/>
                         <outlet property="cityLabel" destination="95O-Gb-6gN" id="Y5y-RE-LxU"/>
                         <outlet property="currentTmp" destination="7IR-ge-fOl" id="Ha8-uL-kPv"/>
@@ -418,8 +397,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="36" height="36"/>
         <image name="cover" width="341" height="341"/>
-        <image name="setting" width="36" height="36"/>
     </resources>
 </document>

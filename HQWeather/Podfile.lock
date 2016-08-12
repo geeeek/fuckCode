@@ -1,5 +1,4 @@
 PODS:
-  - Masonry (0.6.4)
   - MJRefresh (3.1.0)
   - SVProgressHUD (2.0-beta8)
   - YYCache (1.0.1)
@@ -12,14 +11,12 @@ PODS:
     - YYImage
 
 DEPENDENCIES:
-  - Masonry (~> 0.6.4)
   - MJRefresh (~> 3.1.0)
   - SVProgressHUD (~> 2.0-beta8)
   - YYModel (~> 1.0.2)
   - YYWebImage (~> 1.0)
 
 SPEC CHECKSUMS:
-  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SVProgressHUD: 6e48a1dda09ce3b58adc41d013baed3a8e8980ff
   YYCache: e0c7321955a0a112a7daaf7b3e42a8dd110bafab
@@ -27,6 +24,6 @@ SPEC CHECKSUMS:
   YYModel: 7a467eff45ae3641c33efb136c262d33b6f48c1a
   YYWebImage: 8a22da9ec4d95064afa75a5c756c5d6f19d1b660
 
-PODFILE CHECKSUM: d1449c0d76241dd98fe9928433d91095536ea876
+PODFILE CHECKSUM: d1d38f92cfcf44407b2159f4fabca555ea12d6ad
 
 COCOAPODS: 1.0.1

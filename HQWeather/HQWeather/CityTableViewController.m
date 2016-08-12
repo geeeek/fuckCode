@@ -9,9 +9,11 @@
 #import "CityTableViewController.h"
 #import <Realm/Realm.h>
 #import "cityInfo.h"
-const static NSString *ID =@"id";
+#define kwidth [UIScreen mainScreen].bounds.size.width
+#define kheight [UIScreen mainScreen].bounds.size.height
+ static NSString * const ID =@"cell";
 @interface CityTableViewController ()
-@property RLMResults *cityArray;
+@property RLMResults <cityInfo *> *cityArray;
 @end
 
 @implementation CityTableViewController
@@ -20,12 +22,16 @@ const static NSString *ID =@"id";
     [super viewDidLoad];
     RLMResults<cityInfo *> *citys = [cityInfo allObjects];
     _cityArray =citys;
+    self.tableView.delegate =self;
+    self.tableView.dataSource = self;
     
+   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title =@"城市管理";
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,21 +41,16 @@ const static NSString *ID =@"id";
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return _cityArray.count;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return _cityArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID forIndexPath:indexPath];
-    
     // Configure the cell...
-    cell.textLabel.text = _cityArray[indexPath.row];
+    
+    cell.textLabel.text = [_cityArray[indexPath.row] cityName];
     return cell;
 }
 

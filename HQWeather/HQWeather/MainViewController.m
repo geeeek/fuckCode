@@ -5,20 +5,21 @@
 //  Created by 胡杨科技 on 16/7/7.
 //  Copyright © 2016年 胡杨网络. All rights reserved.
 //
-
+#define kwidth [UIScreen mainScreen].bounds.size.width
+#define kheight [UIScreen mainScreen].bounds.size.height
 #import "MainViewController.h"
 #import "MultiplePagesViewController.h"
 #import "ViewController.h"
-#import "Masonry.h"
-#import "HttpTool.h"
 #import "SVProgressHUD.h"
 #import "cityInfo.h"
+#import "CityTableViewController.h"
 
 @interface MainViewController()<MultiplePagesViewControllerDelegate>
 {
     int vcConunt;
 }
 @property (strong, nonatomic) MultiplePagesViewController *multiplePagesViewController;
+@property (strong, nonatomic) CityTableViewController *cityVC;
 @property (strong, nonatomic) ViewController *vc;
 @property (nonatomic, strong) CLLocationManager *locationManger;
 @property(nonatomic,copy)NSMutableArray *cityArray;
@@ -26,7 +27,6 @@
 
 @end
 @implementation MainViewController
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -35,8 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addBtn];
     RLMResults<cityInfo *> *citys = [cityInfo allObjects];
-    NSLog(@"%@",citys);
     // Do any additional setup after loading the view, typically from a nib.
     vcConunt =citys.count;
     if (citys) {
@@ -46,24 +46,35 @@
 //            [self.delegate changCityName:citys[i]];
         }
     }
-    [self.vc.addCity addTarget:self action:@selector(addNewCity) forControlEvents:UIControlEventTouchUpInside];
+   
     [self addDefaultPageViewControllers];
     [self.view addSubview:self.multiplePagesViewController.view];
     [self addChildViewController:self.multiplePagesViewController];
     self.multiplePagesViewController.delegate = self;
 
 }
-//添加之前添加的城市的信息
-//- (void)addSavePageViewControllers {
-//    
-//    UIStoryboard *board =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    _vc =[board instantiateViewControllerWithIdentifier:@"view"];
-//    //         [_vc initWithText:self.vc.cityLabel.text];
-//    [self.multiplePagesViewController addViewController:_vc];
-//    [self.vc.addCity addTarget:self action:@selector(addNewCity) forControlEvents:UIControlEventTouchUpInside];
-//   
-//    
-//}
+-(void)addBtn
+{
+  
+    CGFloat btnWidth = 40;
+    CGFloat margin = 5;
+    CGFloat btnX =(kwidth -btnWidth - margin);
+    CGFloat btnY =(kheight -btnWidth - margin);
+    UIButton *infoBtn =[[UIButton alloc]initWithFrame:CGRectMake(margin, btnY, btnWidth, btnWidth)];
+    [infoBtn setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
+    [self.multiplePagesViewController.view addSubview:infoBtn];
+    [infoBtn addTarget:self action:@selector(pushVC) forControlEvents:UIControlEventTouchUpInside];
+   
+    UIButton *addBtn =[[UIButton alloc]initWithFrame:CGRectMake(btnX, btnY, btnWidth, btnWidth)];
+    [addBtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    [self.multiplePagesViewController.view addSubview:addBtn];
+    [addBtn addTarget:self action:@selector(addNewCity) forControlEvents:UIControlEventTouchUpInside];
+}
+-(void)pushVC
+{
+     self.cityVC =[[CityTableViewController alloc]init];
+    [self presentViewController:_cityVC animated:YES completion:nil];
+}
 
 //添加城市页面，城市个数不超过5个
 - (void)addDefaultPageViewControllers {
@@ -72,7 +83,6 @@
          _vc =[board instantiateViewControllerWithIdentifier:@"view"];
 //         [_vc initWithText:self.vc.cityLabel.text];
         [self.multiplePagesViewController addViewController:_vc];
-       [self.vc.addCity addTarget:self action:@selector(addNewCity) forControlEvents:UIControlEventTouchUpInside];
     
     
 }

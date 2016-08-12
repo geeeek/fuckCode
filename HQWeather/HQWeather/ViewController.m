@@ -8,7 +8,6 @@
 #define kwidth [UIScreen mainScreen].bounds.size.width
 #define kheight [UIScreen mainScreen].bounds.size.height
 #import "ViewController.h"
-#import "HttpTool.h"
 #import "CurrentWeather.h"
 #import "Weathers.h"
 #import "NSObject+YYModel.h"
