@@ -71,7 +71,7 @@
     
     [tbView addPullToRefreshWithActionHandler:^{
         [wSelf getNewest];
-        [wSelf getOrderShows];
+//        [wSelf getOrderShows];
     }];
  
     [tbView.pullToRefreshView setOYStyle];
@@ -91,7 +91,7 @@
 - (void)refreshMyData
 {
     [self getNewest];
-    [self getOrderShows];
+//    [self getOrderShows];
 }
 
 /**
@@ -141,51 +141,38 @@
 /**
  *  晒单分享
  */
-- (void)getOrderShows
-{
-    __weak typeof (tbView) wTb = tbView;
-    [HomeModel getOrderShow:^(AFHTTPRequestOperation* operation, NSObject* result){
-        [HomeInstance ShardInstnce].listOrderShows = [[HomeOrderShowList alloc] initWithDictionary:(NSDictionary*)result];
-        [wTb reloadData];
-    } failure:^(NSError* error){
-        //[[XBToastManager ShardInstance] showtoast:[NSString stringWithFormat:@"获取首页晒单分享异常:%@",error]];
-    }];
-}
+//- (void)getOrderShows
+//{
+//    __weak typeof (tbView) wTb = tbView;
+//    [HomeModel getOrderShow:^(AFHTTPRequestOperation* operation, NSObject* result){
+//        [HomeInstance ShardInstnce].listOrderShows = [[HomeOrderShowList alloc] initWithDictionary:(NSDictionary*)result];
+//        [wTb reloadData];
+//    } failure:^(NSError* error){
+//        //[[XBToastManager ShardInstance] showtoast:[NSString stringWithFormat:@"获取首页晒单分享异常:%@",error]];
+//    }];
+//}
 
 #pragma mark - tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 3)
-        return 1;
-    return 2;
+    if (section ==0) {
+        return 2;
+    }
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0)
     {
-        return indexPath.row == 0 ? 150:100;
+        return indexPath.row == 0 ? 60:200;
     }
-    if (indexPath.section == 1 && indexPath.row == 1)
-        return 140.5;
-    if (indexPath.section == 2 && indexPath.row == 1)
-        return 200;
-    if (indexPath.section == 3)
-    {
-        if([OyTool ShardInstance].bIsForReview)
-        {
-            return 44;
-        }
-        return 270;
-    }
-    if (indexPath.section == 4 && indexPath.row == 1)
-        return 250;
-    return 44;
+    return indexPath.row == 0 ? 60:200;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -199,41 +186,12 @@
 {
     return 0.1;
 }
-
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    if (section == 0)
-    {
-        if(row == 0)
-        {
-            static NSString *CellIdentifier = @"homeAdCell";
-            HomeAdCell *cell = (HomeAdCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-            if(cell == nil)
-            {
-                cell = [[HomeAdCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            }
-            cell.delegate = self;
-            [cell getAds];
-            return cell;
-        }
-        else if(row == 1)
-        {
-            static NSString *CellIdentifier = @"homeAdBtnCell";
-            HomeAdBtnCell *cell = (HomeAdBtnCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-            if(cell == nil)
-            {
-                cell = [[HomeAdBtnCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            }
-            cell.delegate = self;
-            return cell;
-        }
-    }
-    if (section == 1)
-    {
-        if(row == 0)
-        {
+    if (section ==0) {
+        if (row == 0) {
             static NSString *CellIdentifier = @"newTitleCell";
             UITableViewCell *cell = (UITableViewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
             if(cell == nil)
@@ -243,93 +201,7 @@
             cell.textLabel.text = @"最新揭晓";
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;
-        }
-        else if(row == 1)
-        {
-            static NSString *CellIdentifier = @"homeNewCell";
-            HomeNewCell *cell = (HomeNewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-            if(cell == nil)
-            {
-                cell = [[HomeNewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            }
-            [cell setDelegate:self];
-            [cell setNews:[HomeInstance ShardInstnce].listNewing homepage:listHomepage.Rows1];
-            return cell;
-        }
-    }
-    else if (section == 2)
-    {
-        if(row == 0)
-        {
-            static NSString *CellIdentifier = @"hotTitleCell";
-            UITableViewCell *cell = (UITableViewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-            if(cell == nil)
-            {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            }
-            cell.textLabel.text = @"人气推荐";
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            return cell;
-        }
-        else if (row == 1)
-        {
-            static NSString *CellIdentifier = @"homeHotCell";
-            HomeHotCell *cell = (HomeHotCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-            if(cell == nil)
-            {
-                cell = [[HomeHotCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            }
-            cell.delegate = self;
-            [cell setHots:listHomepage.Rows2];
-            return cell;
-        }
-    }
-    else if(section == 3)
-    {
-        if (row == 0)
-        {
-            if ([OyTool ShardInstance].bIsForReview)
-            {
-                static NSString *CellIdentifier = @"homeAdDigReviewCell";
-                UITableViewCell *cell = (UITableViewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-                if(cell == nil)
-                {
-                    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                }
-                cell.textLabel.text = @"一元云购，云友的查询利器";
-                return cell;
-
-            }
-            else
-            {
-                static NSString *CellIdentifier = @"homeAdDigCell";
-                HomeAdDigitalCell *cell = (HomeAdDigitalCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-                if(cell == nil)
-                {
-                    cell = [[HomeAdDigitalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                }
-                [cell setDelegate:self];
-                [cell doLoadAds];
-                return cell;
-            }
-        }
-
-    }
-    else if (section == 4)
-    {
-        if(row == 0)
-        {
-            static NSString *CellIdentifier = @"showTitleCell";
-            UITableViewCell *cell = (UITableViewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-            if(cell == nil)
-            {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            }
-            cell.textLabel.text = @"晒单分享";
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            return cell;
-        }
-        else if(row==1)
+        }else
         {
             static NSString *CellIdentifier = @"homeOrderShowCell";
             HomeOrderShowCell *cell = (HomeOrderShowCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -340,31 +212,45 @@
             [cell setDelegate:self];
             [cell setOrderShows];
             return cell;
+            
+        
+        }
+    }else {
+        if(row ==0)
+        {
+            static NSString *CellIdentifier = @"hotTitleCell";
+            UITableViewCell *cell = (UITableViewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
+            if(cell == nil)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            }
+            cell.textLabel.text = @"人气推荐";
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            return cell;
+        }else
+        {
+            static NSString *CellIdentifier = @"homeNewCell";
+            HomeNewCell *cell = (HomeNewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
+            if(cell == nil)
+            {
+                cell = [[HomeNewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            }
+            [cell setDelegate:self];
+            [cell setNews:[HomeInstance ShardInstnce].listNewing homepage:listHomepage.Rows1];
+            return cell;
 
         }
     }
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = (UITableViewCell*)[tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc] init];
-    }
-    return cell;
+    
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(indexPath.section == 1 && indexPath.row == 0)
-    {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         self.tabBarController.selectedIndex = 2;
-    }
-    else if(indexPath.section == 2 && indexPath.row == 0)
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kDidShowNewPro object:[NSNumber numberWithInt:1]];
+    }else if(indexPath.section == 1 && indexPath.row == 0){
         self.tabBarController.selectedIndex = 1;
-    }
-    else if(indexPath.section == 4 && indexPath.row == 0)
+    }else
     {
         ShowOrderListVC* vc = [[ShowOrderListVC alloc] initWithGoodsId:0];
         vc.hidesBottomBarWhenPushed = YES;
