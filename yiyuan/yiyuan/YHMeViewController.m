@@ -7,7 +7,6 @@
 //
 
 #import "YHMeViewController.h"
-#import "YHLoginViewController.h"
 
 @interface YHMeViewController ()
 

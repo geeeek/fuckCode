@@ -18,11 +18,9 @@
 		93841BC21D5C5CB3002ACCFC /* YHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93841BC01D5C5CB3002ACCFC /* YHNavigationController.m */; };
 		93841BCA1D5C5F8F002ACCFC /* YHMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93841BC91D5C5F8F002ACCFC /* YHMeViewController.m */; };
 		93841BCD1D5C5FC1002ACCFC /* YHShopCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93841BCC1D5C5FC1002ACCFC /* YHShopCarViewController.m */; };
-		93841BD01D5C5FD1002ACCFC /* YHFindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93841BCF1D5C5FD1002ACCFC /* YHFindViewController.m */; };
 		93841BD31D5C5FEB002ACCFC /* YHPanicBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93841BD21D5C5FEB002ACCFC /* YHPanicBuyViewController.m */; };
 		93841BD61D5C5FF9002ACCFC /* YHAnnouncedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93841BD51D5C5FF9002ACCFC /* YHAnnouncedViewController.m */; };
-		93841BDB1D5C77F2002ACCFC /* YHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93841BD91D5C77F2002ACCFC /* YHLoginViewController.m */; };
-		93841BDC1D5C77F2002ACCFC /* YHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93841BDA1D5C77F2002ACCFC /* YHLoginViewController.xib */; };
+		93A1C05D1D61CAFC0059B634 /* YHProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A1C05C1D61CAFC0059B634 /* YHProductViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,16 +64,13 @@
 		93841BC91D5C5F8F002ACCFC /* YHMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHMeViewController.m; sourceTree = "<group>"; };
 		93841BCB1D5C5FC1002ACCFC /* YHShopCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHShopCarViewController.h; sourceTree = "<group>"; };
 		93841BCC1D5C5FC1002ACCFC /* YHShopCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHShopCarViewController.m; sourceTree = "<group>"; };
-		93841BCE1D5C5FD1002ACCFC /* YHFindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHFindViewController.h; sourceTree = "<group>"; };
-		93841BCF1D5C5FD1002ACCFC /* YHFindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHFindViewController.m; sourceTree = "<group>"; };
 		93841BD11D5C5FEB002ACCFC /* YHPanicBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPanicBuyViewController.h; sourceTree = "<group>"; };
 		93841BD21D5C5FEB002ACCFC /* YHPanicBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPanicBuyViewController.m; sourceTree = "<group>"; };
 		93841BD41D5C5FF9002ACCFC /* YHAnnouncedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHAnnouncedViewController.h; sourceTree = "<group>"; };
 		93841BD51D5C5FF9002ACCFC /* YHAnnouncedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHAnnouncedViewController.m; sourceTree = "<group>"; };
 		93841BD71D5C6362002ACCFC /* YHHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHHeader.h; sourceTree = "<group>"; };
-		93841BD81D5C77F2002ACCFC /* YHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHLoginViewController.h; sourceTree = "<group>"; };
-		93841BD91D5C77F2002ACCFC /* YHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHLoginViewController.m; sourceTree = "<group>"; };
-		93841BDA1D5C77F2002ACCFC /* YHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHLoginViewController.xib; sourceTree = "<group>"; };
+		93A1C05B1D61CAFC0059B634 /* YHProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHProductViewController.h; sourceTree = "<group>"; };
+		93A1C05C1D61CAFC0059B634 /* YHProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHProductViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,8 +190,8 @@
 		93841BC51D5C5D7F002ACCFC /* Find(发现) */ = {
 			isa = PBXGroup;
 			children = (
-				93841BCE1D5C5FD1002ACCFC /* YHFindViewController.h */,
-				93841BCF1D5C5FD1002ACCFC /* YHFindViewController.m */,
+				93A1C05B1D61CAFC0059B634 /* YHProductViewController.h */,
+				93A1C05C1D61CAFC0059B634 /* YHProductViewController.m */,
 			);
 			name = "Find(发现)";
 			sourceTree = "<group>";
@@ -215,9 +210,6 @@
 			children = (
 				93841BC81D5C5F8F002ACCFC /* YHMeViewController.h */,
 				93841BC91D5C5F8F002ACCFC /* YHMeViewController.m */,
-				93841BD81D5C77F2002ACCFC /* YHLoginViewController.h */,
-				93841BD91D5C77F2002ACCFC /* YHLoginViewController.m */,
-				93841BDA1D5C77F2002ACCFC /* YHLoginViewController.xib */,
 			);
 			name = "Me(我的)";
 			sourceTree = "<group>";
@@ -326,7 +318,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93841BDC1D5C77F2002ACCFC /* YHLoginViewController.xib in Resources */,
 				932FD36A1D5B1F7000BB8FC6 /* LaunchScreen.storyboard in Resources */,
 				932FD3671D5B1F7000BB8FC6 /* Assets.xcassets in Resources */,
 			);
@@ -354,13 +345,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				93841BC11D5C5CB3002ACCFC /* YHTabBarController.m in Sources */,
+				93A1C05D1D61CAFC0059B634 /* YHProductViewController.m in Sources */,
 				93841BCA1D5C5F8F002ACCFC /* YHMeViewController.m in Sources */,
-				93841BD01D5C5FD1002ACCFC /* YHFindViewController.m in Sources */,
 				932FD3621D5B1F7000BB8FC6 /* ViewController.m in Sources */,
 				93841BD31D5C5FEB002ACCFC /* YHPanicBuyViewController.m in Sources */,
 				93841BD61D5C5FF9002ACCFC /* YHAnnouncedViewController.m in Sources */,
 				932FD35F1D5B1F7000BB8FC6 /* AppDelegate.m in Sources */,
-				93841BDB1D5C77F2002ACCFC /* YHLoginViewController.m in Sources */,
 				93841BCD1D5C5FC1002ACCFC /* YHShopCarViewController.m in Sources */,
 				93841BC21D5C5CB3002ACCFC /* YHNavigationController.m in Sources */,
 				932FD35C1D5B1F7000BB8FC6 /* main.m in Sources */,

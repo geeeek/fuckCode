@@ -9,12 +9,11 @@
 #import "YHTabBarController.h"
 #import "YHNavigationController.h"
 #import "YHMeViewController.h"
-#import "YHFindViewController.h"
+#import "YHProductViewController.h"
 #import "YHShopCarViewController.h"
 #import "YHPanicBuyViewController.h"
 #import "YHAnnouncedViewController.h"
 #import "YHHeader.h"
-#import "YHLoginViewController.h"
 
 @interface YHTabBarController ()
 @end
@@ -57,16 +56,17 @@
 - (void)setupChildViewControllers
 {
     
-     [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHPanicBuyViewController alloc] init]] title:@"快抢" image:@"PNG_Global_Tabbar_Home_Un" selectedImage:@"PNG_Global_Tabbar_Home"];
+     [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHPanicBuyViewController alloc] init]] title:@"抢购" image:@"tab-home" selectedImage:@"tab-home-s"];
+    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHProductViewController alloc] init]] title:@"所有商品" image:@"tab-pro" selectedImage:@"tab-pro-s"];
     
-    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHAnnouncedViewController alloc] init]] title:@"最新揭晓" image:@"PNG_Global_Tabbar_NewPublish_Un" selectedImage:@"PNG_Global_Tabbar_NewPublish"];
     
-    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHFindViewController alloc] init]] title:@"发现" image:@"PNG_Global_Tabbar_Explore_Un" selectedImage:@"PNG_Global_Tabbar_Explore"];
+    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHAnnouncedViewController alloc] init]] title:@"最新揭晓" image:@"tab-new" selectedImage:@"tab-new-s"];
     
-    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHShopCarViewController alloc] init]] title:@"购物车" image:@"PNG_Global_Tabbar_Cart_Un" selectedImage:@"PNG_Global_Tabbar_Cart"];
+   
+    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHShopCarViewController alloc] init]] title:@"购物车" image:@"tab-cart" selectedImage:@"tab-cart-s"];
     
 //     [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHMeViewController alloc] init]] title:@"我的" image:@"PNG_Global_Tabbar_Mine_Un" selectedImage:@"PNG_Global_Tabbar_Mine"];
-    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHLoginViewController alloc] init]] title:@"我的" image:@"PNG_Global_Tabbar_Mine_Un" selectedImage:@"PNG_Global_Tabbar_Mine"];
+    [self setupOneChildViewController:[[YHNavigationController alloc] initWithRootViewController:[[YHMeViewController alloc] init]] title:@"个人中心" image:@"tab-mine" selectedImage:@"tab-mine-s"];
 }
 
 /**
