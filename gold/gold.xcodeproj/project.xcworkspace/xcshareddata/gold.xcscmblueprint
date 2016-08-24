@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CC7A97962CE71B7F0A02A757209B565137337FA8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1B13484003E42777E4749C3C578E843314EA0452" : 0,
+    "CC7A97962CE71B7F0A02A757209B565137337FA8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9C9B58B4-14FF-43D3-AC60-0EA76BF719C7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1B13484003E42777E4749C3C578E843314EA0452" : "github\/Mark-v.1.3.0-\/",
+    "CC7A97962CE71B7F0A02A757209B565137337FA8" : "fuckCode\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "gold",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "gold\/gold.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/geeeek\/Mark-v.1.3.0-.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1B13484003E42777E4749C3C578E843314EA0452"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/geeeek\/fuckCode.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CC7A97962CE71B7F0A02A757209B565137337FA8"
+    }
+  ]
+}

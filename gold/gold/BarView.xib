@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BarView">
+            <rect key="frame" x="0.0" y="0.0" width="613" height="82"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXk-me-Unc">
+                    <rect key="frame" x="10" y="23" width="60" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Mpu-py-7nr"/>
+                        <constraint firstAttribute="width" constant="60" id="qmd-hw-D1y"/>
+                    </constraints>
+                    <state key="normal" title="黄金">
+                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K60-Tp-nHw">
+                    <rect key="frame" x="100" y="23" width="60" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="j9p-wQ-5xb"/>
+                        <constraint firstAttribute="height" constant="35" id="kcd-WI-ra5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="白银">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_date" translatesAutoresizingMaskIntoConstraints="NO" id="s4e-nA-fwI">
+                    <rect key="frame" x="579" y="20" width="24" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="jWb-Sk-RRx"/>
+                        <constraint firstAttribute="height" constant="20" id="rlq-mL-puu"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市场价：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUO-Kk-49c">
+                    <rect key="frame" x="446" y="63" width="60" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元/克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWH-DL-X3l">
+                    <rect key="frame" x="534" y="19" width="40" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360.00元/克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeI-QB-Vec">
+                    <rect key="frame" x="511" y="63" width="84.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="286.94" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iN1-MZ-0jb">
+                    <rect key="frame" x="446" y="15" width="80" height="40"/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.47058823529999999" blue="0.11" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="FcK-zo-ahl"/>
+                        <constraint firstAttribute="height" constant="40" id="RH6-cj-Kgb"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="cS8-d4-sNe"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="n5U-zu-83b"/>
+                        <constraint firstAttribute="width" constant="80" id="qHb-w5-end"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="n5U-zu-83b"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RWH-DL-X3l" firstAttribute="leading" secondItem="iN1-MZ-0jb" secondAttribute="trailing" constant="8" id="115-7T-XE7"/>
+                <constraint firstItem="YUO-Kk-49c" firstAttribute="leading" secondItem="iN1-MZ-0jb" secondAttribute="leading" id="8lX-ME-Cda"/>
+                <constraint firstAttribute="trailing" secondItem="s4e-nA-fwI" secondAttribute="trailing" constant="10" id="Bfe-6b-BQf"/>
+                <constraint firstItem="s4e-nA-fwI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="CeZ-OQ-uL0"/>
+                <constraint firstItem="K60-Tp-nHw" firstAttribute="leading" secondItem="UXk-me-Unc" secondAttribute="trailing" constant="30" id="J4K-7c-tIH"/>
+                <constraint firstItem="s4e-nA-fwI" firstAttribute="leading" secondItem="RWH-DL-X3l" secondAttribute="trailing" constant="5" id="Nbs-7I-4iB"/>
+                <constraint firstItem="K60-Tp-nHw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="OYM-1L-wk6"/>
+                <constraint firstItem="DeI-QB-Vec" firstAttribute="leading" secondItem="YUO-Kk-49c" secondAttribute="trailing" constant="5" id="StR-hv-eOt"/>
+                <constraint firstItem="iN1-MZ-0jb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="WU4-TK-iyd"/>
+                <constraint firstItem="UXk-me-Unc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ZTY-1y-2cx"/>
+                <constraint firstItem="YUO-Kk-49c" firstAttribute="top" secondItem="iN1-MZ-0jb" secondAttribute="bottom" constant="8" id="ZgI-Fe-By3"/>
+                <constraint firstItem="RWH-DL-X3l" firstAttribute="bottom" secondItem="s4e-nA-fwI" secondAttribute="bottom" id="aVv-Ol-ZKN"/>
+                <constraint firstItem="DeI-QB-Vec" firstAttribute="leading" secondItem="YUO-Kk-49c" secondAttribute="trailing" constant="5" id="b89-ES-lqZ"/>
+                <constraint firstItem="iN1-MZ-0jb" firstAttribute="baseline" secondItem="RWH-DL-X3l" secondAttribute="baseline" id="bLg-sH-GT5"/>
+                <constraint firstItem="UXk-me-Unc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="e8M-79-MEh"/>
+                <constraint firstItem="iN1-MZ-0jb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="gxU-5s-2uG"/>
+                <constraint firstItem="DeI-QB-Vec" firstAttribute="bottom" secondItem="YUO-Kk-49c" secondAttribute="bottom" id="nwY-Yu-vAO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="bLg-sH-GT5"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="goldBtn" destination="UXk-me-Unc" id="T1I-Il-G7i"/>
+                <outlet property="sliverBtn" destination="K60-Tp-nHw" id="qgk-hl-OLp"/>
+            </connections>
+            <point key="canvasLocation" x="349.5" y="101"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="home_date" width="24" height="20"/>
+    </resources>
+</document>

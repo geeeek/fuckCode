@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="two" rowHeight="141" id="KGk-i7-Jjw" customClass="twoCell">
+            <rect key="frame" x="0.0" y="0.0" width="456" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="456" height="140.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自由金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh2-dc-Mwc">
+                        <rect key="frame" x="20" y="10" width="72" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="特价金息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQL-3M-yjQ">
+                        <rect key="frame" x="194" y="10" width="68" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.20%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-sy-6Jd">
+                        <rect key="frame" x="185" y="93" width="86.5" height="37"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                        <color key="textColor" red="0.92941176469999998" green="0.47058823529999999" blue="0.11" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13p-Jr-8iV">
+                        <rect key="frame" x="396" y="50" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Kd6-oh-g6h"/>
+                            <constraint firstAttribute="height" constant="40" id="d1I-Eg-lfD"/>
+                        </constraints>
+                        <state key="normal" image="home_shopping_icon"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="随时卖出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udc-A0-aZg">
+                        <rect key="frame" x="38" y="104" width="68" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_time_icon" translatesAutoresizingMaskIntoConstraints="NO" id="VUd-jt-7oq">
+                        <rect key="frame" x="20" y="107" width="13" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="ecD-D5-AuM"/>
+                            <constraint firstAttribute="width" constant="13" id="mF4-zp-Ey9"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OQL-3M-yjQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="0OY-Fu-HEr"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Udc-A0-aZg" secondAttribute="bottom" constant="10" id="4Jj-vU-zc5"/>
+                    <constraint firstItem="SP4-sy-6Jd" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4Qr-WR-eMF"/>
+                    <constraint firstItem="13p-Jr-8iV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6T0-pG-o4z"/>
+                    <constraint firstAttribute="bottom" secondItem="VUd-jt-7oq" secondAttribute="bottom" constant="20" id="Cwe-37-Jqm"/>
+                    <constraint firstAttribute="trailing" secondItem="13p-Jr-8iV" secondAttribute="trailing" constant="20" id="FWM-BP-Xpf"/>
+                    <constraint firstItem="VUd-jt-7oq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="LSM-8y-LDd"/>
+                    <constraint firstItem="sh2-dc-Mwc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NbB-zh-Y9N"/>
+                    <constraint firstItem="Udc-A0-aZg" firstAttribute="leading" secondItem="VUd-jt-7oq" secondAttribute="trailing" constant="5" id="OcR-Ur-TC6"/>
+                    <constraint firstAttribute="bottom" secondItem="VUd-jt-7oq" secondAttribute="bottom" constant="10" id="Ybe-On-Cac"/>
+                    <constraint firstItem="OQL-3M-yjQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="bvE-Ya-Ef8"/>
+                    <constraint firstItem="sh2-dc-Mwc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="jGg-DB-njz"/>
+                    <constraint firstAttribute="bottom" secondItem="SP4-sy-6Jd" secondAttribute="bottom" constant="10" id="ldU-Pa-hw7"/>
+                    <constraint firstItem="VUd-jt-7oq" firstAttribute="baseline" secondItem="Udc-A0-aZg" secondAttribute="baseline" id="oWT-RR-hpZ"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ybe-On-Cac"/>
+                        <exclude reference="4Jj-vU-zc5"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="270" y="248.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="home_shopping_icon" width="39" height="39"/>
+        <image name="home_time_icon" width="13" height="13"/>
+    </resources>
+</document>
