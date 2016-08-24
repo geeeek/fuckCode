@@ -8,7 +8,7 @@
 
 #import "YHPanicBuyViewController.h"
 
-@interface YHPanicBuyViewController ()
+@interface YHPanicBuyViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end
 

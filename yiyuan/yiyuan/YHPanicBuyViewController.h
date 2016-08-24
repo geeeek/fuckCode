@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YHPanicBuyViewController : UIViewController
+@interface YHPanicBuyViewController : UIViewController 
 
 @end
