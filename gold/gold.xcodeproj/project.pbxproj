@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E05BAEA3901A4BC806BCF01 /* libPods-gold.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A47FDBDA5DC93366B1266E2C /* libPods-gold.a */; };
 		930210111D6C420E00FEFF8D /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 93020FFB1D6C420E00FEFF8D /* MASCompositeConstraint.m */; };
 		930210121D6C420E00FEFF8D /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 93020FFE1D6C420E00FEFF8D /* MASConstraint.m */; };
 		930210131D6C420E00FEFF8D /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 930210001D6C420E00FEFF8D /* MASConstraintMaker.m */; };
@@ -32,6 +33,7 @@
 		930210491D6C59E100FEFF8D /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 930210391D6C59E100FEFF8D /* NSString+MJExtension.m */; };
 		9302104A1D6C59E100FEFF8D /* MJExtension.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 9302103A1D6C59E100FEFF8D /* MJExtension.xcconfig */; };
 		9302104B1D6C59E100FEFF8D /* MJExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9302103B1D6C59E100FEFF8D /* MJExtension-dummy.m */; };
+		932C02B71D6D918D00F253A2 /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 932C02B61D6D918D00F253A2 /* ChartViewController.m */; };
 		938A68F91D6BE0A700D5CB1C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A68F81D6BE0A700D5CB1C /* main.m */; };
 		938A68FC1D6BE0A700D5CB1C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A68FB1D6BE0A700D5CB1C /* AppDelegate.m */; };
 		938A68FF1D6BE0A700D5CB1C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A68FE1D6BE0A700D5CB1C /* ViewController.m */; };
@@ -80,9 +82,12 @@
 		93FA6BB11D6D44B7009F8960 /* oneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FA6BAF1D6D44B7009F8960 /* oneCell.xib */; };
 		93FA6BB51D6D44CB009F8960 /* twoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FA6BB31D6D44CB009F8960 /* twoCell.m */; };
 		93FA6BB61D6D44CB009F8960 /* twoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FA6BB41D6D44CB009F8960 /* twoCell.xib */; };
+		93FA6BC01D6D7F54009F8960 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FA6BBE1D6D7F54009F8960 /* LoginViewController.m */; };
+		93FA6BC11D6D7F54009F8960 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FA6BBF1D6D7F54009F8960 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8028544AA3652E0A21E98388 /* Pods-gold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gold.release.xcconfig"; path = "Pods/Target Support Files/Pods-gold/Pods-gold.release.xcconfig"; sourceTree = "<group>"; };
 		93020FFA1D6C420E00FEFF8D /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		93020FFB1D6C420E00FEFF8D /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
 		93020FFC1D6C420E00FEFF8D /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -138,6 +143,8 @@
 		9302103A1D6C59E100FEFF8D /* MJExtension.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = MJExtension.xcconfig; sourceTree = "<group>"; };
 		9302103B1D6C59E100FEFF8D /* MJExtension-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MJExtension-dummy.m"; sourceTree = "<group>"; };
 		9302103C1D6C59E100FEFF8D /* MJExtension-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MJExtension-prefix.pch"; sourceTree = "<group>"; };
+		932C02B51D6D918D00F253A2 /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		932C02B61D6D918D00F253A2 /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		938A68F41D6BE0A700D5CB1C /* gold.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gold.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		938A68F81D6BE0A700D5CB1C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		938A68FA1D6BE0A700D5CB1C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -230,6 +237,11 @@
 		93FA6BB21D6D44CB009F8960 /* twoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = twoCell.h; sourceTree = "<group>"; };
 		93FA6BB31D6D44CB009F8960 /* twoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = twoCell.m; sourceTree = "<group>"; };
 		93FA6BB41D6D44CB009F8960 /* twoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = twoCell.xib; sourceTree = "<group>"; };
+		93FA6BBD1D6D7F54009F8960 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		93FA6BBE1D6D7F54009F8960 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		93FA6BBF1D6D7F54009F8960 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A47FDBDA5DC93366B1266E2C /* libPods-gold.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gold.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0DFA3D4CFA5379405F83BF /* Pods-gold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gold.debug.xcconfig"; path = "Pods/Target Support Files/Pods-gold/Pods-gold.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,12 +249,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E05BAEA3901A4BC806BCF01 /* libPods-gold.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		233B8BC8861BF3928B18F4BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD0DFA3D4CFA5379405F83BF /* Pods-gold.debug.xcconfig */,
+				8028544AA3652E0A21E98388 /* Pods-gold.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		93020FF91D6C420E00FEFF8D /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +344,8 @@
 			children = (
 				938A68F61D6BE0A700D5CB1C /* gold */,
 				938A68F51D6BE0A700D5CB1C /* Products */,
+				233B8BC8861BF3928B18F4BA /* Pods */,
+				CD8A38E65ADD969F61B9475D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -341,20 +365,18 @@
 				938A69161D6BE1F900D5CB1C /* deposit(实物提存) */,
 				938A69151D6BE1E800D5CB1C /* me(我的资产) */,
 				938A69141D6BE1D400D5CB1C /* product(产品选购) */,
-				938A690E1D6BE1BA00D5CB1C /* YHTabBarController.h */,
-				938A690F1D6BE1BA00D5CB1C /* YHTabBarController.m */,
-				938A69101D6BE1BA00D5CB1C /* YHNavigationController.h */,
-				938A69111D6BE1BA00D5CB1C /* YHNavigationController.m */,
-				938A68FA1D6BE0A700D5CB1C /* AppDelegate.h */,
-				938A68FB1D6BE0A700D5CB1C /* AppDelegate.m */,
-				938A68FD1D6BE0A700D5CB1C /* ViewController.h */,
-				938A68FE1D6BE0A700D5CB1C /* ViewController.m */,
+				93FA6BB71D6D7E71009F8960 /* main */,
 				938A69001D6BE0A700D5CB1C /* Main.storyboard */,
 				938A69031D6BE0A700D5CB1C /* Assets.xcassets */,
+				932C02B51D6D918D00F253A2 /* ChartViewController.h */,
+				932C02B61D6D918D00F253A2 /* ChartViewController.m */,
 				938A69051D6BE0A700D5CB1C /* LaunchScreen.storyboard */,
 				938A69081D6BE0A700D5CB1C /* Info.plist */,
 				938A68F71D6BE0A700D5CB1C /* Supporting Files */,
 				938A69461D6BF60200D5CB1C /* GlobalHeader.h */,
+				93FA6BBD1D6D7F54009F8960 /* LoginViewController.h */,
+				93FA6BBE1D6D7F54009F8960 /* LoginViewController.m */,
+				93FA6BBF1D6D7F54009F8960 /* LoginViewController.xib */,
 			);
 			path = gold;
 			sourceTree = "<group>";
@@ -531,6 +553,29 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
+		93FA6BB71D6D7E71009F8960 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				938A690E1D6BE1BA00D5CB1C /* YHTabBarController.h */,
+				938A690F1D6BE1BA00D5CB1C /* YHTabBarController.m */,
+				938A69101D6BE1BA00D5CB1C /* YHNavigationController.h */,
+				938A69111D6BE1BA00D5CB1C /* YHNavigationController.m */,
+				938A68FA1D6BE0A700D5CB1C /* AppDelegate.h */,
+				938A68FB1D6BE0A700D5CB1C /* AppDelegate.m */,
+				938A68FD1D6BE0A700D5CB1C /* ViewController.h */,
+				938A68FE1D6BE0A700D5CB1C /* ViewController.m */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		CD8A38E65ADD969F61B9475D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A47FDBDA5DC93366B1266E2C /* libPods-gold.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -538,9 +583,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 938A690B1D6BE0A700D5CB1C /* Build configuration list for PBXNativeTarget "gold" */;
 			buildPhases = (
+				9F9F1DC852A7B3BF9734BD9B /* [CP] Check Pods Manifest.lock */,
 				938A68F01D6BE0A700D5CB1C /* Sources */,
 				938A68F11D6BE0A700D5CB1C /* Frameworks */,
 				938A68F21D6BE0A700D5CB1C /* Resources */,
+				CED48C5025DA0115DFDC2BA8 /* [CP] Embed Pods Frameworks */,
+				BDEC3617BD74BEFD38A6F5CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -597,6 +645,7 @@
 				93FA6BB61D6D44CB009F8960 /* twoCell.xib in Resources */,
 				93FA6BB11D6D44B7009F8960 /* oneCell.xib in Resources */,
 				93FA6BA91D6D3306009F8960 /* BarView.xib in Resources */,
+				93FA6BC11D6D7F54009F8960 /* LoginViewController.xib in Resources */,
 				938A69021D6BE0A700D5CB1C /* Main.storyboard in Resources */,
 				938A69841D6BFBE200D5CB1C /* bottomView.xib in Resources */,
 				9302104A1D6C59E100FEFF8D /* MJExtension.xcconfig in Resources */,
@@ -604,6 +653,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9F9F1DC852A7B3BF9734BD9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDEC3617BD74BEFD38A6F5CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gold/Pods-gold-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CED48C5025DA0115DFDC2BA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-gold/Pods-gold-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		938A68F01D6BE0A700D5CB1C /* Sources */ = {
@@ -640,6 +737,7 @@
 				938A691D1D6BE2C700D5CB1C /* depositViewController.m in Sources */,
 				930210421D6C59E100FEFF8D /* MJProperty.m in Sources */,
 				93FA6BB51D6D44CB009F8960 /* twoCell.m in Sources */,
+				93FA6BC01D6D7F54009F8960 /* LoginViewController.m in Sources */,
 				938A68FF1D6BE0A700D5CB1C /* ViewController.m in Sources */,
 				930210121D6C420E00FEFF8D /* MASConstraint.m in Sources */,
 				938A68FC1D6BE0A700D5CB1C /* AppDelegate.m in Sources */,
@@ -661,6 +759,7 @@
 				938A69771D6BF7DF00D5CB1C /* UIImage+MultiFormat.m in Sources */,
 				930210401D6C59E100FEFF8D /* MJExtensionConst.m in Sources */,
 				938A696F1D6BF7DF00D5CB1C /* SDWebImageCompat.m in Sources */,
+				932C02B71D6D918D00F253A2 /* ChartViewController.m in Sources */,
 				9302101F1D6C4CDC00FEFF8D /* XMGMeSquareButton.m in Sources */,
 				930210411D6C59E100FEFF8D /* MJFoundation.m in Sources */,
 				930210471D6C59E100FEFF8D /* NSObject+MJKeyValue.m in Sources */,
@@ -788,6 +887,7 @@
 		};
 		938A690C1D6BE0A700D5CB1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD0DFA3D4CFA5379405F83BF /* Pods-gold.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = gold/Info.plist;
@@ -799,6 +899,7 @@
 		};
 		938A690D1D6BE0A700D5CB1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8028544AA3652E0A21E98388 /* Pods-gold.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = gold/Info.plist;

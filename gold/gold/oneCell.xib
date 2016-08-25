@@ -16,14 +16,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年化金息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyu-3c-KSL">
-                        <rect key="frame" x="231" y="41" width="68" height="21"/>
+                        <rect key="frame" x="231" y="14" width="68" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.00元/克" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo0-ws-JWH">
-                        <rect key="frame" x="190" y="72" width="150" height="36"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="20.00元/克" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo0-ws-JWH">
+                        <rect key="frame" x="190" y="76.5" width="150" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <color key="textColor" red="1" green="0.25098039220000001" blue="0.32156862749999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -58,13 +58,13 @@
                             <constraint firstAttribute="width" constant="60" id="yey-Sx-gxf"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・期限10天" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVb-mC-RLL">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="・期限10天" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVb-mC-RLL">
                         <rect key="frame" x="407" y="41" width="83" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="・限额50克" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5Y-QR-cM0">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="・限额50克" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5Y-QR-cM0">
                         <rect key="frame" x="403" y="67" width="87" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -72,20 +72,22 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="WVb-mC-RLL" secondAttribute="trailing" constant="40" id="2pj-Zx-7p2"/>
+                    <constraint firstAttribute="trailing" secondItem="WVb-mC-RLL" secondAttribute="trailing" constant="25" id="2pj-Zx-7p2"/>
                     <constraint firstItem="I5Y-QR-cM0" firstAttribute="top" secondItem="WVb-mC-RLL" secondAttribute="top" id="7KI-Kg-exG"/>
-                    <constraint firstAttribute="trailing" secondItem="I5Y-QR-cM0" secondAttribute="trailing" constant="40" id="NLP-Fx-tBw"/>
+                    <constraint firstAttribute="trailing" secondItem="I5Y-QR-cM0" secondAttribute="trailing" constant="25" id="NLP-Fx-tBw"/>
                     <constraint firstItem="WVb-mC-RLL" firstAttribute="bottom" secondItem="gyu-3c-KSL" secondAttribute="bottom" id="YGL-Dy-Ujy"/>
                     <constraint firstItem="I5Y-QR-cM0" firstAttribute="top" secondItem="WVb-mC-RLL" secondAttribute="bottom" constant="5" id="ZFJ-Bh-7Jr"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Vo0-ws-JWH" secondAttribute="bottom" constant="15" id="dmO-oD-ZYm"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Vo0-ws-JWH" secondAttribute="bottom" constant="8" id="dmO-oD-ZYm"/>
                     <constraint firstItem="Vo0-ws-JWH" firstAttribute="top" secondItem="gyu-3c-KSL" secondAttribute="bottom" constant="10" id="iBy-zz-8MU"/>
                     <constraint firstItem="rqL-ah-But" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rSW-bc-9mM"/>
                     <constraint firstItem="Vo0-ws-JWH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tOs-K6-4Aj"/>
                     <constraint firstItem="gyu-3c-KSL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tR3-kz-PfO"/>
                     <constraint firstItem="rqL-ah-But" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vkn-cK-Nyn"/>
+                    <constraint firstItem="gyu-3c-KSL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="xVY-2c-miS"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="iBy-zz-8MU"/>
                         <exclude reference="7KI-Kg-exG"/>
                     </mask>
                 </variation>

@@ -7,7 +7,18 @@
 //
 
 #import "depositViewController.h"
+#import "LoginViewController.h"
 
 @implementation depositViewController
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    LoginViewController *view =[[LoginViewController alloc]init];
+    [self.navigationController pushViewController:view animated:NO];
+}
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+   
+    
+}
 @end

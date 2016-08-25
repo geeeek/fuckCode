@@ -48,7 +48,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元/克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWH-DL-X3l">
                     <rect key="frame" x="534" y="19" width="40" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="360.00元/克" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeI-QB-Vec">
@@ -105,6 +105,7 @@
             </variation>
             <connections>
                 <outlet property="goldBtn" destination="UXk-me-Unc" id="T1I-Il-G7i"/>
+                <outlet property="lineView" destination="s4e-nA-fwI" id="gCS-gw-RDB"/>
                 <outlet property="sliverBtn" destination="K60-Tp-nHw" id="qgk-hl-OLp"/>
             </connections>
             <point key="canvasLocation" x="349.5" y="101"/>

@@ -9,10 +9,12 @@
 
 #import "BarView.h"
 
+
 @implementation BarView
 -(void)awakeFromNib
 {
     [super awakeFromNib];
+//    _goldBtn.enabled =NO;
     [_goldBtn setImage:[UIImage imageNamed:@"home_btn_gold"] forState:UIControlStateSelected];
 }
 /*

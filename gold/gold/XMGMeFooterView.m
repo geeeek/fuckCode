@@ -12,6 +12,7 @@
 #import "UIView+XMGExtension.m"
 #import "MJExtension.h"
 #import "GlobalHeader.h"
+#import "moreViewController.h"
 
 @interface XMGMeFooterView()
 @end
@@ -54,7 +55,7 @@
     // 方块的尺寸
     NSUInteger maxColsCount = 3; // 一行的最大列数
     CGFloat buttonW = self.xmg_width / maxColsCount;
-    CGFloat buttonH = (Kheight-290) / maxColsCount;
+    CGFloat buttonH = (Kheight-340) / maxColsCount;
     
     // 创建所有的方块
     for (NSUInteger i = 0; i < count; i++) {
@@ -74,7 +75,7 @@
     }
     
     // 设置footer的高度 == 最后一个按钮的bottom(最大Y值)
-    self.xmg_height = self.subviews.lastObject.xmg_bottom;
+//    self.xmg_height = self.subviews.lastObject.xmg_bottom;
     
     // 设置tableView的contentSize // 重新刷新数据(会重新计算contentSize)
     
@@ -82,7 +83,30 @@
 
 - (void)buttonClick:(XMGMeSquareButton *)button
 {
+    if ([button.square.name isEqualToString:@"常见问题"]) {
+        NSLog(@"点击了常见问题按钮");
+    }else
+    {
+    //初始化提示框；
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"尚未登录请先登录" message:nil preferredStyle: UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+        NSLog(@"点击了取消按钮");
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+        NSLog(@"点击了确定按钮");
+    }]];
+        //弹出提示框；
+//        [UIApplication sharedApplication].delegate
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window.rootViewController presentViewController:alert animated:true completion:nil];
+//        [window.rootViewController addSubview:alert];
+    }
     
+    
+   
+
 }
 
 @end

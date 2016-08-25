@@ -7,6 +7,8 @@
 //
 
 #import "YHNavigationController.h"
+#import "depositViewController.h"
+#import "meViewController.h"
 
 @interface YHNavigationController () <UIGestureRecognizerDelegate>
 
@@ -22,6 +24,7 @@
     self.interactivePopGestureRecognizer.delegate = self;
     
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"users_user_bg"] forBarMetrics:UIBarMetricsDefault];
+   
 }
 
 /**
@@ -34,11 +37,11 @@
     if (self.childViewControllers.count > 0) { // 如果viewController不是最早push进来的子控制器
         // 左上角
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
-        [backButton setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
-        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+//        [backButton setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
+//        [backButton setTitle:@"->" forState:UIControlStateNormal];
         [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+//        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
         [backButton sizeToFit];
         // 这句代码放在sizeToFit后面
         backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
@@ -55,7 +58,18 @@
 
 - (void)back
 {
+//    NSUInteger numberOfViewControllersOnStack = [self.navigationController.viewControllers count];
+//    UIViewController *parentViewController = self.navigationController.viewControllers[numberOfViewControllersOnStack];
+//    Class parentVCClass = [parentViewController class];
+//    NSString *className = NSStringFromClass(parentVCClass);
+//    NSLog(@"-----%@",className);
+//    NSLog(@"%@",self.childViewControllers.firstObject);
+    if ([self.childViewControllers.firstObject isMemberOfClass:[depositViewController class]]||[self.childViewControllers.firstObject isMemberOfClass:[meViewController class]]) {
+        self.tabBarController.selectedIndex =0;
+    }else
+    {
     [self popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark - <UIGestureRecognizerDelegate>

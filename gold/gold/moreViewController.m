@@ -12,6 +12,7 @@
 #import "bottomView.h"
 #import "Masonry.h"
 #import "XMGMeFooterView.h"
+#import "LoginViewController.h"
 
 @interface moreViewController()<SDCycleScrollViewDelegate>
 
@@ -71,6 +72,10 @@
 -(void)login
 {
     NSLog(@"点击登录");
+    LoginViewController *view =[[LoginViewController alloc]init];
+    [self.navigationController pushViewController:view animated:YES];
+    
+    
 }
 -(void)callPhone
 {

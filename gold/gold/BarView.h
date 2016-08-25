@@ -11,4 +11,5 @@
 @interface BarView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *goldBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sliverBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *lineView;
 @end

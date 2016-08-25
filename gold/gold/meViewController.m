@@ -7,7 +7,17 @@
 //
 
 #import "meViewController.h"
+#import "LoginViewController.h"
 
 @implementation meViewController
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    LoginViewController *view =[[LoginViewController alloc]init];
+    [self.navigationController pushViewController:view animated:NO];
+}
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+}
 @end
